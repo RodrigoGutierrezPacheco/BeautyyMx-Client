@@ -1,0 +1,219 @@
+@media (max-width:320px){
+	.bienvenidx{
+		color: red;
+		font-weight: 700;
+	}
+	
+	.beautyymx{
+		color: black;
+		font-weight: 600;
+		font-size: 2rem;
+	}
+
+	.conocenos{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.conocenos-o{
+		width: 60%;
+		margin-left: 60px;
+	}
+
+	.productosCarreta{
+		width: 60%;
+		margin-left: 60px;
+	}
+
+	.productos{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.puntos{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.carreta{
+		width: 60%;
+		margin-left: 60px;
+	}
+}
+
+@media (min-width:321px) and (max-width:376px){
+	.bienvenidx{
+		color: red;
+		font-weight: 700;
+	}
+	
+	.beautyymx{
+		color: black;
+		font-weight: 600;
+		font-size: 2rem;
+	}
+
+	.conocenos{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.conocenos-o{
+		width: 60%;
+		margin-left: 70px;
+	}
+
+	.productosCarreta{
+		width: 60%;
+		margin-left: 80px;
+	}
+
+	.productos{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.puntos{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.carreta{
+		width: 60%;
+		margin-left: 80px;
+	}
+}
+
+@media (min-width:377px) and (max-width:426px){
+	.bienvenidx{
+		color: red;
+		font-weight: 700;
+	}
+	
+	.beautyymx{
+		color: black;
+		font-weight: 600;
+		font-size: 2rem;
+	}
+
+	.conocenos{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.conocenos-o{
+		width: 60%;
+		margin-left: 90px;
+	}
+
+	.productosCarreta{
+		width: 60%;
+		margin-left: 90px;
+	}
+
+	.productos{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.puntos{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.carreta{
+		width: 60%;
+		margin-left: 90px;
+	}
+}
+
+@media (min-width:426px) and (max-width:768px){
+	.bienvenidx{
+		color: red;
+		font-weight: 700;
+	}
+	
+	.beautyymx{
+		color: black;
+		font-weight: 600;
+		font-size: 2rem;
+	}
+
+	.conocenos{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.conocenos-o{
+		width: 60%;
+		margin-left: 90px;
+	}
+
+	.productosCarreta{
+		width: 60%;
+		margin-left: 90px;
+	}
+
+	.productos{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.puntos{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.carreta{
+		width: 60%;
+		margin-left: 90px;
+	}
+}
+
+@media (min-width:768px) and (max-width:1024px){
+	.bienvenidx{
+		color: red;
+		font-weight: 700;
+	}
+	
+	.beautyymx{
+		color: black;
+		font-weight: 600;
+		font-size: 2rem;
+	}
+
+	.conocenos{
+		display: flex;
+		flex-direction: row;
+	}
+
+	.conocenos-o{
+		width: 50%;
+		margin-left:0px;
+	}
+
+	.conocenos-t{
+		margin-top:8rem;
+		font-weight: 600;
+	}
+
+	.productosCarreta{
+		width: 50%;
+		margin-left: 0px;
+	}
+
+	.productos{
+		display: flex;
+		flex-direction: row-reverse;
+	}
+
+	.puntos{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.carreta{
+		width: 60%;
+		margin-left: 90px;
+	}
+}
