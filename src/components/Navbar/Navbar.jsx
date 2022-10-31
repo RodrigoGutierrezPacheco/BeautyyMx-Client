@@ -107,18 +107,22 @@ const ResponsiveAppBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              
+                <MenuItem onClick={handleCloseNavMenu}>
+									<div className="menu">
+                  <Typography sx={{textDecoration:'none'}} component='a' href="/productos" textAlign="center">Productos</Typography>
+									<Typography sx={{textDecoration:'none'}} component='a' href="/puntos-de-venta" textAlign="center">Puntos de Venta</Typography>
+									<Typography sx={{textDecoration:'none'}} component='a' href="/contacto" textAlign="center">Contacto</Typography>
+									</div>
                 </MenuItem>
-              ))}
+            
             </Menu>
           </Box>
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },

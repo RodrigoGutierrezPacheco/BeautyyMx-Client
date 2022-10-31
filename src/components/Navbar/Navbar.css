@@ -32,3 +32,9 @@
 		margin-left: 10rem;
 	}
 }
+
+.menu{
+	display: flex;
+	flex-direction: column;
+	justify-content:space-between;
+}
