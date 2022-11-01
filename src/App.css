@@ -24,3 +24,15 @@ align-items: center;
 .productos{
 	margin-bottom: 10rem;
 }
+
+.disponible{
+	height: 1rem;
+	margin-left: .5rem;
+}
+
+.disponibilidad{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}

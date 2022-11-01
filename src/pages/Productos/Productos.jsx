@@ -17,49 +17,57 @@ const productos=[
 		img:"images/elf.jpg",
 		info:"El mejor producto de todos",
 		info1:"Si es",
-		precio:"150"
+		precio:"150",
+		disponible:"images/disponible.png"
 	},
 	{
 		titulo:"Paleta Juvia´s Place",
 		img:"images/juvias.jpg",
 		info:"El mejor producto de todos1",
-		precio:"150"
+		precio:"150",
+		disponible:"images/disponible.png"
 	},
 	{
 		titulo:"Tarte",
 		img:"images/tarte.jpg",
 		info:"El mejor producto de todos2",
-		precio:"150"
+		precio:"150",
+		disponible:"images/disponible.png"
 	},
 	{
 		titulo:"Kyle",
 		img:"images/kyle.jpg",
 		info:"El mejor producto de todos3",
-		precio:"150"
+		precio:"150",
+		disponible:"images/disponible.png"
 	},
 	{
 		titulo:"Forouscope",
 		img:"images/fouroscope.jpg",
 		info:"El mejor producto de todos",
-		precio:"150"
+		precio:"150",
+		disponible:"images/disponible.png"
 	},
 	{
 		titulo:"HudaBeauty",
 		img:"images/huda.jpg",
 		info:"El mejor producto de todos",
-		precio:"150"
+		precio:"150",
+		disponible:"images/disponible.png"
 	},
 	{
 		titulo:"Lip Injection Too Faced",
 		img:"images/toofaced.jpg",
 		info:"El mejor producto de todos",
-		precio:"150"
+		precio:"150",
+		disponible:"images/disponible.png"
 	},
 	{
 		titulo:"Paleta Jaw Breaker",
 		img:"images/jawbreaker.jpg",
 		info:"El mejor producto de todos",
-		precio:"150"
+		precio:"150",
+		disponible:"images/disponible.png"
 	},
 ]
 
@@ -104,6 +112,9 @@ export default function Productos() {
 								<Typography variant="subtitle1" color="black">
 									{`$${producto.precio}.00`}
 								</Typography>
+								<div className='disponibilidad'>
+								<p href="">Disponibilidad</p><img className='disponible' src={producto.disponible} alt="" />
+								</div>
 							</CardContent>
 						</CardActionArea>
 					</Card>
