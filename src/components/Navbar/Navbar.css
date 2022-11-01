@@ -1,28 +1,28 @@
 @media (max-width:320px){
 	.beauty-nav{
 		width: 60%;
-		margin-left: 40px;
+		margin-left: 15%;
 	}
 }
 
 @media (min-width:321px) and (max-width:376px){
 	.beauty-nav{
 		width: 60%;
-		margin-left: 55px;
+		margin-left: 40px;
 	}
 }
 
 @media (min-width:377px) and (max-width:426px){
 	.beauty-nav{
 		width: 60%;
-		margin-left: 65px;
+		margin-left: 50px;
 	}
 }
 
-@media (min-width:426px) and (max-width:769px){
+@media (min-width:426px) and (max-width:768px){
 	.beauty-nav{
 		width: 50%;
-		margin-left: 10rem;
+		margin-left: 5rem;
 	}
 }
 
