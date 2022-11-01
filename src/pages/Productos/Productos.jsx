@@ -113,7 +113,7 @@ export default function Productos() {
 									{`$${producto.precio}.00`}
 								</Typography>
 								<div className='disponibilidad'>
-								<p href="">Disponibilidad</p><img className='disponible' src={producto.disponible} alt="" />
+								<p href="">Disponibilidad:</p><img className='disponible' src={producto.disponible} alt="" />
 								</div>
 							</CardContent>
 						</CardActionArea>

@@ -36,3 +36,15 @@ align-items: center;
 	justify-content: center;
 	align-items: center;
 }
+
+.puntos{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.punto{
+	height: 30rem;
+	margin-bottom: 1rem;
+}
