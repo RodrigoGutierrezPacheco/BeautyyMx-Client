@@ -2,21 +2,21 @@
   text-align: center;
 }
 .producto{
-	width: 45%;
+	width: 80%;
 	margin-bottom: 1rem;
 }
 
 .productoImg{
-	height: 10rem;
+	height: 15rem;
 }
 
 .paginaProductos{
 display: flex;
-flex-wrap: wrap;
-justify-content: space-around;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 }
 
 .contenidoProducto{
-	height:5.7rem;
-	background-color: azure;
+	height:8rem;
 }
