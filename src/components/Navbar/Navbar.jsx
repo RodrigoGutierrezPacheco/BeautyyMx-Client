@@ -110,9 +110,9 @@ const ResponsiveAppBar = () => {
               
                 <MenuItem onClick={handleCloseNavMenu}>
 									<div className="menu">
-                  <Typography sx={{textDecoration:'none'}} component='a' href="/productos" textAlign="center">Productos</Typography>
-									<Typography sx={{textDecoration:'none'}} component='a' href="/puntos-de-venta" textAlign="center">Puntos de Venta</Typography>
-									<Typography sx={{textDecoration:'none'}} component='a' href="/contacto" textAlign="center">Contacto</Typography>
+                  <Typography sx={{textDecoration:'none',marginBottom:'1rem',color:'#ffa5a5',fontWeight:'700'}} component='a' href="/productos" textAlign="center">Productos</Typography>
+									<Typography sx={{textDecoration:'none',marginBottom:'1rem',color:'#ffa5a5',fontWeight:'700'}} component='a' href="/puntos-de-venta" textAlign="center">Puntos de Venta</Typography>
+									<Typography sx={{textDecoration:'none',color:'#ffa5a5',fontWeight:'700'}} component='a' href="/contacto" textAlign="center">Contacto</Typography>
 									</div>
                 </MenuItem>
             

@@ -13,50 +13,50 @@ import Modal from '@mui/material/Modal';
 
 const productos=[
 	{
-		titulo:"Producto",
+		titulo:"Crema Hidratante e.l.f",
 		img:"images/elf.jpg",
 		info:"El mejor producto de todos",
 		info1:"Si es",
 		precio:"150"
 	},
 	{
-		titulo:"Producto",
+		titulo:"Paleta Juvia´s Place",
 		img:"images/juvias.jpg",
 		info:"El mejor producto de todos1",
 		precio:"150"
 	},
 	{
-		titulo:"Producto",
+		titulo:"Tarte",
 		img:"images/tarte.jpg",
 		info:"El mejor producto de todos2",
 		precio:"150"
 	},
 	{
-		titulo:"Producto",
+		titulo:"Kyle",
 		img:"images/kyle.jpg",
 		info:"El mejor producto de todos3",
 		precio:"150"
 	},
 	{
-		titulo:"Producto",
+		titulo:"Forouscope",
 		img:"images/fouroscope.jpg",
 		info:"El mejor producto de todos",
 		precio:"150"
 	},
 	{
-		titulo:"Producto",
+		titulo:"HudaBeauty",
 		img:"images/huda.jpg",
 		info:"El mejor producto de todos",
 		precio:"150"
 	},
 	{
-		titulo:"Producto",
+		titulo:"Lip Injection Too Faced",
 		img:"images/toofaced.jpg",
 		info:"El mejor producto de todos",
 		precio:"150"
 	},
 	{
-		titulo:"Producto",
+		titulo:"Paleta Jaw Breaker",
 		img:"images/jawbreaker.jpg",
 		info:"El mejor producto de todos",
 		precio:"150"
