@@ -1,3 +1,22 @@
 .App {
   text-align: center;
 }
+.producto{
+	width: 45%;
+	margin-bottom: 1rem;
+}
+
+.productoImg{
+	height: 10rem;
+}
+
+.paginaProductos{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+}
+
+.contenidoProducto{
+	height:5.7rem;
+	background-color: azure;
+}

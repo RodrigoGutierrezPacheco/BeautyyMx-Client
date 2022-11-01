@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import Productos from "./pages/Productos/Productos";
 
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
@@ -17,6 +18,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+				<Route path="/productos" element={<Productos/>}/>
 
         <Route
           path="/profile"
