@@ -11,6 +11,7 @@ import PuntosDeVenta from "./pages/PuntosDeVenta/PuntosDeVenta";
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
+import Maquillaje from "./pages/Maquillaje/Maquillaje";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
 				<Route path="/productos" element={<Productos/>}/>
 				<Route  path="/puntos-de-venta" element={<PuntosDeVenta/>}/>
+				<Route path="/maquillaje" element={<Maquillaje/>}/>
 
         <Route
           path="/profile"
