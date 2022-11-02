@@ -66,7 +66,7 @@ export default function Maquillaje() {
 			<h1>Maquillaje</h1>
 			<div className='paginaProductos'>
 				    <Card className='producto'>
-						<CardActionArea href='/maquillaje'>
+						<CardActionArea href='/rostro'>
 							<CardMedia
 								component="img"
 								image='images/rostro.jpg'
@@ -91,7 +91,7 @@ export default function Maquillaje() {
 					</Card>
 
 					<Card className='producto'>
-						<CardActionArea href='/cuidado-de-piel'>
+						<CardActionArea href='/ojos'>
 							<CardMedia
 								component="img"
 								image='images/elf.jpg'
@@ -116,7 +116,7 @@ export default function Maquillaje() {
 					</Card>
 
 					<Card className='producto'>
-						<CardActionArea href='/accesorios'>
+						<CardActionArea href='/labios'>
 							<CardMedia
 								component="img"
 								image='images/espejo.jpg'
@@ -141,7 +141,7 @@ export default function Maquillaje() {
 					</Card>
 
 					<Card className='producto'>
-						<CardActionArea href='/accesorios'>
+						<CardActionArea href='/mejillas'>
 							<CardMedia
 								component="img"
 								image='images/espejo.jpg'
@@ -166,7 +166,7 @@ export default function Maquillaje() {
 					</Card>
 
 					<Card className='producto'>
-						<CardActionArea href='/accesorios'>
+						<CardActionArea href='/paletas'>
 							<CardMedia
 								component="img"
 								image='images/espejo.jpg'
@@ -191,7 +191,7 @@ export default function Maquillaje() {
 					</Card>
 
 					<Card className='producto'>
-						<CardActionArea href='/accesorios'>
+						<CardActionArea href='/tamaño-viaje'>
 							<CardMedia
 								component="img"
 								image='images/espejo.jpg'
@@ -216,7 +216,7 @@ export default function Maquillaje() {
 					</Card>
 
 					<Card className='producto'>
-						<CardActionArea href='/accesorios'>
+						<CardActionArea href='/sets'>
 							<CardMedia
 								component="img"
 								image='images/espejo.jpg'
