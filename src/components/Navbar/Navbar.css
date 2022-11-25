@@ -3,6 +3,10 @@
 		width: 60%;
 		margin-left: 15%;
 	}
+
+	.navbar{
+		background-color: #ffbaba;
+	}
 }
 
 @media (min-width:321px) and (max-width:376px){
