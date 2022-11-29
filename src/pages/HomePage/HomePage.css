@@ -11,6 +11,11 @@
 	text-align: center;
 }
 
+#black{
+	color: black;
+}
+
+
 .menu{
 	display: flex;
 	justify-content: flex-end;
