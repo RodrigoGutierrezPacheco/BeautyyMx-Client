@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import Productos from "./pages/Productos/Productos";
 import PuntosDeVenta from "./pages/PuntosDeVenta/PuntosDeVenta";
 
+import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
@@ -50,6 +51,7 @@ function App() {
           }
         />
       </Routes>
+			<Footer/>
     </div>
   );
 }

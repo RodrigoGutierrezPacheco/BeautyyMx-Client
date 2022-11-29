@@ -4,7 +4,7 @@
 
 .flex{
 	display: flex;
-	flex-direction: row;
+	flex-direction: row-reverse;
 	justify-content: space-between;
 	width: 100%;
 	align-items: center;
@@ -19,9 +19,15 @@
 .imgMenu{
 	width: 60%;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	margin-left: 15%;
 }
+
+.hamburguer{
+	font-size: 2rem;
+	color: white;
+	margin-top: .2rem;
+}
+
 @media (max-width:320px){
 	.bienvenidx{
 		color: red;

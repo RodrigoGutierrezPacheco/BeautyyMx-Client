@@ -1,3 +1,7 @@
+.menu{
+	background-color: yellowgreen;
+}
+
 @media (max-width:320px){
 	.beauty-nav{
 		width: 60%;
