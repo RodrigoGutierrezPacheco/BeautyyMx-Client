@@ -13,6 +13,14 @@ import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import Maquillaje from "./pages/Maquillaje/Maquillaje";
+import Rostro from "./pages/Rostro/Rostro";
+import Ojos from "./pages/Ojos/Ojos";
+import Labios from "./pages/Labios/Labios";
+import Paletas from "./pages/Paletas/Paletas";
+import CuidadoDeLaPiel from "./pages/CuidadoDeLaPiel/CuidadoDeLaPiel";
+import TamañoDeViaje from "./pages/TamañosDeViaje/TamañoDeViaje";
+import Accesorios from "./pages/Accerorios/Accesorios";
+
 
 function App() {
   return (
@@ -23,7 +31,13 @@ function App() {
         <Route path="/" element={<HomePage />} />
 				<Route path="/productos" element={<Productos/>}/>
 				<Route  path="/puntos-de-venta" element={<PuntosDeVenta/>}/>
-				<Route path="/maquillaje" element={<Maquillaje/>}/>
+				<Route path="/rostro" element={<Rostro/>}/>
+				<Route path="/ojos" element={<Ojos/>}/>
+				<Route path="/labios" element={<Labios/>}/>
+				<Route path="/paletas" element={<Paletas/>}/>
+				<Route path="/cuidado-de-la-piel" element={<CuidadoDeLaPiel/>}/>
+				<Route path="/tamaño-de-viaje" element={<TamañoDeViaje/>}/>
+				<Route path="/accesorios" element={<Accesorios/>}/>
 
         <Route
           path="/profile"

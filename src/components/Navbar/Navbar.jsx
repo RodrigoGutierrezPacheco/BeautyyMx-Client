@@ -17,21 +17,21 @@ function CollapsibleExample() {
             <Nav.Link style={{color:'black',fontWeight:'500' }} href="/">Inicio</Nav.Link>
             <Nav.Link style={{color:'black',fontWeight:'500' }} href="#pricing">¿Qiuienes somos?</Nav.Link>
             <NavDropdown className='black' title="Productos" id="black">
-              <NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="#action/3.1">Rostro</NavDropdown.Item>
-              <NavDropdown.Item  style={{color:'black',fontWeight:'500' }} href="#action/3.2">
+              <NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="/rostro">Rostro</NavDropdown.Item>
+              <NavDropdown.Item  style={{color:'black',fontWeight:'500' }} href="/ojos">
                 Ojos
               </NavDropdown.Item>
-              <NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="#action/3.3">Labios</NavDropdown.Item>
-              <NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="#action/3.4">
+              <NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="/labios">Labios</NavDropdown.Item>
+              <NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="/paletas">
                 Paletas
               </NavDropdown.Item>
-							<NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="#action/3.4">
+							<NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="/cuidado-de-la-piel">
                 Cuidado de la Piel
               </NavDropdown.Item>
-							<NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="#action/3.4">
+							<NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="/tamaño-de-viaje">
                 Tamaño de Viaje
               </NavDropdown.Item>
-							<NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="#action/3.4">
+							<NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="/accesorios">
                 Accesorios
               </NavDropdown.Item>
             </NavDropdown >
