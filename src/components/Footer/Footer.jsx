@@ -12,22 +12,16 @@ export default function Footer() {
         </div>
 
         <div>
-          <a href='' className='me-4 text-reset'>
+          <a href='https://www.facebook.com/beautyymx' className='me-4 text-reset'>
             <MDBIcon fab icon="facebook-f" />
           </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="twitter" />
-          </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="google" />
-          </a>
-          <a href='' className='me-4 text-reset'>
+          <a href='https://www.instagram.com/beautyymx/' className='me-4 text-reset'>
             <MDBIcon fab icon="instagram" />
           </a>
-          <a href='' className='me-4 text-reset'>
+          <a href='https://www.linkedin.com/in/rodrigogutierrezpacheco/' className='me-4 text-reset'>
             <MDBIcon fab icon="linkedin" />
           </a>
-          <a href='' className='me-4 text-reset'>
+          <a href='https://github.com/RodrigoGutierrezPacheco' className='me-4 text-reset'>
             <MDBIcon fab icon="github" />
           </a>
         </div>
@@ -39,39 +33,53 @@ export default function Footer() {
             <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>
                 <MDBIcon icon="gem" className="me-3" />
-                Company name
+                Beautyy Mx
               </h6>
               <p>
-                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.
+								Somos una tienda dedicada a la venta de maquillaje y cuidado para la piel
               </p>
             </MDBCol>
 
             <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Products</h6>
+              <h6 className='text-uppercase fw-bold mb-4'>Productos</h6>
               <p>
-                <a href='#!' className='text-reset'>
-                  Angular
+                <a href='/rostro' className='text-reset'>
+                  Rostro
                 </a>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
-                  React
+                <a href='/ojos' className='text-reset'>
+                  Ojos
                 </a>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
-                  Vue
+                <a href='/labios' className='text-reset'>
+                  Labios
                 </a>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
-                  Laravel
+                <a href='/paletas' className='text-reset'>
+                  Paletas
+                </a>
+              </p>
+							<p>
+                <a href='/cuidado-de-la-piel' className='text-reset'>
+                  Cuidado de la Piel
+                </a>
+              </p>
+							<p>
+                <a href='/minis' className='text-reset'>
+                  Minis
+                </a>
+              </p>
+							<p>
+                <a href='/accesorios' className='text-reset'>
+                  Accesorios
                 </a>
               </p>
             </MDBCol>
 
-            <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
+            {/* <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
               <p>
                 <a href='#!' className='text-reset'>
@@ -93,23 +101,20 @@ export default function Footer() {
                   Help
                 </a>
               </p>
-            </MDBCol>
+            </MDBCol> */}
 
             <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
+              <h6 className='text-uppercase fw-bold mb-4'>Contacto</h6>
               <p>
                 <MDBIcon icon="home" className="me-2" />
-                New York, NY 10012, US
+                Cuernavaca,Mor.
               </p>
               <p>
                 <MDBIcon icon="envelope" className="me-3" />
-                info@example.com
+                beautyymx@gmail.com
               </p>
               <p>
-                <MDBIcon icon="phone" className="me-3" /> + 01 234 567 88
-              </p>
-              <p>
-                <MDBIcon icon="print" className="me-3" /> + 01 234 567 89
+                <MDBIcon icon="phone" className="me-3" /> + 55 777 123 456
               </p>
             </MDBCol>
           </MDBRow>

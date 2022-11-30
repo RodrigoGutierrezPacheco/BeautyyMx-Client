@@ -9,7 +9,7 @@ function CollapsibleExample() {
     <Navbar className='navbar' collapseOnSelect expand="lg" variant="dark">
       <Container>
 				<div className='flex'>
-        <Navbar.Brand href="#home"><img className='imgMenu' src="images/beauty-blanco.png" alt="" /></Navbar.Brand>
+        <Navbar.Brand href="/"><img className='imgMenu' src="images/beauty-blanco.png" alt="" /></Navbar.Brand>
         <Navbar.Toggle className='menu' aria-controls="responsive-navbar-nav" ><p className='hamburguer'>☰</p></Navbar.Toggle>
 				</div>
         <Navbar.Collapse id="responsive-navbar-nav">
