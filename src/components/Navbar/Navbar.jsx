@@ -3,6 +3,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+
 
 function CollapsibleExample() {
   return (
@@ -17,9 +20,9 @@ function CollapsibleExample() {
             <Nav.Link style={{color:'black',fontWeight:'500' }} href="/">Inicio</Nav.Link>
             <Nav.Link style={{color:'black',fontWeight:'500' }} href="#pricing">¿Qiuienes somos?</Nav.Link>
             <NavDropdown className='black' title="Productos" id="black">
-              <NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="/rostro">Rostro</NavDropdown.Item>
+              <NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="/rostro"></NavDropdown.Item>
               <NavDropdown.Item  style={{color:'black',fontWeight:'500' }} href="/ojos">
-                Ojos
+								Ojos
               </NavDropdown.Item>
               <NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="/labios">Labios</NavDropdown.Item>
               <NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="/paletas">
@@ -35,7 +38,8 @@ function CollapsibleExample() {
                 Accesorios
               </NavDropdown.Item>
             </NavDropdown >
-						<Nav.Link style={{color:'black',fontWeight:'500' }} href="#pricing">Descuentos</Nav.Link>
+						<Nav.Link style={{color:'black',fontWeight:'500' }} href="/descuentos">Descuentos</Nav.Link>
+						<Nav.Link style={{color:'black',fontWeight:'500' }} href="/puntos-de-venta">Puntos de Venta</Nav.Link>
           </Nav>
           <Nav>
           </Nav>

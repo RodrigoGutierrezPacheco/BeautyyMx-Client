@@ -20,6 +20,9 @@ import Paletas from "./pages/Paletas/Paletas";
 import CuidadoDeLaPiel from "./pages/CuidadoDeLaPiel/CuidadoDeLaPiel";
 import Minis from "./pages/Minis/Minis";
 import Accesorios from "./pages/Accerorios/Accesorios";
+import Descuentos from "./pages/Descuentos/Descuentos";
+import Puntos from "./pages/Puntos/Puntos";
+import { Description } from "@mui/icons-material";
 
 
 function App() {
@@ -38,6 +41,9 @@ function App() {
 				<Route path="/cuidado-de-la-piel" element={<CuidadoDeLaPiel/>}/>
 				<Route path="/minis" element={<Minis/>}/>
 				<Route path="/accesorios" element={<Accesorios/>}/>
+				<Route path="/descuentos" element={<Descuentos/>}/>
+				<Route path="puntos-de-venta" element={<Puntos/>}/>
+
 
         <Route
           path="/profile"
