@@ -18,7 +18,7 @@ import Ojos from "./pages/Ojos/Ojos";
 import Labios from "./pages/Labios/Labios";
 import Paletas from "./pages/Paletas/Paletas";
 import CuidadoDeLaPiel from "./pages/CuidadoDeLaPiel/CuidadoDeLaPiel";
-import TamañoDeViaje from "./pages/TamañosDeViaje/TamañoDeViaje";
+import Minis from "./pages/Minis/Minis";
 import Accesorios from "./pages/Accerorios/Accesorios";
 
 
@@ -36,7 +36,7 @@ function App() {
 				<Route path="/labios" element={<Labios/>}/>
 				<Route path="/paletas" element={<Paletas/>}/>
 				<Route path="/cuidado-de-la-piel" element={<CuidadoDeLaPiel/>}/>
-				<Route path="/tamaño-de-viaje" element={<TamañoDeViaje/>}/>
+				<Route path="/minis" element={<Minis/>}/>
 				<Route path="/accesorios" element={<Accesorios/>}/>
 
         <Route

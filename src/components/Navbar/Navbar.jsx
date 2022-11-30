@@ -28,7 +28,7 @@ function CollapsibleExample() {
 							<NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="/cuidado-de-la-piel">
                 Cuidado de la Piel
               </NavDropdown.Item>
-							<NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="/tamaño-de-viaje">
+							<NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="/minis">
                 Tamaño de Viaje
               </NavDropdown.Item>
 							<NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="/accesorios">
