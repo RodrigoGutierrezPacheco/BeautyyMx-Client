@@ -48,3 +48,7 @@ align-items: center;
 	height: 30rem;
 	margin-bottom: 1rem;
 }
+
+.card{
+	width: 50%;
+}

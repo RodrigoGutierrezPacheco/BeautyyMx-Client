@@ -34,6 +34,21 @@
 	margin-top: .2rem;
 }
 
+.wrap{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.card-wrap{
+	width: 45%;
+	margin-left: 3.5%;
+	margin-bottom: 2%;
+	align-items: center;
+}
+
+.button-end{
+}
+
 @media (max-width:320px){
 	.bienvenidx{
 		color: red;
@@ -83,6 +98,11 @@
 
 	.navbar{
 		background-color: #ffbaba;
+	}
+
+	.wrap{
+		display: flex;
+		flex-wrap: wrap;
 	}
 }
 

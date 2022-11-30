@@ -20,7 +20,7 @@ function CollapsibleExample() {
             <Nav.Link style={{color:'black',fontWeight:'500' }} href="/">Inicio</Nav.Link>
             <Nav.Link style={{color:'black',fontWeight:'500' }} href="#pricing">¿Qiuienes somos?</Nav.Link>
             <NavDropdown className='black' title="Productos" id="black">
-              <NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="/rostro"></NavDropdown.Item>
+              <NavDropdown.Item style={{color:'black',fontWeight:'500' }} href="/rostro">Rostro</NavDropdown.Item>
               <NavDropdown.Item  style={{color:'black',fontWeight:'500' }} href="/ojos">
 								Ojos
               </NavDropdown.Item>
