@@ -2,7 +2,9 @@ import React from 'react'
 
 const Paletas = () => {
 	return (
-		<div>Paletas</div>
+		<div>
+			<h1>Paletas</h1>
+		</div>
 	)
 }
 
