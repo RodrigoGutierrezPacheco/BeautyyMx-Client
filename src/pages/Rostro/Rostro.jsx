@@ -25,13 +25,13 @@ function GroupExample() {
 		{
 			nombre:"CC & BB Creams",
 			precio:199.00,
-			detalle:"lorem ipsu",
+			detalle:"lorem ipsu.........................",
 			img:"images/jawbreaker.jpg"
 		},
 		{
 			nombre:"Correctores",
 			precio:199.00,
-			detalle:"lorem ipsum eprmee{okmvtrñkm}  .",
+			detalle:"lorem ipsum...........................",
 			img:"images/jawbreaker.jpg"
 		},
 		{
