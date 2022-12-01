@@ -4,71 +4,62 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import { Button } from 'react-bootstrap';
 
 function GroupExample() {
-	// <h1>Rostro</h1>
-	// <ul>
-	// 	<li>Base de maquillaje</li>
-	// 	<li>CC & BB creams</li>
-	// 	<li>Correctores</li>
-	// 	<li>Primers para rostro</li>
-	// 	<li>Polvos y sprays fijadores</li>
-	// 	<li>Contorno y broncer</li>
-	// 	<li>Iluminadores</li>
-	// 	<li>Paletas</li>
-	// </ul>
 	let rostro = [
 		{
 			nombre:"Base de Maquillaje",
 			precio:199.00,
 			detalle:"lorem ipsu",
-			img:"images/jawbreaker.jpg"
+			img:"images/jawbreaker.jpg",
+			link:"/base-maquillaje"
 		},
 		{
 			nombre:"CC & BB Creams",
 			precio:199.00,
 			detalle:"lorem ipsu.........................",
-			img:"images/jawbreaker.jpg"
+			img:"images/jawbreaker.jpg",
+			link:"/creams"
 		},
 		{
 			nombre:"Correctores",
 			precio:199.00,
 			detalle:"lorem ipsum...........................",
-			img:"images/jawbreaker.jpg"
+			img:"images/jawbreaker.jpg",
+			link:"/correctores"
 		},
 		{
 			nombre:"Primers para Rostro",
 			precio:199.00,
 			detalle:"lorem ipsu",
-			img:"images/jawbreaker.jpg"
+			img:"images/jawbreaker.jpg",
+			link:"/primers-rostro"
 		},
 		{
 			nombre:"Polvos y Sprays fijadores",
 			precio:199.00,
 			detalle:"lorem ipsu",
-			img:"images/jawbreaker.jpg"
+			img:"images/jawbreaker.jpg",
+			link:"/polvos-sprays-fijadores"
 		},
 		{
 			nombre:"Contorno y Bronzers",
 			precio:199.00,
 			detalle:"lorem ipsu",
-			img:"images/jawbreaker.jpg"
+			img:"images/jawbreaker.jpg",
+			link:"/contorno-bronzers"
 		},
 		{
 			nombre:"Iluminadores",
 			precio:199.00,
 			detalle:"lorem ipsu",
-			img:"images/jawbreaker.jpg"
-		},
-		{
-			nombre:"Iluminadores",
-			precio:199.00,
-			detalle:"lorem ipsu",
-			img:"images/jawbreaker.jpg"
+			img:"images/jawbreaker.jpg",
+			link:"/iluminadores"
 		},
 		{
 			nombre:"Paletas",
 			precio:199.00,
 			detalle:"lorem ipsu",
-			img:"images/jawbreaker.jpg"
+			img:"images/jawbreaker.jpg",
+			link:"/paletas"
 		},
 	]
   return (
@@ -84,7 +75,7 @@ function GroupExample() {
 						{item.detalle}
 					 </Card.Text>
 					 <div className='button-end'>
-					 <Button className='button' variant='outline' style={{color:'black',backgroundColor:'pink',margin:'black',fontWeight:'500',}}>Ver Mas</Button>
+					 <Button href={item.link} className='button' variant='outline' style={{color:'black',backgroundColor:'pink',margin:'black',fontWeight:'500',}}>Ver Mas</Button>
 					 </div>
 				 </Card.Body>
 			 </Card>
