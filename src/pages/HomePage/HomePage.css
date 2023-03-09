@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&display=swap');
-
-
+body{
+	font-family: 'Courier New', Courier, monospace;
+}
 @media(max-width:500px){
 
-	body{
-		font-family: 'Montserrat Alternates', sans-serif;
-	}
 	.inicio{
 		width: 100vw;
 	}
