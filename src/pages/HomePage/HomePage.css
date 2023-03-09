@@ -52,4 +52,51 @@
 		color: rgb(0, 0, 0);
 		font-weight: 750;
 	}
+
+	.mt1{
+		margin-top: 10%;
+	}
+
+	.red{
+		color: #C92C39;
+	}
+
+	.white{
+		color: white;
+	}
+
+	.nosotros{
+		background-color: #FFCACA;
+		padding-top: 5%;
+	}
+
+	.mb{
+		margin-bottom: 5%;
+	}
+
+	.mt2{
+		margin-top: 20%;
+	}
+
+	.wrap{
+		display:flex;
+		flex-wrap: wrap;
+	}
+
+	.logoFooter{
+		width: 40%;
+	}
+
+	.textoFooter{
+		font-size: 50%;
+	}
+
+	.box2{
+		margin-left: 10%;
+	}
+
+	.box4{
+		margin-left: 15%;
+		width: 40%;
+	}
 }
