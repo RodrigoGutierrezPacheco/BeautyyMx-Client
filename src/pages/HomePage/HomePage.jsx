@@ -1,5 +1,8 @@
 import "./HomePage.css";
 import Carousel from 'react-bootstrap/Carousel';
+import { color, style } from "@mui/system";
+import styleFunctionSx from "@mui/system/styleFunctionSx";
+import { dark } from "@mui/material/styles/createPalette";
 
 function HomePage() {
  
@@ -45,7 +48,7 @@ console.log(lanzamientos)
 
   return (
     <div>
-	  <Carousel>
+	  <Carousel indicators={false} variant="dark">
       <Carousel.Item>
         <img
           className="d-block w-100"
@@ -53,8 +56,6 @@ console.log(lanzamientos)
           alt="First slide"
         />
         <Carousel.Caption>
-          {/* <h3>First slide label</h3> */}
-          {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -65,8 +66,6 @@ console.log(lanzamientos)
         />
 
         <Carousel.Caption>
-          {/* <h3>Second slide label</h3> */}
-          {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -77,10 +76,6 @@ console.log(lanzamientos)
         />
 
         <Carousel.Caption>
-          {/* <h3>Third slide label</h3> */}
-          <p>
-            {/* Praesent commodo cursus magna, vel scelerisque nisl consectetur. */}
-          </p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
@@ -90,7 +85,7 @@ console.log(lanzamientos)
 		</div>
 		<div className="lanzamientos">
 			<h1 className="title">Recien Llegados</h1>
-			<Carousel interval={3000} indicators={false} indicatorLabels={[1,2,3,4]}>
+			<Carousel interval={3000} indicators={false} variant="dark">
 			{lanzamientos.map((lanzamiento)=>
 				<Carousel.Item >
 					<div className="boxProduct">
@@ -106,7 +101,7 @@ console.log(lanzamientos)
      </Carousel>
 		 <div>
 			<h1 className="title mt1">CATALOGO POR CATEGORIAS</h1>
-			<Carousel>
+			<Carousel indicators={false} variant="dark">
       <Carousel.Item>
         <img
           className="d-block w-100"
@@ -114,8 +109,6 @@ console.log(lanzamientos)
           alt="First slide"
         />
         <Carousel.Caption>
-          {/* <h3>First slide label</h3> */}
-          {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -126,8 +119,6 @@ console.log(lanzamientos)
         />
 
         <Carousel.Caption>
-          {/* <h3>Second slide label</h3> */}
-          {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -138,10 +129,6 @@ console.log(lanzamientos)
         />
 
         <Carousel.Caption>
-          {/* <h3>Third slide label</h3> */}
-          <p>
-            {/* Praesent commodo cursus magna, vel scelerisque nisl consectetur. */}
-          </p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
@@ -155,19 +142,19 @@ console.log(lanzamientos)
 		</div>
 
 		<div className="wrap mt1">
-			<div className="box1">
+			<div className="box ml">
 				<img className="logoFooter" src="images/envio.png" alt="" />
 				<h1 className="textoFooter">ENVIO GRATIS EN LA COMPRA DE $2000.00MXN</h1>
 			</div>
-			<div className="box2">
+			<div className="box">
 				<img className="logoFooter" src="images/ubicacion.png" alt="" />
 				<h1 className="textoFooter">UBICANOS EN NUESTROS DISTINTOS PUNTOS DE VENTA</h1>
 			</div>
-			<div className="box3">
+			<div className="box ml">
 				<img className="logoFooter" src="images/pago.png" alt="" />
 				<h1 className="textoFooter">ACEPTAMOS DIFERENTES METODOS DE PAGO</h1>
 			</div>
-			<div className="box4">
+			<div className="box">
 				<img className="logoFooter" src="images/maquillaje.png" alt="" />
 				<h1 className="textoFooter">APARTA TUS PRODUCTOS FAVORITOS</h1>
 			</div>
