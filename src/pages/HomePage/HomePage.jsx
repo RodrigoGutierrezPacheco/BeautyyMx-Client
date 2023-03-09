@@ -23,28 +23,26 @@ function HomePage() {
 			precio:"$100.00"
 		},
 		{
-			marca:"Marca3",
+			marca:"Marca4",
 			nombre:"Nombre 3",
 			precio:"$100.00"
 		},
 		{
-			marca:"Marca3",
+			marca:"Marca5",
 			nombre:"Nombre 3",
 			precio:"$100.00"
 		},
 		{
-			marca:"Marca3",
+			marca:"Marca6",
 			nombre:"Nombre 3",
 			precio:"$100.00"
 		},
 		{
-			marca:"Marca3",
+			marca:"Marca7",
 			nombre:"Nombre 3",
 			precio:"$100.00"
 		}
 ]
-
-console.log(lanzamientos)
 
   return (
     <div>
@@ -137,8 +135,8 @@ console.log(lanzamientos)
 
 		<div className="nosotros mt1">
 			<h1 className="title red">ACERCA DE NOSOTROS</h1>
-			<h3 color="white">SOMOS UNA EMPRESA DEDICADA A LA VENTA DE MAQUILLAJE 100% ORIGINA, DE ALTA CALIDAD Y DE LAS MEJORES MARCAS. CONTAMOS CON ENVIO A TODAS LAS PARTES DE MEXICO. CON DISTINTOS PUNTOS DE VENTA EN CUERNAVACA MORELOS PODEMOS ENVIAR TODO A DONDE TU QUIERAS ETC ETC.</h3>
-			<button className="button mb">PUNTOS DE VENTA</button>
+			<h3 color="white">Somos una empresa dedicada a la venta de maquillaje 100% original, de alta calidar y de las mejores marcas. Contamos con envio a todas las partes de Mexico. Con distintos puntos de venta dentro de Cuernavaca, Morelos. Podemos enviar todo lo que tu quieras.</h3>
+			<button className="button mb">Puntos de Venta</button>
 		</div>
 
 		<div className="wrap mt1">

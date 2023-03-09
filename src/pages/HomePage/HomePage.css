@@ -1,19 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&display=swap');
+body{
+	font-family: 'Montserrat Alternates', sans-serif;
+}
 
 @media(max-width:500px){
 	.inicio{
 		width: 100vw;
 	}
 
-	h1{
-		color: black;
-	}
 
 	.button{
-		background-color: #C92C39;
+		background-color:#C92C39;
 		color: white;
 		width: 60vw;
-		font-size: 2rem;
+		font-size: 1.5rem;
 		border: 2px solid #C92C39;
+		margin-top: 5%;
 	}
 
 	.mt{
@@ -39,7 +41,7 @@
 	.button1{
 		background-color: #C92C39;
 		color: white;
-		font-size: 2rem;
+		font-size: 1.5rem;
 		border: 2px solid #C92C39;
 	}
 
@@ -62,12 +64,13 @@
 	}
 
 	.white{
-		color: white;
+		color: rgb(0, 0, 0);
 	}
 
 	.nosotros{
 		background-color: #FFCACA;
 		padding-top: 5%;
+		color: white;
 	}
 
 	.mb{
