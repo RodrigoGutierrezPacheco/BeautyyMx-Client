@@ -1,292 +1,55 @@
-.navbar{
-	background-color: #ffbaba;
-}
 
-.flex{
-	display: flex;
-	flex-direction: row-reverse;
-	justify-content: space-between;
-	width: 100%;
-	align-items: center;
-	text-align: center;
-}
-
-#black{
-	color: black;
-	font-weight: 500;
-}
-
-
-.menu{
-	display: flex;
-	justify-content: flex-end;
-}
-
-.imgMenu{
-	width: 60%;
-	display: flex;
-	margin-left: 15%;
-}
-
-.hamburguer{
-	font-size: 2rem;
-	color: white;
-	margin-top: .2rem;
-}
-
-.wrap{
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.card-wrap{
-	width: 45%;
-	margin-left: 3.5%;
-	margin-bottom: 2%;
-	align-items: center;
-}
-
-.button-end{
-}
-
-@media (max-width:320px){
-	.bienvenidx{
-		color: red;
-		font-weight: 700;
+@media(max-width:500px){
+	.inicio{
+		width: 100vw;
 	}
-	
-	.beautyymx{
+
+	h1{
 		color: black;
-		font-weight: 600;
+	}
+
+	.button{
+		background-color: #C92C39;
+		color: white;
+		width: 60vw;
 		font-size: 2rem;
+		border: 2px solid #C92C39;
 	}
 
-	.conocenos{
-		display: flex;
-		flex-direction: column;
+	.mt{
+		margin-top: 5%;
 	}
 
-	.conocenos-o{
-		width: 60%;
-		margin-left: 60px;
+	.lanzamientos{
+		margin-top: 10%;
 	}
 
-	.productosCarreta{
-		width: 60%;
-		margin-left: 60px;
-	}
-
-	.productos{
-		display: flex;
-		flex-direction: column;
-	}
-
-	.puntos{
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.carreta{
-		width: 60%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.navbar{
-		background-color: #ffbaba;
-	}
-
-	.wrap{
-		display: flex;
-		flex-wrap: wrap;
-	}
-}
-
-@media (min-width:321px) and (max-width:376px){
-	.navbar{
-		background-color: #ffbaba;	}
-
-	.bienvenidx{
-		color: red;
-		font-weight: 700;
-	}
-	
-	.beautyymx{
-		color: black;
-		font-weight: 600;
-		font-size: 2rem;
-	}
-
-	.conocenos{
-		display: flex;
-		flex-direction: column;
-	}
-
-	.conocenos-o{
-		width: 60%;
-		margin-left: 70px;
-	}
-
-	.productosCarreta{
-		width: 60%;
-		margin-left: 80px;
-	}
-
-	.productos{
-		display: flex;
-		flex-direction: column;
-	}
-
-	.puntos{
-		display: flex;
-		flex-direction: column;
-	}
-
-	.carreta{
-		width: 60%;
-		display: flex;
-	}
-}
-
-@media (min-width:377px) and (max-width:426px){
-
-	.navbar{
-		background-color: #ffbaba;	}
-	.bienvenidx{
-		color: red;
-		font-weight: 700;
-	}
-	
-	.beautyymx{
-		color: black;
-		font-weight: 600;
-		font-size: 2rem;
-	}
-
-	.conocenos{
-		display: flex;
-		flex-direction: column;
-	}
-
-	.conocenos-o{
-		width: 60%;
-		margin-left: 90px;
-	}
-
-	.productosCarreta{
-		width: 60%;
-		margin-left: 90px;
-	}
-
-	.productos{
-		display: flex;
-		flex-direction: column;
-	}
-
-	.puntos{
-		display: flex;
-		flex-direction: column;
-	}
-
-	.carreta{
-		width: 60%;
-		display: flex;
-	}
-}
-
-@media (min-width:426px) and (max-width:768px){
-	.bienvenidx{
-		color: red;
-		font-weight: 700;
-	}
-	
-	.beautyymx{
-		color: black;
-		font-weight: 600;
-		font-size: 2rem;
-	}
-
-	.conocenos{
-		display: flex;
-		flex-direction: column;
-	}
-
-	.conocenos-o{
-		width: 60%;
-		margin-left: 90px;
-	}
-
-	.productosCarreta{
-		width: 60%;
-		margin-left: 90px;
-	}
-
-	.productos{
-		display: flex;
-		flex-direction: column;
-	}
-
-	.puntos{
-		display: flex;
-		flex-direction: column;
-	}
-
-	.carreta{
-		width: 60%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-}
-
-@media (min-width:768px) and (max-width:1024px){
-	.bienvenidx{
-		color: red;
-		font-weight: 700;
-	}
-	
-	.beautyymx{
-		color: black;
-		font-weight: 600;
-		font-size: 2rem;
-	}
-
-	.conocenos{
-		display: flex;
-		flex-direction: row;
-	}
-
-	.conocenos-o{
+	.producto1{
 		width: 50%;
-		margin-left:0px;
+		margin-left: 25%;
 	}
 
-	.conocenos-t{
-		margin-top:8rem;
-		font-weight: 600;
-	}
-
-	.productosCarreta{
-		width: 50%;
-		margin-left: 0px;
-	}
-
-	.productos{
-		display: flex;
-		flex-direction: row-reverse;
-	}
-
-	.puntos{
+	.boxProduct{
 		display: flex;
 		flex-direction: column;
+		width: 50%;
+		margin-left: 25%;
 	}
 
-	.carreta{
-		width: 60%;
-		margin-left: 90px;
+	.button1{
+		background-color: #C92C39;
+		color: white;
+		font-size: 2rem;
+		border: 2px solid #C92C39;
+	}
+
+	.precio{
+		color: black;
+		font-weight: 800;
+	}
+
+	.title{
+		color: rgb(0, 0, 0);
+		font-weight: 750;
 	}
 }
