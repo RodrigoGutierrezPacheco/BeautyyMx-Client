@@ -90,7 +90,7 @@ console.log(lanzamientos)
 		</div>
 		<div className="lanzamientos">
 			<h1 className="title">Recien Llegados</h1>
-			<Carousel interval={900000}>
+			<Carousel interval={3000} indicators={false} indicatorLabels={[1,2,3,4]}>
 			{lanzamientos.map((lanzamiento)=>
 				<Carousel.Item >
 					<div className="boxProduct">
