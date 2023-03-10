@@ -3,6 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import { color, style } from "@mui/system";
 import styleFunctionSx from "@mui/system/styleFunctionSx";
 import { dark } from "@mui/material/styles/createPalette";
+import { motion } from "framer-motion";
 
 function HomePage() {
  
@@ -71,7 +72,7 @@ function HomePage() {
     </Carousel>
 		<div className="mt">
 		 <h1 className="title">LOS MEJORES PRODUCTOS AL MEJOR PRECIO</h1>
-		 <button className="button mt">!Conocelos¡</button>
+		 <motion.button whileTap={{backgroundColor:"white", color:"#C92C39"}} whileHover={{backgroundColor:"white", color:"#C92C39"}} className="button mt">!Conocelos¡</motion.button>
 		</div>
 		<div className="lanzamientos">
 			<h1 className="title">Recien Llegados</h1>
@@ -84,7 +85,7 @@ function HomePage() {
 					 <h3>NOMBRE DEL PRODUCTO</h3>
 					 <h3 className="precio">$799.00MXN</h3>
 					 {/* <h3>Codigo de producto: BT001</h3> */}
-					 <button className="button1">Ver Producto</button>
+					 <motion.button whileTap={{backgroundColor:"white", color:"#C92C39"}} whileHover={{backgroundColor:"white", color:"#C92C39"}} className="button1">Ver Producto</motion.button>
 					</div>
 				</Carousel.Item>
        )}
@@ -120,7 +121,7 @@ function HomePage() {
 		<div className="nosotros mt1">
 			<h1 className="title red">ACERCA DE NOSOTROS</h1>
 			<h3 color="white">Somos una empresa dedicada a la venta de maquillaje 100% original, de alta calidar y de las mejores marcas. Contamos con envio a todas las partes de Mexico. Con distintos puntos de venta dentro de Cuernavaca, Morelos. Podemos enviar todo lo que tu quieras.</h3>
-			<button className="button mb">Puntos de Venta</button>
+			<motion.button whileTap={{backgroundColor:"white", color:"#C92C39"}} whileHover={{backgroundColor:"white", color:"#C92C39"}} className="button mb">Puntos de Venta</motion.button>
 		</div>
 
 	
