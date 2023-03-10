@@ -156,4 +156,14 @@ body,h1,h2,h3,p,button{
 		margin-left: 25%;
 		justify-content: center;
 	}
+
+	.pngFooter{
+		width: 12vw;
+	}
+
+	.redes1{
+		width: 100vw;
+		display: flex;
+		justify-content: flex-start;
+	}
 }

@@ -82,20 +82,18 @@ export default function Footer() {
 
 			<div className='start'>
 				<h1 className='black'>Redes Sociales</h1>
-				<div>
-					<img src="images/fb.gif" alt="" />
-					<img src="images/instagram.gif" alt="" />
-					<img src="images/tiktok.gif" alt="" />
+				<div className='redes1'>
+				 <a className='mr' href="https://www.facebook.com/beautyymx"><img className='pngFooter mr' src="images/fb.png" alt="" /></a>
+					<a className='mr' href="https://www.instagram.com/beautyymx/"><img className='pngFooter mr' src="images/instagram.png" alt="" /></a>
+					<a className='mr' href="https://www.tiktok.com/@beautyymx"><img className='pngFooter ' src="images/tiktok.png" alt="" /></a>
 			</div>
 		</div>
 
 		<div className='start'>
 			<h1 className='black'>Metodos de Pago</h1>
-			<div className='around'>
-			 <img className='mr' src="images/mastercard.png" alt="" />
-			 <img className='mr' src="images/visa.png" alt="" />
-			 <img className='mr' src="images/american.png" alt="" />
-			 <img className='dineroPng' src="images/dinero.png" alt="" />
+			<div className='redes1'>
+				<img className='pngFooter mr' src="images/tarjeta.png" alt="" />
+				<img className='pngFooter mr' src="images/efectivo.png" alt="" />
 			</div>
 		</div>
 		<h1 className='black final'>Copyright © 2023 Beautyy-Mx</h1>
