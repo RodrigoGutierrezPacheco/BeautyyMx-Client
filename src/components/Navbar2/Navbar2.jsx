@@ -70,8 +70,8 @@ const Navbar2 = () => {
 				<Carousel.Item>
 				<div className='flex2'>
 				<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={rostro} className='textoModal'>Rostro</motion.h1>
-					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={todosLosProductos} className='textoModal'>Todos los Productos</motion.h1>
-					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={puntosDeVenta} className='textoModal'>Puntos de Venta</motion.h1>
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={todosLosProductos} className='textoModal'>Productos</motion.h1>
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={puntosDeVenta} className='textoModal'>Puntos Venta</motion.h1>
 					</div>
 				</Carousel.Item>
 			</Carousel>
