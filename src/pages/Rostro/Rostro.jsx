@@ -64,7 +64,7 @@ function GroupExample() {
 	]
   return (
 		<div>
-			<h1>Rostro</h1>
+			<img className='rostroPortada' src="images/rostro.png" alt="" />
 			<div className='wrap'>
 			{rostro.map((item)=>(
 				 <Card className='card-wrap'>

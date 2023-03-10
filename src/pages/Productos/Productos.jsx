@@ -64,7 +64,7 @@ export default function Productos() {
 
   return (
 		<div>
-			<h1>Productos</h1>
+			<img className='portada' src="images/productos.png" alt="" />
 			<div className='paginaProductos'>
 				    <Card className='producto'>
 						<CardActionArea href='/maquillaje'>

@@ -139,24 +139,7 @@ function HomePage() {
 			<button className="button mb">Puntos de Venta</button>
 		</div>
 
-		<div className="wrap mt1">
-			<div className="box ml">
-				<img className="logoFooter" src="images/envio.png" alt="" />
-				<h1 className="textoFooter">ENVIO GRATIS EN LA COMPRA DE $2000.00MXN</h1>
-			</div>
-			<div className="box">
-				<img className="logoFooter" src="images/ubicacion.png" alt="" />
-				<h1 className="textoFooter">UBICANOS EN NUESTROS DISTINTOS PUNTOS DE VENTA</h1>
-			</div>
-			<div className="box ml">
-				<img className="logoFooter" src="images/pago.png" alt="" />
-				<h1 className="textoFooter">ACEPTAMOS DIFERENTES METODOS DE PAGO</h1>
-			</div>
-			<div className="box">
-				<img className="logoFooter" src="images/maquillaje.png" alt="" />
-				<h1 className="textoFooter">APARTA TUS PRODUCTOS FAVORITOS</h1>
-			</div>
-		</div>
+	
 		</div>
     
   );
