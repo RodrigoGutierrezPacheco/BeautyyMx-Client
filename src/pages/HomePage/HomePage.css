@@ -4,6 +4,35 @@ body,h1,h2,h3,p,button{
 }
 @media(max-width:500px){
 
+	.logoMenu{
+		width: 30vw;
+		margin-left: 25%;
+		margin-bottom: 1%;
+	}
+
+	.modal{
+		margin-left: -1%;
+		margin-top: -1%;
+		/* background-color: #C92C39; */
+	}
+
+
+	.textoModal{
+		font-size: 1rem;
+		margin-left: 2%;
+	}
+
+	.x{
+		width: 4vw;
+		margin-left: 80%;		
+	}
+
+	.flex1{
+		display: flex;
+		flex-direction: column;
+		background-color: #C92C39;
+	}
+
 	.inicio{
 		width: 100vw;
 	}
@@ -68,7 +97,7 @@ body,h1,h2,h3,p,button{
 	}
 
 	.white{
-		color: rgb(0, 0, 0);
+		color: rgb(255, 255, 255);
 	}
 
 	.nosotros{
@@ -162,7 +191,7 @@ body,h1,h2,h3,p,button{
 	}
 
 	.redes1{
-		width: 100vw;
+		width: 90vw;
 		display: flex;
 		justify-content: flex-start;
 	}

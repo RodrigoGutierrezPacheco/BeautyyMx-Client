@@ -4,6 +4,7 @@ import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-k
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Accordion } from 'react-bootstrap';
+import { style } from '@mui/system';
 
 
 export default function Footer() {
