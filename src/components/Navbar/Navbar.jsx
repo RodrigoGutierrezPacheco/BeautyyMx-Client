@@ -65,7 +65,7 @@ function CollapsibleExample() {
 	function paletas(){
 		window.location.href="/paletas"
 	}
-	function rosto(){
+	function rostro(){
 		window.location.href="/rostro"
 	}
 	function todosLosProductos(){
@@ -81,7 +81,7 @@ function CollapsibleExample() {
   }
   return (
 		<nav className='flex nav'>
-			<motion.img animate={{duration:2}} whileTap={{scale:2}} onClick={openModal} className='menu' src="images/menu.png" alt="" />
+			<motion.img animate={{duration:2}} whileTap={{scale:1.2}} whileHover={{scale:1.1}} onClick={openModal} className='menu' src="images/menu.png" alt="" />
 		<motion.div>
 			<Modal
         isOpen={modalIsOpen}
@@ -99,24 +99,24 @@ function CollapsibleExample() {
 				</div>
         <div className='white textoModal'>
 				<div start1>
-          <h1 onClick={loNuevo} className='textoModal'>Lo Nuevo</h1>
-          <h1 onClick={loMasVendido} className='textoModal'>Lo Mas Vendido</h1>
-          <h1 onClick={maquillaje} className='textoModal'>Maquillaje</h1>
-          <h1 onClick={cuidadoParaLaPiel} className='textoModal'>Cuidado de la Piel</h1>
-          <h1 onClick={descuentos} className='textoModal'>Descuentos</h1>
-          <h1 onClick={labios} className='textoModal'>Labios</h1>
-          <h1 onClick={minis} className='textoModal'>Minis</h1>
-          <h1 onClick={ojos} className='textoModal'>Ojos</h1>
-          <h1 onClick={paletas} className='textoModal'>Paletas</h1>
-          <h1 onClick={rosto} className='textoModal'>Rostro</h1>
-          <h1 onClick={todosLosProductos} className='textoModal'>Todos los productos</h1>
-          <h1 onClick={puntosDeVenta} className='textoModal'>Puntos de Venta</h1>
+          <motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={loNuevo} className='textoModal'>Lo Nuevo</motion.h1>
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={loMasVendido} className='textoModal'>Lo mas Vendido</motion.h1>
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={maquillaje} className='textoModal'>Maquillaje</motion.h1>
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={cuidadoParaLaPiel} className='textoModal'>Cuidado de la Piel</motion.h1>
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={descuentos} className='textoModal'>Descuentos</motion.h1>
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={labios} className='textoModal'>Labios</motion.h1>
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={minis} className='textoModal'>Minis</motion.h1>
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={ojos} className='textoModal'>Ojos</motion.h1>
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={paletas} className='textoModal'>Paletas</motion.h1>
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={rostro} className='textoModal'>Rostro</motion.h1>
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={todosLosProductos} className='textoModal'>Todos los Productos</motion.h1>
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={puntosDeVenta} className='textoModal'>Puntos de Venta</motion.h1>
 				</div>
         </div>
 			</div>
       </Modal>
 		</motion.div>
-			<img className='logo' src="images/logoBeauty1.png" alt="" />
+			<motion.img onClick={home} whileHover={{scale:1.1}} whileTap={{scale:1.2}}  className='logo' src="images/logoBeauty1.png" alt="" />
 		</nav>
   );
 }
