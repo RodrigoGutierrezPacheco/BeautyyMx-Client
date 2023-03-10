@@ -53,7 +53,7 @@ export default function Footer() {
           culpa qui officia deserunt mollit anim id est laborum.
         </Accordion.Body>
       </Accordion.Item>
-			<Accordion.Item eventKey="1">
+			<Accordion.Item eventKey="2">
         <Accordion.Header><a className='red'>Tendo una duda</a></Accordion.Header>
         <Accordion.Body>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -65,7 +65,7 @@ export default function Footer() {
           culpa qui officia deserunt mollit anim id est laborum.
         </Accordion.Body>
       </Accordion.Item>
-			<Accordion.Item eventKey="1">
+			<Accordion.Item eventKey="3">
         <Accordion.Header><a className='red'>Contactanos</a></Accordion.Header>
         <Accordion.Body>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
