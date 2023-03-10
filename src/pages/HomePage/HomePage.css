@@ -4,6 +4,32 @@ body,h1,h2,h3,p,button{
 }
 @media(max-width:500px){
 
+	.flex{
+		display: flex;
+		flex-direction: row;
+	}
+
+	.nav{
+		background-color: #FFCACA;
+	}
+
+
+	.menu{
+		width: 15vw;
+	}
+
+	.beautyy{
+		width: 60%;
+		margin-right: 20%;
+		color:#C92C39;
+	}
+
+	.logo{
+		width: 40%;
+		margin-left: 15%;
+		height: 20%;
+	}
+
 	.logoMenu{
 		width: 30vw;
 		margin-left: 25%;
@@ -24,7 +50,7 @@ body,h1,h2,h3,p,button{
 
 	.x{
 		width: 4vw;
-		margin-left: 80%;		
+		margin-left: 90%;		
 	}
 
 	.flex1{
