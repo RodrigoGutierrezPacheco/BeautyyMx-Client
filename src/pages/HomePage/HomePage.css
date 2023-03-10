@@ -8,6 +8,12 @@ body,h1,h2,h3,p,button{
 		color: rgb(0, 0, 0);	
 	}
 
+	.boxVistaRapida{
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+		border-bottom: 1px solid black;
+	}
+
 	.flex2{
 		display: flex;
 		flex-direction: row;

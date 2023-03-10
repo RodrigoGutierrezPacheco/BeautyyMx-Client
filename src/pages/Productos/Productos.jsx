@@ -8,53 +8,9 @@ import Button from '@mui/material/Button';
 import './Producto.css'
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
+import { Carousel } from 'react-bootstrap';
+import { motion } from 'framer-motion';
 
-
-
-const productos=[
-	{
-		titulo:"Maquillaje",
-		img:"images/elf.jpg",
-		info:"El mejor producto de todos",
-		info1:"Si es",
-		precio:"150",
-		disponible:"images/disponible.png"
-	},
-	{
-		titulo:"Cuidado de la Piel",
-		img:"images/juvias.jpg",
-		info:"El mejor producto de todos1",
-		precio:"150",
-		disponible:"images/disponible.png"
-	},
-	{
-		titulo:"Accesorios",
-		img:"images/tarte.jpg",
-		info:"El mejor producto de todos2",
-		precio:"150",
-		disponible:"images/disponible.png"
-	},
-	
-	// {
-	// 	titulo:"Paleta Jaw Breaker",
-	// 	img:"images/jawbreaker.jpg",
-	// 	info:"El mejor producto de todos",
-	// 	precio:"150",
-	// 	disponible:"images/disponible.png"
-	// },
-]
-
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
 
 export default function Productos() {
 
@@ -62,85 +18,166 @@ export default function Productos() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+ const maquillaje = [
+	{
+		marca:"Marca 1",
+		nombre:"Nombre 1",
+		descripcion:"Descripcion 1",
+		precio:"$100.00"
+	},
+	{
+		marca:"Marca 2",
+		nombre:"Nombre 1",
+		descripcion:"Descripcion 1",
+		precio:"$100.00"
+	},
+	{
+		marca:"Marca 3",
+		nombre:"Nombre 1",
+		descripcion:"Descripcion 1",
+		precio:"$100.00"
+	},
+	{
+		marca:"Marca 4",
+		nombre:"Nombre 1",
+		descripcion:"Descripcion 1",
+		precio:"$100.00"
+	},
+	{
+		marca:"Marca 5",
+		nombre:"Nombre 1",
+		descripcion:"Descripcion 1",
+		precio:"$100.00"
+	},
+ ]
+
+ const cuidadoDeLaPiel = [
+	{
+		marca:"Marca 1",
+		nombre:"Nombre 1",
+		descripcion:"Descripcion 1",
+		precio:"$100.00"
+	},
+	{
+		marca:"Marca 1",
+		nombre:"Nombre 1",
+		descripcion:"Descripcion 1",
+		precio:"$100.00"
+	},
+	{
+		marca:"Marca 1",
+		nombre:"Nombre 1",
+		descripcion:"Descripcion 1",
+		precio:"$100.00"
+	},
+	{
+		marca:"Marca 1",
+		nombre:"Nombre 1",
+		descripcion:"Descripcion 1",
+		precio:"$100.00"
+	},
+	{
+		marca:"Marca 1",
+		nombre:"Nombre 1",
+		descripcion:"Descripcion 1",
+		precio:"$100.00"
+	},
+ ]
+
+ const accesorios = [
+	{
+		marca:"Marca 1",
+		nombre:"Nombre 1",
+		descripcion:"Descripcion 1",
+		precio:"$100.00"
+	},
+	{
+		marca:"Marca 1",
+		nombre:"Nombre 1",
+		descripcion:"Descripcion 1",
+		precio:"$100.00"
+	},
+	{
+		marca:"Marca 1",
+		nombre:"Nombre 1",
+		descripcion:"Descripcion 1",
+		precio:"$100.00"
+	},
+	{
+		marca:"Marca 1",
+		nombre:"Nombre 1",
+		descripcion:"Descripcion 1",
+		precio:"$100.00"
+	},
+	{
+		marca:"Marca 1",
+		nombre:"Nombre 1",
+		descripcion:"Descripcion 1",
+		precio:"$100.00"
+	},
+ ]
+
+
   return (
 		<div>
 			<img className='portada' src="images/productos.png" alt="" />
-			<div className='paginaProductos'>
-				    <Card className='producto'>
-						<CardActionArea href='/maquillaje'>
-							<CardMedia
-								component="img"
-								image='images/fouroscope.jpg'
-								alt="Maquillaje"
-								className='productoImg'
-							/>
-							<CardContent className='contenidoProducto'>
-								<Typography gutterBottom variant="h5" component="div">
-									Maquillaje
-								</Typography>
-								<Typography variant="body2" color="text.secondary">
-									Conoce todos nuestros productos
-								</Typography>
-								<Typography variant="subtitle1" color="black">
-								
-								</Typography>
-								<div className='disponibilidad'>
-								<p href="">Disponibilidad:</p><img className='disponible' alt="" />
-								</div>
-							</CardContent>
-						</CardActionArea>
-					</Card>
+		 <div className='boxVistaRapida'>
+			<h1 className="title red">Maquillaje</h1>
+			<Carousel interval={3000} indicators={false} variant="dark">
+			{maquillaje.map((lanzamiento)=>
+				<Carousel.Item >
+					<div className="boxProduct">
+					 <img className="producto1" src="images/product1.jpg" alt="" />
+					 <h1>{lanzamiento.marca}</h1>
+					 <h3>NOMBRE DEL PRODUCTO</h3>
+					 <h3 className="precio">$799.00MXN</h3>
+					 {/* <h3>Codigo de producto: BT001</h3> */}
+					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
+					</div>
+				</Carousel.Item>
+       )}
+     </Carousel>
+		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt">Ver Todos</motion.button>
+		 </div>
 
-					<Card className='producto'>
-						<CardActionArea href='/cuidado-de-piel'>
-							<CardMedia
-								component="img"
-								image='images/elf.jpg'
-								alt="Cuidado de la Piel"
-								className='productoImg'
-							/>
-							<CardContent className='contenidoProducto'>
-								<Typography gutterBottom variant="h5" component="div">
-									Cuidado de la Piel
-								</Typography>
-								<Typography variant="body2" color="text.secondary">
-									Conoce todos nuestros productos
-								</Typography>
-								<Typography variant="subtitle1" color="black">
-								
-								</Typography>
-								<div className='disponibilidad'>
-								<p href="">Disponibilidad:</p><img className='disponible' alt="" />
-								</div>
-							</CardContent>
-						</CardActionArea>
-					</Card>
+		 <div className='boxVistaRapida'>
+			<h1 className="title red">Cuidado de la Piel</h1>
+			<Carousel interval={3000} indicators={false} variant="dark">
+			{maquillaje.map((lanzamiento)=>
+				<Carousel.Item >
+					<div className="boxProduct">
+					 <img className="producto1" src="images/product1.jpg" alt="" />
+					 <h1>{lanzamiento.marca}</h1>
+					 <h3>NOMBRE DEL PRODUCTO</h3>
+					 <h3 className="precio">$799.00MXN</h3>
+					 {/* <h3>Codigo de producto: BT001</h3> */}
+					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
+					</div>
+				</Carousel.Item>
+       )}
+     </Carousel>
+		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt">Ver Todos</motion.button>
+		 </div>
 
-					<Card className='producto'>
-						<CardActionArea href='/accesorios'>
-							<CardMedia
-								component="img"
-								image='images/espejo.jpg'
-								alt="green iguana"
-								className='productoImg'
-							/>
-							<CardContent className='contenidoProducto'>
-								<Typography gutterBottom variant="h5" component="div">
-									Accesorios
-								</Typography>
-								<Typography variant="body2" color="text.secondary">
-									Conoce todos nuestros productos
-								</Typography>
-								<Typography variant="subtitle1" color="black">
-								
-								</Typography>
-								<div className='disponibilidad'>
-								<p href="">Disponibilidad:</p><img className='disponible' alt="" />
-								</div>
-							</CardContent>
-						</CardActionArea>
-					</Card>
-			</div>
+		 <div className='boxVistaRapida'>
+			<h1 className="title red">Accesorios</h1>
+			<Carousel interval={3000} indicators={false} variant="dark">
+			{maquillaje.map((lanzamiento)=>
+				<Carousel.Item >
+					<div className="boxProduct">
+					 <img className="producto1" src="images/product1.jpg" alt="" />
+					 <h1>{lanzamiento.marca}</h1>
+					 <h3>NOMBRE DEL PRODUCTO</h3>
+					 <h3 className="precio">$799.00MXN</h3>
+					 {/* <h3>Codigo de producto: BT001</h3> */}
+					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
+					</div>
+				</Carousel.Item>
+       )}
+     </Carousel>
+		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt">Ver Todos</motion.button>
+		 </div>
+
 		</div>
   );
 }
