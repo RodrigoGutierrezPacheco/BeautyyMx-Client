@@ -36,6 +36,7 @@ function App() {
         <Route path="/" element={<HomePage/>}/>
 				<Route path="/todos-los-productos" element={<Productos/>}/>
 				<Route  path="/puntos-de-venta" element={<PuntosDeVenta/>}/>
+				<Route path="/maquillaje" element={<Maquillaje/>}/>
 				<Route path="/rostro" element={<Rostro/>}/>
 				<Route path="/ojos" element={<Ojos/>}/>
 				<Route path="/labios" element={<Labios/>}/>

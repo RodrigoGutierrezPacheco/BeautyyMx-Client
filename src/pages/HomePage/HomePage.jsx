@@ -14,9 +14,9 @@ function HomePage() {
 			precio:"$100.00"
 		},
 		{
-			marca:"Marca2",
-			nombre:"Nombre 3",
-			precio:"$100.00"
+			marca2:"Marca2",
+			nombre2:"Nombre 3",
+			precio2:"$100.00"
 		},
 		{
 			marca:"Marca3",
@@ -24,9 +24,9 @@ function HomePage() {
 			precio:"$100.00"
 		},
 		{
-			marca:"Marca4",
-			nombre:"Nombre 3",
-			precio:"$100.00"
+			marca2:"Marca4",
+			nombre2:"Nombre 3",
+			precio2:"$100.00"
 		},
 		{
 			marca:"Marca5",
@@ -34,9 +34,9 @@ function HomePage() {
 			precio:"$100.00"
 		},
 		{
-			marca:"Marca6",
-			nombre:"Nombre 3",
-			precio:"$100.00"
+			marca2:"Marca6",
+			nombre2:"Nombre 3",
+			precio2:"$100.00"
 		},
 		{
 			marca:"Marca7",

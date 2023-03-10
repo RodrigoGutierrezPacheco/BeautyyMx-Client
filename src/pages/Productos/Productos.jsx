@@ -117,6 +117,17 @@ export default function Productos() {
 	},
  ]
 
+ function maquillaje1(){
+	window.location.href="/maquillajes"
+ }
+
+ function cuidadoDeLaPiel1(){
+	window.location.href="/cuidado-de-la-piel"
+ }
+
+ function accesorios1(){
+	window.location.href="/accesorios"
+ }
 
   return (
 		<div>
@@ -137,7 +148,7 @@ export default function Productos() {
 				</Carousel.Item>
        )}
      </Carousel>
-		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt">Ver Todos</motion.button>
+		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" onClick={maquillaje1}>Ver Todos</motion.button>
 		 </div>
 
 		 <div className='boxVistaRapida'>
@@ -151,7 +162,7 @@ export default function Productos() {
 					 <h3>NOMBRE DEL PRODUCTO</h3>
 					 <h3 className="precio">$799.00MXN</h3>
 					 {/* <h3>Codigo de producto: BT001</h3> */}
-					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
+					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1" onclick={cuidadoDeLaPiel1}>Ver Producto</motion.button>
 					</div>
 				</Carousel.Item>
        )}
@@ -175,7 +186,7 @@ export default function Productos() {
 				</Carousel.Item>
        )}
      </Carousel>
-		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt">Ver Todos</motion.button>
+		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" onclick={accesorios1}>Ver Todos</motion.button>
 		 </div>
 
 		</div>
