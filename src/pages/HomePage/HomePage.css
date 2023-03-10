@@ -3,8 +3,29 @@ body,h1,h2,h3,p,button{
 	font-family: 'Montserrat Alternates', sans-serif;
 }
 @media(max-width:500px){
+  .navbar2{
+		background-color: #FFCACA;
+		color: rgb(0, 0, 0);	
+	}
 
-	
+	.flex2{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+
+	.flexNavbar2{
+		display: flex;
+		flex-direction: row;
+		width: 100vw;
+	}
+
+	.textNavbar2{
+		font-size: .9rem;
+		font-weight: 200;
+	}
 
 		.flex{
 		display: flex;

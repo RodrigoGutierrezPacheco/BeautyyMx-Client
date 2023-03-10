@@ -53,8 +53,6 @@ function HomePage() {
           src="images/inicio.png"
           alt="First slide"
         />
-        <Carousel.Caption>
-        </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -62,9 +60,6 @@ function HomePage() {
           src="images/productos.png"
           alt="Second slide"
         />
-
-        <Carousel.Caption>
-        </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -72,9 +67,6 @@ function HomePage() {
           src="images/puntosVenta.png"
           alt="Third slide"
         />
-
-        <Carousel.Caption>
-        </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
 		<div className="mt">
@@ -106,8 +98,6 @@ function HomePage() {
           src="images/inicio.png"
           alt="First slide"
         />
-        <Carousel.Caption>
-        </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -115,9 +105,6 @@ function HomePage() {
           src="images/productos.png"
           alt="Second slide"
         />
-
-        <Carousel.Caption>
-        </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -125,9 +112,6 @@ function HomePage() {
           src="images/puntosVenta.png"
           alt="Third slide"
         />
-
-        <Carousel.Caption>
-        </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
 		 </div>

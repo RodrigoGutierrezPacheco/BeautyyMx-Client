@@ -10,6 +10,7 @@ import PuntosDeVenta from "./pages/PuntosDeVenta/PuntosDeVenta";
 
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
+import Navbar2 from "./components/Navbar2/Navbar2";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import Maquillaje from "./pages/Maquillaje/Maquillaje";
@@ -29,6 +30,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+			<Navbar2/>
 
       <Routes>
         <Route path="/" element={<HomePage/>}/>
