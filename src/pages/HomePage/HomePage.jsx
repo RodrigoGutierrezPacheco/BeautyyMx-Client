@@ -72,7 +72,7 @@ function HomePage() {
     </Carousel>
 		<div className="mt">
 		 <h1 className="title">LOS MEJORES PRODUCTOS AL MEJOR PRECIO</h1>
-		 <motion.button whileTap={{backgroundColor:"white", color:"#C92C39"}} whileHover={{backgroundColor:"white", color:"#C92C39"}} className="button mt">!Conocelos¡</motion.button>
+		 <motion.button transition={{duration:1}} whileTap={{backgroundColor:"white", color:"#C92C39"}} whileHover={{backgroundColor:"white", color:"#C92C39"}} className="button mt">!Conocelos¡</motion.button>
 		</div>
 		<div className="lanzamientos">
 			<h1 className="title">Recien Llegados</h1>

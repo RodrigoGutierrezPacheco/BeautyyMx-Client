@@ -81,8 +81,8 @@ function CollapsibleExample() {
   }
   return (
 		<nav className='flex nav'>
-			<motion.img animate={{duration:2}} whileTap={{scale:1.2}} whileHover={{scale:1.1}} onClick={openModal} className='menu' src="images/menu.png" alt="" />
-		<motion.div>
+			<motion.img  whileTap={{scale:1.2}} whileHover={{scale:1.1}} onClick={openModal} className='menu' src="images/menu.png" alt="" />
+		<motion.div >
 			<Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
