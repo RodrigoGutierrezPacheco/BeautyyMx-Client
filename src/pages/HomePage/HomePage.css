@@ -4,9 +4,14 @@ body,h1,h2,h3,p,button{
 }
 @media(max-width:500px){
 
-	.flex{
+		.flex{
 		display: flex;
 		flex-direction: row;
+	}
+
+	.start1{
+		display: flex;
+		justify-content: center;
 	}
 
 	.nav{
@@ -32,7 +37,6 @@ body,h1,h2,h3,p,button{
 
 	.logoMenu{
 		width: 30vw;
-		margin-left: 25%;
 		margin-bottom: 1%;
 	}
 
@@ -46,6 +50,11 @@ body,h1,h2,h3,p,button{
 	.textoModal{
 		font-size: 1rem;
 		margin-left: 2%;
+		margin-top: 1%;
+		margin-bottom: 7%;
+		display: flex;
+		flex-direction: column;
+		align-items: start;
 	}
 
 	.x{

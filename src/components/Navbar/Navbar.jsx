@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
+import { motion } from 'framer-motion';
 
 function CollapsibleExample() {
 
@@ -43,7 +44,8 @@ function CollapsibleExample() {
   }
   return (
 		<nav className='flex nav'>
-			<img onClick={openModal} className='menu' src="images/menu.png" alt="" />
+			<motion.img animate={{duration:2}} whileTap={{scale:2}} onClick={openModal} className='menu' src="images/menu.png" alt="" />
+		<motion.div>
 			<Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -52,11 +54,14 @@ function CollapsibleExample() {
         contentLabel="Example"
 				overlayClassName="overlayModal"
 				overFlow="hidden"
-      >
+				>
       <div className='flex1'>
-				<img onClick={closeModal} className='x' src="images/x.png" alt="" />
-				<img onClick={home} className='logoMenu' src="images/logoBeauty2.png" alt="" />
+				 <motion.img whileHover={{scale:1.1}} onClick={closeModal} className='x' src="images/x.png" alt="" />
+				<div className='start1'>
+				 <motion.img whileHover={{scale:1.1}} onClick={home} className='logoMenu' src="images/logoBeauty2.png" alt="" />
+				</div>
         <div className='white textoModal'>
+				<div start1>
           <h1 className='textoModal'>Lo Nuevo</h1>
           <h1 className='textoModal'>Lo Mas Vendido</h1>
           <h1 className='textoModal'>Maquillaje</h1>
@@ -69,9 +74,11 @@ function CollapsibleExample() {
           <h1 className='textoModal'>Rostro</h1>
           <h1 className='textoModal'>Todos los productos</h1>
           <h1 className='textoModal'>Puntos de Venta</h1>
+				</div>
         </div>
 			</div>
       </Modal>
+		</motion.div>
 			<img className='logo' src="images/logoBeauty1.png" alt="" />
 		</nav>
   );
