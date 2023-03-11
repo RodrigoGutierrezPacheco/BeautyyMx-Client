@@ -88,6 +88,7 @@ function HomePage() {
 					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
 					</div>
 				</Carousel.Item>
+
        )}
      </Carousel>
 		 <div>
