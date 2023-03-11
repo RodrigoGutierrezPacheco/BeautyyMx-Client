@@ -8,6 +8,14 @@ body,h1,h2,h3,p,button{
 		color: rgb(0, 0, 0);	
 	}
 
+	.boxProduct1{
+		display: flex;
+		flex-direction: row;
+		justify-items: center;
+		align-items: center;
+		margin-right: 35%;
+	}
+
 	.boxVistaRapida{
 		margin-top: 2rem;
 		margin-bottom: 2rem;
@@ -151,6 +159,7 @@ body,h1,h2,h3,p,button{
 	.precio{
 		color: black;
 		font-weight: 800;
+		font-size: 1rem;
 	}
 
 	.title{

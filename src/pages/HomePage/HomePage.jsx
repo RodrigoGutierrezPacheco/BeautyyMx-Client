@@ -9,41 +9,27 @@ function HomePage() {
  
 	const lanzamientos=[
 		{
-			marca:"Marca1",
+			marca:"Marca 1",
 			nombre:"Nombre 1",
-			precio:"$100.00"
+			precio:"$precio1.00MXN"
 		},
 		{
-			marca2:"Marca2",
-			nombre2:"Nombre 3",
-			precio2:"$100.00"
+			marca:"Marca 2",
+			nombre:"Nombre 2",
+			precio:"$precio2.00MXN"
 		},
 		{
-			marca:"Marca3",
+			marca:"Marca 3",
 			nombre:"Nombre 3",
-			precio:"$100.00"
+			precio:"$precio3.00MXN"
 		},
 		{
-			marca2:"Marca4",
-			nombre2:"Nombre 3",
-			precio2:"$100.00"
-		},
-		{
-			marca:"Marca5",
-			nombre:"Nombre 3",
-			precio:"$100.00"
-		},
-		{
-			marca2:"Marca6",
-			nombre2:"Nombre 3",
-			precio2:"$100.00"
-		},
-		{
-			marca:"Marca7",
-			nombre:"Nombre 3",
-			precio:"$100.00"
+			marca:"Marca 4",
+			nombre:"Nombre 4",
+			precio:"$precio4.00MXN"
 		}
 ]
+
 
   return (
     <div>
@@ -76,19 +62,30 @@ function HomePage() {
 		</div>
 		<div className="lanzamientos">
 			<h1 className="title">Recien Llegados</h1>
-			<Carousel interval={3000} indicators={false} variant="dark">
+			<Carousel interval={30000} indicators={false} variant="dark">
 			{lanzamientos.map((lanzamiento)=>
-				<Carousel.Item >
+				<Carousel.Item key={lanzamiento.nombre} >
+					<div className="boxProduct1">
 					<div className="boxProduct">
 					 <img className="producto1" src="images/product1.jpg" alt="" />
 					 <h1>{lanzamiento.marca}</h1>
-					 <h3>NOMBRE DEL PRODUCTO</h3>
+					 <h3>{lanzamiento.nombre}</h3>
 					 <h3 className="precio">$799.00MXN</h3>
 					 {/* <h3>Codigo de producto: BT001</h3> */}
 					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
 					</div>
+					<div className="boxProduct">
+					 <img className="producto1" src="images/product1.jpg" alt="" />
+					 <h1>{lanzamiento.marca}</h1>
+					 <h3>{lanzamiento.nombre}</h3>
+					 <h3 className="precio">$799.00MXN</h3>
+					 {/* <h3>Codigo de producto: BT001</h3> */}
+					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
+					</div>
+					</div>
 				</Carousel.Item>
        )}
+			 
      </Carousel>
 		 <div>
 			<h1 className="title mt1">CATALOGO POR CATEGORIAS</h1>
