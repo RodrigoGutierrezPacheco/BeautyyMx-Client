@@ -2,7 +2,8 @@ import { RollerSkatingRounded, TimesOneMobiledata } from '@mui/icons-material';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import { Button } from 'react-bootstrap';
-
+import { Carousel } from 'react-bootstrap';
+import { motion } from 'framer-motion';
 function GroupExample() {
 	let rostro = [
 		{
@@ -62,25 +63,425 @@ function GroupExample() {
 			link:"/paletas"
 		},
 	]
+
+	const baseDeMaquillaje=[
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		
+	]
+
+	const ccBB=[
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+	]
+
+  const correctores=[
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+	]
+	
+	const primersParaRostro=[
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+	]
+
+	const polvosYSprays=[
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+	]
+
+	const contornoYBronzers=[
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+	]
+
+	const ilumiadores=[
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+	]
+
+	const paletasParaOjos=[
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+		{
+			marca:"Marca 1",
+			nombre:"Nombre 1",
+			descripcion:"Descripcion 1",
+			precio:"$100.00",
+		},
+	]
   return (
 		<div>
-			<img className='rostroPortada' src="images/rostro.png" alt="" />
-			<div className='wrap'>
-			{rostro.map((item)=>(
-				 <Card className='card-wrap'>
-				 <Card.Img variant="top" src={item.img} />
-				 <Card.Body>
-					 <Card.Title>{item.nombre}</Card.Title>
-					 <Card.Text>
-						{item.detalle}
-					 </Card.Text>
-					 <div className='button-end'>
-					 <Button href={item.link} className='button' variant='outline' style={{color:'black',backgroundColor:'pink',margin:'black',fontWeight:'500',}}>Ver Mas</Button>
-					 </div>
-				 </Card.Body>
-			 </Card>
-			))}
-			</div>
+			<img className='portada' src="images/rostro.png" alt="" />
+			<div className='boxVistaRapida'>
+			<h1 className="title red mt">Base de Maquillaje</h1>
+			<Carousel interval={3000} indicators={false} variant="dark">
+			{baseDeMaquillaje.map((lanzamiento)=>
+				<Carousel.Item >
+					<div className="boxProduct">
+					 <img className="producto1" src="images/product1.jpg" alt="" />
+					 <h1>{lanzamiento.marca}</h1>
+					 <h3>NOMBRE DEL PRODUCTO</h3>
+					 <h3 className="precio">$799.00MXN</h3>
+					 {/* <h3>Codigo de producto: BT001</h3> */}
+					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
+					</div>
+				</Carousel.Item>
+       )}
+     </Carousel>
+		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todos Accesorios</motion.button>
+		 </div>
+
+		 <div className='boxVistaRapida'>
+			<h1 className="title red mt">CC && BB Creams</h1>
+			<Carousel interval={3000} indicators={false} variant="dark">
+			{ccBB.map((lanzamiento)=>
+				<Carousel.Item >
+					<div className="boxProduct">
+					 <img className="producto1" src="images/product1.jpg" alt="" />
+					 <h1>{lanzamiento.marca}</h1>
+					 <h3>NOMBRE DEL PRODUCTO</h3>
+					 <h3 className="precio">$799.00MXN</h3>
+					 {/* <h3>Codigo de producto: BT001</h3> */}
+					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
+					</div>
+				</Carousel.Item>
+       )}
+     </Carousel>
+		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todos Accesorios</motion.button>
+		 </div>
+
+		 <div className='boxVistaRapida'>
+			<h1 className="title red mt">Correctores</h1>
+			<Carousel interval={3000} indicators={false} variant="dark">
+			{correctores.map((lanzamiento)=>
+				<Carousel.Item >
+					<div className="boxProduct">
+					 <img className="producto1" src="images/product1.jpg" alt="" />
+					 <h1>{lanzamiento.marca}</h1>
+					 <h3>NOMBRE DEL PRODUCTO</h3>
+					 <h3 className="precio">$799.00MXN</h3>
+					 {/* <h3>Codigo de producto: BT001</h3> */}
+					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
+					</div>
+				</Carousel.Item>
+       )}
+     </Carousel>
+		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todos Accesorios</motion.button>
+		 </div>
+
+		 <div className='boxVistaRapida'>
+			<h1 className="title red mt">Primers para Rostro</h1>
+			<Carousel interval={3000} indicators={false} variant="dark">
+			{primersParaRostro.map((lanzamiento)=>
+				<Carousel.Item >
+					<div className="boxProduct">
+					 <img className="producto1" src="images/product1.jpg" alt="" />
+					 <h1>{lanzamiento.marca}</h1>
+					 <h3>NOMBRE DEL PRODUCTO</h3>
+					 <h3 className="precio">$799.00MXN</h3>
+					 {/* <h3>Codigo de producto: BT001</h3> */}
+					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
+					</div>
+				</Carousel.Item>
+       )}
+     </Carousel>
+		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todos Accesorios</motion.button>
+		 </div>
+
+		 <div className='boxVistaRapida'>
+			<h1 className="title red mt">Polvos y Sprays</h1>
+			<Carousel interval={3000} indicators={false} variant="dark">
+			{polvosYSprays.map((lanzamiento)=>
+				<Carousel.Item >
+					<div className="boxProduct">
+					 <img className="producto1" src="images/product1.jpg" alt="" />
+					 <h1>{lanzamiento.marca}</h1>
+					 <h3>NOMBRE DEL PRODUCTO</h3>
+					 <h3 className="precio">$799.00MXN</h3>
+					 {/* <h3>Codigo de producto: BT001</h3> */}
+					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
+					</div>
+				</Carousel.Item>
+       )}
+     </Carousel>
+		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todos Accesorios</motion.button>
+		 </div>
+
+		 <div className='boxVistaRapida'>
+			<h1 className="title red mt">Contorno y Broncers</h1>
+			<Carousel interval={3000} indicators={false} variant="dark">
+			{contornoYBronzers.map((lanzamiento)=>
+				<Carousel.Item >
+					<div className="boxProduct">
+					 <img className="producto1" src="images/product1.jpg" alt="" />
+					 <h1>{lanzamiento.marca}</h1>
+					 <h3>NOMBRE DEL PRODUCTO</h3>
+					 <h3 className="precio">$799.00MXN</h3>
+					 {/* <h3>Codigo de producto: BT001</h3> */}
+					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
+					</div>
+				</Carousel.Item>
+       )}
+     </Carousel>
+		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todos Accesorios</motion.button>
+		 </div>
+
+		 <div className='boxVistaRapida'>
+			<h1 className="title red mt">Iluminadores</h1>
+			<Carousel interval={3000} indicators={false} variant="dark">
+			{ilumiadores.map((lanzamiento)=>
+				<Carousel.Item >
+					<div className="boxProduct">
+					 <img className="producto1" src="images/product1.jpg" alt="" />
+					 <h1>{lanzamiento.marca}</h1>
+					 <h3>NOMBRE DEL PRODUCTO</h3>
+					 <h3 className="precio">$799.00MXN</h3>
+					 {/* <h3>Codigo de producto: BT001</h3> */}
+					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
+					</div>
+				</Carousel.Item>
+       )}
+     </Carousel>
+		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todos Accesorios</motion.button>
+		 </div>
+
+		 <div className='boxVistaRapida'>
+			<h1 className="title red mt">Paletas para Ojos</h1>
+			<Carousel interval={3000} indicators={false} variant="dark">
+			{paletasParaOjos.map((lanzamiento)=>
+				<Carousel.Item >
+					<div className="boxProduct">
+					 <img className="producto1" src="images/product1.jpg" alt="" />
+					 <h1>{lanzamiento.marca}</h1>
+					 <h3>NOMBRE DEL PRODUCTO</h3>
+					 <h3 className="precio">$799.00MXN</h3>
+					 {/* <h3>Codigo de producto: BT001</h3> */}
+					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
+					</div>
+				</Carousel.Item>
+       )}
+     </Carousel>
+		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todos Accesorios</motion.button>
+		 </div>
 		</div>
   );
 }
