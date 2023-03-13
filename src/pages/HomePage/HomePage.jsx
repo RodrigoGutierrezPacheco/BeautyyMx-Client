@@ -30,6 +30,9 @@ function HomePage() {
 		}
 ]
 
+ function productos(){
+	window.location.href="/todos-los-productos"
+ }
 
   return (
     <div>
@@ -58,7 +61,7 @@ function HomePage() {
     </Carousel>
 		<div className="mt">
 		 <h1 className="title">LOS MEJORES PRODUCTOS AL MEJOR PRECIO</h1>
-		 <motion.button  whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button mt">!Conocelos¡</motion.button>
+		 <motion.button onClick={productos} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button mt">!Conocelos¡</motion.button>
 		</div>
 		<div className="lanzamientos">
 			<h1 className="title">Recien Llegados</h1>
@@ -66,14 +69,6 @@ function HomePage() {
 			{lanzamientos.map((lanzamiento)=>
 				<Carousel.Item key={lanzamiento.nombre} >
 					<div className="boxProduct1">
-					<div className="boxProduct">
-					 <img className="producto1" src="images/product1.jpg" alt="" />
-					 <h1>{lanzamiento.marca}</h1>
-					 <h3>{lanzamiento.nombre}</h3>
-					 <h3 className="precio">$799.00MXN</h3>
-					 {/* <h3>Codigo de producto: BT001</h3> */}
-					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
-					</div>
 					<div className="boxProduct">
 					 <img className="producto1" src="images/product1.jpg" alt="" />
 					 <h1>{lanzamiento.marca}</h1>

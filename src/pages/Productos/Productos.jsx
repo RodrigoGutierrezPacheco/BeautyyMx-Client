@@ -10,7 +10,8 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { Carousel } from 'react-bootstrap';
 import { motion } from 'framer-motion';
-
+import { style } from '@mui/system';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 export default function Productos() {
 
@@ -23,31 +24,36 @@ export default function Productos() {
 		marca:"Marca 1",
 		nombre:"Nombre 1",
 		descripcion:"Descripcion 1",
-		precio:"$100.00"
+		precio:"$100.00",
+		now : 10
 	},
 	{
 		marca:"Marca 2",
 		nombre:"Nombre 1",
 		descripcion:"Descripcion 1",
-		precio:"$100.00"
+		precio:"$100.00",
+		now : 20
 	},
 	{
 		marca:"Marca 3",
 		nombre:"Nombre 1",
 		descripcion:"Descripcion 1",
-		precio:"$100.00"
+		precio:"$100.00",
+		now : 30
 	},
 	{
 		marca:"Marca 4",
 		nombre:"Nombre 1",
 		descripcion:"Descripcion 1",
-		precio:"$100.00"
+		precio:"$100.00",
+		now : 40
 	},
 	{
 		marca:"Marca 5",
 		nombre:"Nombre 1",
 		descripcion:"Descripcion 1",
-		precio:"$100.00"
+		precio:"$100.00",
+		now : 50
 	},
  ]
 
@@ -128,10 +134,12 @@ export default function Productos() {
  function accesorios1(){
 	window.location.href="/accesorios"
  }
+ 
 
   return (
 		<div>
 			<img className='portada' src="images/productos.png" alt="" />
+			
 		 <div className='boxVistaRapida'>
 			<h1 className="title red">Maquillaje</h1>
 			<Carousel interval={3000} indicators={false} variant="dark">

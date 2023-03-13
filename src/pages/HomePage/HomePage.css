@@ -9,11 +9,7 @@ body,h1,h2,h3,p,button{
 	}
 
 	.boxProduct1{
-		display: flex;
-		flex-direction: row;
-		justify-items: center;
-		align-items: center;
-		margin-right: 35%;
+
 	}
 
 	.boxVistaRapida{
@@ -135,6 +131,14 @@ body,h1,h2,h3,p,button{
 		margin-top: 10%;
 	}
 
+
+
+	.productos{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
 	.producto1{
 		width: 50%;
 		margin-left: 25%;
@@ -224,7 +228,7 @@ body,h1,h2,h3,p,button{
 	}
 
 	.portada{
-		width: 100vw;
+		width: 96vw;
 	}
 
 	.accordion{
