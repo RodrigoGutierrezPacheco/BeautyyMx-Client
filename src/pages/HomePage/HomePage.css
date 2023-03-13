@@ -8,6 +8,11 @@ body,h1,h2,h3,p,button{
 		color: rgb(0, 0, 0);	
 	}
 
+	.pink{
+		background-color: #FFCACA;
+	}
+
+
 	.boxProduct1{
 
 	}
@@ -15,6 +20,9 @@ body,h1,h2,h3,p,button{
 	.boxVistaRapida{
 		margin-top: 3rem;
 		margin-bottom: 3rem;
+		display: flex;
+		flex-wrap:wrap;
+		justify-content: center;
 	}
 
 	.flex2{
@@ -140,23 +148,23 @@ body,h1,h2,h3,p,button{
 
 	.producto1{
 		width: 50%;
-		margin-left: 25%;
 	}
 
 	.boxProduct{
 		display: flex;
 		flex-direction: column;
 		width: 50%;
-		margin-left: 25%;
+		align-items: center;
 	}
 
 	.button1{
 		background-color: #C92C39;
 		color: white;
-		font-size: 1.5rem;
+		font-size: 1rem;
 		border: 2px solid #C92C39;
 		font-family: 'Montserrat Alternates', sans-serif;
-
+		width: 50%;
+		display: flex;
 	}
 
 	.precio{
