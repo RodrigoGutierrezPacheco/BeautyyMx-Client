@@ -13,9 +13,8 @@ body,h1,h2,h3,p,button{
 	}
 
 	.boxVistaRapida{
-		margin-top: 2rem;
-		margin-bottom: 2rem;
-		border-bottom: 1px solid black;
+		margin-top: 3rem;
+		margin-bottom: 3rem;
 	}
 
 	.flex2{

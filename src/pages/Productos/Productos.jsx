@@ -124,7 +124,7 @@ export default function Productos() {
  ]
 
  function maquillaje1(){
-	window.location.href="/maquillajes"
+	window.location.href="/maquillaje"
  }
 
  function cuidadoDeLaPiel1(){
@@ -139,7 +139,7 @@ export default function Productos() {
   return (
 		<div>
 			<img className='portada' src="images/productos.png" alt="" />
-			
+
 		 <div className='boxVistaRapida'>
 			<h1 className="title red">Maquillaje</h1>
 			<Carousel interval={3000} indicators={false} variant="dark">
@@ -156,30 +156,11 @@ export default function Productos() {
 				</Carousel.Item>
        )}
      </Carousel>
-		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" onClick={maquillaje1}>Ver Todos</motion.button>
+		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" onClick={maquillaje1}>Ver Todo Maquillaje</motion.button>
 		 </div>
 
 		 <div className='boxVistaRapida'>
-			<h1 className="title red">Cuidado de la Piel</h1>
-			<Carousel interval={3000} indicators={false} variant="dark">
-			{maquillaje.map((lanzamiento)=>
-				<Carousel.Item >
-					<div className="boxProduct">
-					 <img className="producto1" src="images/product1.jpg" alt="" />
-					 <h1>{lanzamiento.marca}</h1>
-					 <h3>NOMBRE DEL PRODUCTO</h3>
-					 <h3 className="precio">$799.00MXN</h3>
-					 {/* <h3>Codigo de producto: BT001</h3> */}
-					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1" onclick={cuidadoDeLaPiel1}>Ver Producto</motion.button>
-					</div>
-				</Carousel.Item>
-       )}
-     </Carousel>
-		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt">Ver Todos</motion.button>
-		 </div>
-
-		 <div className='boxVistaRapida'>
-			<h1 className="title red">Accesorios</h1>
+			<h1 className="title red mt">Cuidado de la Piel</h1>
 			<Carousel interval={3000} indicators={false} variant="dark">
 			{maquillaje.map((lanzamiento)=>
 				<Carousel.Item >
@@ -194,7 +175,26 @@ export default function Productos() {
 				</Carousel.Item>
        )}
      </Carousel>
-		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" onclick={accesorios1}>Ver Todos</motion.button>
+		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" onClick={cuidadoDeLaPiel1} >Ver Todo Cudiado de la Piel</motion.button>
+		 </div>
+
+		 <div className='boxVistaRapida'>
+			<h1 className="title red mt">Accesorios</h1>
+			<Carousel interval={3000} indicators={false} variant="dark">
+			{maquillaje.map((lanzamiento)=>
+				<Carousel.Item >
+					<div className="boxProduct">
+					 <img className="producto1" src="images/product1.jpg" alt="" />
+					 <h1>{lanzamiento.marca}</h1>
+					 <h3>NOMBRE DEL PRODUCTO</h3>
+					 <h3 className="precio">$799.00MXN</h3>
+					 {/* <h3>Codigo de producto: BT001</h3> */}
+					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
+					</div>
+				</Carousel.Item>
+       )}
+     </Carousel>
+		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" onClick={accesorios1}>Ver Todos Accesorios</motion.button>
 		 </div>
 
 		</div>

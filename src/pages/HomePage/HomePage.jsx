@@ -34,6 +34,10 @@ function HomePage() {
 	window.location.href="/todos-los-productos"
  }
 
+ function puntosDeVenta(){
+	window.location.href="/puntos-de-venta"
+ }
+
   return (
     <div>
 	  <Carousel indicators={false} variant="dark">
@@ -113,7 +117,7 @@ function HomePage() {
 		<div className="nosotros mt1">
 			<h1 className="title red">ACERCA DE NOSOTROS</h1>
 			<h3 color="white">Somos una empresa dedicada a la venta de maquillaje 100% original, de alta calidar y de las mejores marcas. Contamos con envio a todas las partes de Mexico. Con distintos puntos de venta dentro de Cuernavaca, Morelos. Podemos enviar todo lo que tu quieras.</h3>
-			<motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button mb">Puntos de Venta</motion.button>
+			<motion.button onClick={puntosDeVenta} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button mb">Puntos de Venta</motion.button>
 		</div>
 
 	
