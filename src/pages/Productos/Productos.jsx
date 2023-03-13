@@ -25,7 +25,6 @@ export default function Productos() {
 		nombre:"Nombre 1",
 		descripcion:"Descripcion 1",
 		precio:"$100.00",
-		now : 10
 	},
 	{
 		marca:"Marca 2",

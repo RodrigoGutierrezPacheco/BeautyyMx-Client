@@ -292,7 +292,7 @@ export default function Maquillaje() {
 				</Carousel.Item>
        )}
      </Carousel>
-		 <motion.button onClick={rostro1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt">Ver Todos Accesorios</motion.button>
+		 <motion.button onClick={rostro1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt">Ver Todos en Rostro</motion.button>
 		 </div>
 
 		 <div className='boxVistaRapida'>
@@ -311,7 +311,7 @@ export default function Maquillaje() {
 				</Carousel.Item>
        )}
      </Carousel>
-		 <motion.button onClick={ojos1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todos Accesorios</motion.button>
+		 <motion.button onClick={ojos1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todo en Ojos</motion.button>
 		 </div>
 
 		 <div className='boxVistaRapida'>
@@ -330,7 +330,7 @@ export default function Maquillaje() {
 				</Carousel.Item>
        )}
      </Carousel>
-		 <motion.button onClick={labios1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todos Accesorios</motion.button>
+		 <motion.button onClick={labios1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todo en Labios</motion.button>
 		 </div>
 		 
 		 <div className='boxVistaRapida'>
@@ -349,7 +349,7 @@ export default function Maquillaje() {
 				</Carousel.Item>
        )}
      </Carousel>
-		 <motion.button onClick={mejillas1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todos Accesorios</motion.button>
+		 <motion.button onClick={mejillas1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todo en Mejillas</motion.button>
 		 </div>
 
 		 <div className='boxVistaRapida'>
@@ -368,7 +368,7 @@ export default function Maquillaje() {
 				</Carousel.Item>
        )}
      </Carousel>
-		 <motion.button onClick={paletas1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todos Accesorios</motion.button>
+		 <motion.button onClick={paletas1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todo en Paletas</motion.button>
 		 </div>
 
 		 <div className='boxVistaRapida'>
@@ -387,7 +387,7 @@ export default function Maquillaje() {
 				</Carousel.Item>
        )}
      </Carousel>
-		 <motion.button onClick={tamañoDeViaje1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todos Accesorios</motion.button>
+		 <motion.button onClick={tamañoDeViaje1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todo en Tamaño Viaje</motion.button>
 		 </div>
 
 		 <div className='boxVistaRapida'>
@@ -406,7 +406,7 @@ export default function Maquillaje() {
 				</Carousel.Item>
        )}
      </Carousel>
-		 <motion.button onClick={sets1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todos Accesorios</motion.button>
+		 <motion.button onClick={sets1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todo en Sets</motion.button>
 		 </div>
 		</div>
   );
