@@ -305,7 +305,6 @@ export default function Maquillaje() {
 					 <h1>{lanzamiento.marca}</h1>
 					 <h3>NOMBRE DEL PRODUCTO</h3>
 					 <h3 className="precio">$799.00MXN</h3>
-					 {/* <h3>Codigo de producto: BT001</h3> */}
 					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
 					</div>
 				</Carousel.Item>
@@ -324,7 +323,6 @@ export default function Maquillaje() {
 					 <h1>{lanzamiento.marca}</h1>
 					 <h3>NOMBRE DEL PRODUCTO</h3>
 					 <h3 className="precio">$799.00MXN</h3>
-					 {/* <h3>Codigo de producto: BT001</h3> */}
 					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
 					</div>
 				</Carousel.Item>
@@ -343,7 +341,6 @@ export default function Maquillaje() {
 					 <h1>{lanzamiento.marca}</h1>
 					 <h3>NOMBRE DEL PRODUCTO</h3>
 					 <h3 className="precio">$799.00MXN</h3>
-					 {/* <h3>Codigo de producto: BT001</h3> */}
 					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
 					</div>
 				</Carousel.Item>
@@ -362,7 +359,6 @@ export default function Maquillaje() {
 					 <h1>{lanzamiento.marca}</h1>
 					 <h3>NOMBRE DEL PRODUCTO</h3>
 					 <h3 className="precio">$799.00MXN</h3>
-					 {/* <h3>Codigo de producto: BT001</h3> */}
 					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
 					</div>
 				</Carousel.Item>
@@ -381,7 +377,6 @@ export default function Maquillaje() {
 					 <h1>{lanzamiento.marca}</h1>
 					 <h3>NOMBRE DEL PRODUCTO</h3>
 					 <h3 className="precio">$799.00MXN</h3>
-					 {/* <h3>Codigo de producto: BT001</h3> */}
 					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
 					</div>
 				</Carousel.Item>
@@ -400,7 +395,6 @@ export default function Maquillaje() {
 					 <h1>{lanzamiento.marca}</h1>
 					 <h3>NOMBRE DEL PRODUCTO</h3>
 					 <h3 className="precio">$799.00MXN</h3>
-					 {/* <h3>Codigo de producto: BT001</h3> */}
 					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
 					</div>
 				</Carousel.Item>
