@@ -69,23 +69,22 @@ function HomePage() {
 		</div>
 		<div className="lanzamientos">
 			<h1 className="title">Recien Llegados</h1>
-			<Carousel interval={30000} indicators={false} variant="dark">
+			<div className='boxVistaRapida1'>
+			<Carousel interval={3000} indicators={false} variant="dark">
 			{lanzamientos.map((lanzamiento)=>
-				<Carousel.Item key={lanzamiento.nombre} >
+				<Carousel.Item >
 					<div className="boxProduct1">
-					<div className="boxProduct">
 					 <img className="producto1" src="images/product1.jpg" alt="" />
 					 <h1>{lanzamiento.marca}</h1>
-					 <h3>{lanzamiento.nombre}</h3>
+					 <h3>NOMBRE DEL PRODUCTO</h3>
 					 <h3 className="precio">$799.00MXN</h3>
-					 {/* <h3>Codigo de producto: BT001</h3> */}
 					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
-					</div>
 					</div>
 				</Carousel.Item>
        )}
-			 
      </Carousel>
+		 <motion.button  whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todo en Tamaño Viaje</motion.button>
+		 </div>
 		 <div>
 			<h1 className="title mt1">CATALOGO POR CATEGORIAS</h1>
 			<Carousel indicators={false} variant="dark">
