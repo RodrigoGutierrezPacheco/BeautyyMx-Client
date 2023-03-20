@@ -276,12 +276,12 @@ export default function Maquillaje() {
 		<div>
 			<img className='portada' src="images/maquillajePortada.png" alt="" />
 			
-			<div className='boxVistaRapida'>
+			<div className='boxVistaRapida1'>
 			<h1 className="title red mt">Rostro</h1>
 			<Carousel interval={3000} indicators={false} variant="dark">
 			{rostro.map((lanzamiento)=>
 				<Carousel.Item >
-					<div className="boxProduct">
+					<div className="boxProduct1">
 					 <img className="producto1" src="images/product1.jpg" alt="" />
 					 <h1>{lanzamiento.marca}</h1>
 					 <h3>NOMBRE DEL PRODUCTO</h3>
@@ -295,12 +295,12 @@ export default function Maquillaje() {
 		 <motion.button onClick={rostro1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt">Ver Todos en Rostro</motion.button>
 		 </div>
 
-		 <div className='boxVistaRapida'>
+		 <div className='boxVistaRapida1'>
 			<h1 className="title red mt">Ojos</h1>
 			<Carousel interval={3000} indicators={false} variant="dark">
 			{ojos.map((lanzamiento)=>
 				<Carousel.Item >
-					<div className="boxProduct">
+					<div className="boxProduct1">
 					 <img className="producto1" src="images/product1.jpg" alt="" />
 					 <h1>{lanzamiento.marca}</h1>
 					 <h3>NOMBRE DEL PRODUCTO</h3>
@@ -313,12 +313,12 @@ export default function Maquillaje() {
 		 <motion.button onClick={ojos1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todo en Ojos</motion.button>
 		 </div>
 
-		 <div className='boxVistaRapida'>
+		 <div className='boxVistaRapida1'>
 			<h1 className="title red mt">Labios</h1>
 			<Carousel interval={3000} indicators={false} variant="dark">
 			{labios.map((lanzamiento)=>
 				<Carousel.Item >
-					<div className="boxProduct">
+					<div className="boxProduct1">
 					 <img className="producto1" src="images/product1.jpg" alt="" />
 					 <h1>{lanzamiento.marca}</h1>
 					 <h3>NOMBRE DEL PRODUCTO</h3>
@@ -331,12 +331,12 @@ export default function Maquillaje() {
 		 <motion.button onClick={labios1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todo en Labios</motion.button>
 		 </div>
 		 
-		 <div className='boxVistaRapida'>
+		 <div className='boxVistaRapida1'>
 			<h1 className="title red mt">Mejillas</h1>
 			<Carousel interval={3000} indicators={false} variant="dark">
 			{mejillas.map((lanzamiento)=>
 				<Carousel.Item >
-					<div className="boxProduct">
+					<div className="boxProduct1">
 					 <img className="producto1" src="images/product1.jpg" alt="" />
 					 <h1>{lanzamiento.marca}</h1>
 					 <h3>NOMBRE DEL PRODUCTO</h3>
@@ -349,12 +349,12 @@ export default function Maquillaje() {
 		 <motion.button onClick={mejillas1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todo en Mejillas</motion.button>
 		 </div>
 
-		 <div className='boxVistaRapida'>
+		 <div className='boxVistaRapida1'>
 			<h1 className="title red mt">Paletas</h1>
 			<Carousel interval={3000} indicators={false} variant="dark">
 			{paletas.map((lanzamiento)=>
 				<Carousel.Item >
-					<div className="boxProduct">
+					<div className="boxProduct1">
 					 <img className="producto1" src="images/product1.jpg" alt="" />
 					 <h1>{lanzamiento.marca}</h1>
 					 <h3>NOMBRE DEL PRODUCTO</h3>
@@ -367,12 +367,12 @@ export default function Maquillaje() {
 		 <motion.button onClick={paletas1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todo en Paletas</motion.button>
 		 </div>
 
-		 <div className='boxVistaRapida'>
+		 <div className='boxVistaRapida1'>
 			<h1 className="title red mt">Tamaño de Viaje</h1>
 			<Carousel interval={3000} indicators={false} variant="dark">
 			{tamañoDeViaje.map((lanzamiento)=>
 				<Carousel.Item >
-					<div className="boxProduct">
+					<div className="boxProduct1">
 					 <img className="producto1" src="images/product1.jpg" alt="" />
 					 <h1>{lanzamiento.marca}</h1>
 					 <h3>NOMBRE DEL PRODUCTO</h3>
@@ -385,12 +385,12 @@ export default function Maquillaje() {
 		 <motion.button onClick={tamañoDeViaje1} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todo en Tamaño Viaje</motion.button>
 		 </div>
 
-		 <div className='boxVistaRapida'>
+		 <div className='boxVistaRapida1'>
 			<h1 className="title red mt">Sets</h1>
 			<Carousel interval={3000} indicators={false} variant="dark">
 			{sets.map((lanzamiento)=>
 				<Carousel.Item >
-					<div className="boxProduct">
+					<div className="boxProduct1">
 					 <img className="producto1" src="images/product1.jpg" alt="" />
 					 <h1>{lanzamiento.marca}</h1>
 					 <h3>NOMBRE DEL PRODUCTO</h3>

@@ -25,6 +25,15 @@ body,h1,h2,h3,p,button{
 		justify-content: center;
 	}
 
+		.boxVistaRapida1{
+		margin-top: 3rem;
+		margin-bottom: 3rem;
+		display: flex;
+		flex-direction: column;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	.flex2{
 		display: flex;
 		flex-direction: row;
@@ -148,6 +157,8 @@ body,h1,h2,h3,p,button{
 
 	.producto1{
 		width: 50%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.boxProduct{
@@ -155,6 +166,13 @@ body,h1,h2,h3,p,button{
 		flex-direction: column;
 		width: 50%;
 		align-items: center;
+	}
+		.boxProduct1{
+		display: flex;
+		flex-direction: column;
+		width: 50%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.button1{
@@ -165,6 +183,9 @@ body,h1,h2,h3,p,button{
 		font-family: 'Montserrat Alternates', sans-serif;
 		width: 50%;
 		display: flex;
+		margin-right: auto;
+		margin-left: auto;
+		justify-content: center;
 	}
 
 	.precio{

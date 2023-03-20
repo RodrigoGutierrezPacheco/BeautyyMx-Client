@@ -332,7 +332,7 @@ function GroupExample() {
 		<div>
 			<img className='portada' src="images/rostro.png" alt="" />
 			
-			<div className='pink'>
+			<div>
 			<h1 className="title red mt">Base de Maquillaje</h1>
 			<div className='boxVistaRapida'>
 			{baseDeMaquillaje.map((lanzamiento)=>
@@ -360,7 +360,7 @@ function GroupExample() {
        )}
 		 </div>
 
-      <div className="pink">
+      <div>
 
 			<h1 className="title red mt">Correctores</h1>
 		 <div className='boxVistaRapida'>
@@ -389,7 +389,7 @@ function GroupExample() {
        )}
 		 </div>
 
-    <div className="pink">
+    <div>
 			<h1 className="title red mt">Polvos y Sprays</h1>
 		 <div className='boxVistaRapida'>
 			{polvosYSprays.map((lanzamiento)=>
@@ -417,7 +417,7 @@ function GroupExample() {
        )}
 		 </div>
 
-    <div className="pink">
+    <div>
 			<h1 className="title red mt">Iluminadores</h1>
 		 <div className='boxVistaRapida'>
 			{ilumiadores.map((lanzamiento)=>
