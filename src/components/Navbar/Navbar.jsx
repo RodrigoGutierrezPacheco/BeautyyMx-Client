@@ -8,6 +8,8 @@ import { AuthContext } from "../../context/auth.context";
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import { motion } from 'framer-motion';
+import 'animate.css';
+import { slide as Menu } from 'react-burger-menu'
 
 function CollapsibleExample() {
 
@@ -81,8 +83,8 @@ function CollapsibleExample() {
   }
   return (
 		<nav className='flex nav'>
-			<motion.img  whileTap={{scale:1.2}} whileHover={{scale:1.1}} onClick={openModal} className='menu' src="images/menu.png" alt="" />
-		<motion.div >
+			<motion.img  whileTap={{scale:1.2}} whileHover={{scale:1.1}} onClick={openModal} className='menu animate__animated animate__bounce' src="images/menu.png" alt="" />
+		<motion.div className='animate__animated animate__slideInLeft'>
 			<Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -90,7 +92,10 @@ function CollapsibleExample() {
         style={customStyles}
         contentLabel="Example"
 				overlayClassName="overlayModal"
-				overFlow="hidden"
+				overlayBAckgroundColor="black"
+				overFlow="true"
+				id='outer-container'
+				backgroundColor="black"
 				>
       <div className='flex1'>
 				 <motion.img whileHover={{scale:1.1}} onClick={closeModal} className='x' src="images/x.png" alt="" />
