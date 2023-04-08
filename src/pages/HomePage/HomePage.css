@@ -155,7 +155,12 @@ body,h1,h2,h3,p,button{
 		margin-top: 10%;
 	}
 
-
+	.spinner {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 200px;
+	}
 
 	.productos{
 		display: flex;
