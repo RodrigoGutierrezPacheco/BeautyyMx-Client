@@ -34,123 +34,33 @@ export default function Productos() {
     setPageNumber(selected);
   };
 
+
+	
 	const displayProducts = data
-	.slice(pagesVisited, pagesVisited + productsPerPage)
-	.map(item => (
-		<div className="boxProduct" key={item.codigo}>
-			<img className="producto1" src="images/product1.jpg" alt="" />
-			<p className='marca'>{item.marca}</p>
-			<p className='descripcion'>Descripcion: <br />{item.descripcion}</p>
-			<h3 className="precio">${item.precio}.00MXN</h3>
-			<p>{item.codigo}</p>
-			<motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
-		</div>
-	));
+  .slice(pagesVisited, pagesVisited + productsPerPage)
+  .map(item => {
 
+    return (
+      <div className="boxProduct" key={item.codigo}>
+<img className='producto1' src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt=''/>"
+        <p className="descripcion">
+          Descripcion: <br />
+          {item.descripcion}
+        </p>
+        <h3 className="precio">${item.precio}.00MXN</h3>
+        <p>Contenido: {item.contenido}</p>
+        <p>Codigo: {item.codigo}</p>
+        <motion.button
+          whileTap={{ scale: 1.2 }}
+          whileHover={{ scale: 1.1 }}
+          className="button1"
+        >
+          Ver Producto
+        </motion.button>
+      </div>
+    );
+  });
 
-
-//  const maquillaje = [
-// 	{
-// 		marca:"Marca 1",
-// 		nombre:"Nombre 1",
-// 		descripcion:"Descripcion 1",
-// 		precio:"$100.00",
-// 	},
-// 	{
-// 		marca:"Marca 2",
-// 		nombre:"Nombre 1",
-// 		descripcion:"Descripcion 1",
-// 		precio:"$100.00",
-// 		now : 20
-// 	},
-// 	{
-// 		marca:"Marca 3",
-// 		nombre:"Nombre 1",
-// 		descripcion:"Descripcion 1",
-// 		precio:"$100.00",
-// 		now : 30
-// 	},
-// 	{
-// 		marca:"Marca 4",
-// 		nombre:"Nombre 1",
-// 		descripcion:"Descripcion 1",
-// 		precio:"$100.00",
-// 		now : 40
-// 	},
-// 	{
-// 		marca:"Marca 5",
-// 		nombre:"Nombre 1",
-// 		descripcion:"Descripcion 1",
-// 		precio:"$100.00",
-// 		now : 50
-// 	},
-//  ]
-
-//  const cuidadoDeLaPiel = [
-// 	{
-// 		marca:"Marca 1",
-// 		nombre:"Nombre 1",
-// 		descripcion:"Descripcion 1",
-// 		precio:"$100.00"
-// 	},
-// 	{
-// 		marca:"Marca 1",
-// 		nombre:"Nombre 1",
-// 		descripcion:"Descripcion 1",
-// 		precio:"$100.00"
-// 	},
-// 	{
-// 		marca:"Marca 1",
-// 		nombre:"Nombre 1",
-// 		descripcion:"Descripcion 1",
-// 		precio:"$100.00"
-// 	},
-// 	{
-// 		marca:"Marca 1",
-// 		nombre:"Nombre 1",
-// 		descripcion:"Descripcion 1",
-// 		precio:"$100.00"
-// 	},
-// 	{
-// 		marca:"Marca 1",
-// 		nombre:"Nombre 1",
-// 		descripcion:"Descripcion 1",
-// 		precio:"$100.00"
-// 	},
-//  ]
-
-//  const accesorios = [
-// 	{
-// 		marca:"Marca 1",
-// 		nombre:"Nombre 1",
-// 		descripcion:"Descripcion 1",
-// 		precio:"$100.00"
-// 	},
-// 	{
-// 		marca:"Marca 1",
-// 		nombre:"Nombre 1",
-// 		descripcion:"Descripcion 1",
-// 		precio:"$100.00"
-// 	},
-// 	{
-// 		marca:"Marca 1",
-// 		nombre:"Nombre 1",
-// 		descripcion:"Descripcion 1",
-// 		precio:"$100.00"
-// 	},
-// 	{
-// 		marca:"Marca 1",
-// 		nombre:"Nombre 1",
-// 		descripcion:"Descripcion 1",
-// 		precio:"$100.00"
-// 	},
-// 	{
-// 		marca:"Marca 1",
-// 		nombre:"Nombre 1",
-// 		descripcion:"Descripcion 1",
-// 		precio:"$100.00"
-// 	},
-//  ]
 
  function maquillaje1(){
 	window.location.href="/maquillaje"
@@ -165,10 +75,9 @@ export default function Productos() {
  }
  
  useEffect(()=>{
-	axios.get('https://gist.githubusercontent.com/RodrigoGutierrezPacheco/6fdcbaee593f135f4d9a062bfeba3de7/raw/34c3117c7be90c9a01daf4ebb1c1dbf4cf1e4b90/beautyymx.json')
+	axios.get('https://gist.githubusercontent.com/RodrigoGutierrezPacheco/6fdcbaee593f135f4d9a062bfeba3de7/raw/9ea0b0c29aafd02dcf0a97bfb2b674a65a4cc1dd/gistfile1.txt')
 	.then(response => {
 		setData(response.data)
-		console.log(response.data)
 	})
 	.catch( error => {
 		console.log(error)
