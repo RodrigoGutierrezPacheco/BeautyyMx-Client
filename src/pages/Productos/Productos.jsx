@@ -40,25 +40,29 @@ export default function Productos() {
   .slice(pagesVisited, pagesVisited + productsPerPage)
   .map(item => {
 
-    return (
-      <div className="boxProduct" key={item.codigo}>
-<img className='producto1' src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt=''/>"
-        <p className="descripcion">
-          Descripcion: <br />
-          {item.descripcion}
-        </p>
-        <h3 className="precio">${item.precio}.00MXN</h3>
-        <p>Contenido: {item.contenido}</p>
-        <p>Codigo: {item.codigo}</p>
-        <motion.button
-          whileTap={{ scale: 1.2 }}
-          whileHover={{ scale: 1.1 }}
-          className="button1"
-        >
-          Ver Producto
-        </motion.button>
-      </div>
-    );
+		return (
+			<>
+				{item.id === "#VALUE!" ? null : (
+					<div className="boxProduct" key={item.codigo}>
+						<img className='producto1' src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt=''/>"
+						<p className="descripcion">
+							Descripcion: <br />
+							{item.descripcion}
+						</p>
+						<h3 className="precio">${item.precio}.00MXN</h3>
+						<p>Contenido: {item.contenido}</p>
+						<p>Codigo: {item.codigo}</p>
+						<motion.button
+							whileTap={{ scale: 1.2 }}
+							whileHover={{ scale: 1.1 }}
+							className="button1"
+						>
+							Ver Producto
+						</motion.button>
+					</div>
+				)}
+			</>
+		);
   });
 
 
