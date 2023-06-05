@@ -2,10 +2,11 @@
 body,h1,h2,h3,p,button{
 	font-family: 'Montserrat Alternates', sans-serif;
 }
-@media(max-width:500px){
+@media(max-width:600px){
   .navbar2{
 		background-color: #FFCACA;
 		color: rgb(0, 0, 0);	
+		width: 100%;
 	}
 
 	.pink{
@@ -21,6 +22,7 @@ body,h1,h2,h3,p,button{
 		display: flex;
 		flex-wrap:wrap;
 		justify-content: center;
+		margin-left: 1rem;
 	}
 
 	.marca{
@@ -29,8 +31,8 @@ body,h1,h2,h3,p,button{
 
 	.descripcion{
 		color: black;
+		font-weight: 900;
 		height: 100%;
-		border: 2px solid #FFCACA;
 	}
 
 		.boxVistaRapida1{
@@ -75,6 +77,7 @@ body,h1,h2,h3,p,button{
 
 	.nav{
 		background-color: #FFCACA;
+		width: 100vw;
 	}
 
 
@@ -174,14 +177,25 @@ body,h1,h2,h3,p,button{
 		margin-right: auto;
 	}
 
+	.subtitle{
+		font-weight: 300 !important;
+		font-family: 'Courier New', Courier, monospace;
+	}
+
 	.boxProduct{
 		display: flex;
 		flex-direction: column;
-		width: 50%;
-		align-items: center;
-    padding: .5rem;
-		border: 2px solid black;
+		width: 45vw;
 	}
+
+	.marginr{
+		margin-right: auto;
+	}
+
+	.marginl{
+		margin-left: auto;
+	}
+
 
 		.boxProduct2{
 		display: flex;
@@ -203,7 +217,7 @@ body,h1,h2,h3,p,button{
 		font-size: 1rem;
 		border: 2px solid #C92C39;
 		font-family: 'Montserrat Alternates', sans-serif;
-		width: 50%;
+		width: 35vw;
 		display: flex;
 		margin-right: auto;
 		margin-left: auto;

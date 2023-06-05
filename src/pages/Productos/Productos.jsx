@@ -25,7 +25,7 @@ export default function Productos() {
 
 	const [pageNumber, setPageNumber] = useState(0);
 
-  const productsPerPage = 16;
+  const productsPerPage = 10;
   const pagesVisited = pageNumber * productsPerPage;
 
 	const pageCount = Math.ceil(data.length / productsPerPage);
@@ -44,14 +44,13 @@ export default function Productos() {
 			<>
 				{item.id === "#VALUE!" ? null : (
 					<div className="boxProduct" key={item.codigo}>
-						<img className='producto1' src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt=''/>"
-						<p className="descripcion">
-							Descripcion: <br />
+						<img className='producto1' src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt='imagen del producto'/>
+						<p className="descripcion"> 
+							<br />
 							{item.descripcion}
 						</p>
 						<h3 className="precio">${item.precio}.00MXN</h3>
-						<p>Contenido: {item.contenido}</p>
-						<p>Codigo: {item.codigo}</p>
+						<p className='subtitle'>{item.codigo} - {item.contenido}</p>
 						<motion.button
 							whileTap={{ scale: 1.2 }}
 							whileHover={{ scale: 1.1 }}
@@ -79,7 +78,7 @@ export default function Productos() {
  }
  
  useEffect(()=>{
-	axios.get('https://gist.githubusercontent.com/RodrigoGutierrezPacheco/6fdcbaee593f135f4d9a062bfeba3de7/raw/9ea0b0c29aafd02dcf0a97bfb2b674a65a4cc1dd/gistfile1.txt')
+	axios.get(' https://gist.githubusercontent.com/RodrigoGutierrezPacheco/6fdcbaee593f135f4d9a062bfeba3de7/raw/ae3b4765becde13ac7d29419b0d26a1ae9defa06/gistfile1.txt')
 	.then(response => {
 		setData(response.data)
 	})
@@ -109,59 +108,6 @@ export default function Productos() {
 			 />
 
     </div>
-		 {/* <div className='boxVistaRapida1'>
-			<h1 className="title red">Maquillaje</h1>
-			<Carousel interval={30000} indicators={false} variant="dark">
-			{maquillaje.map((lanzamiento)=>
-				<Carousel.Item >
-					<div className="boxProduct1">
-					 <img className="producto1" src="images/product1.jpg" alt="" />
-					 <h1>{lanzamiento.marca}</h1>
-					 <h3>NOMBRE DEL PRODUCTO</h3>
-					 <h3 className="precio">$799.00MXN</h3>
-					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
-					</div>
-				</Carousel.Item>
-       )}
-     </Carousel>
-		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" onClick={maquillaje1}>Ver Todo en Maquillaje</motion.button>
-		 </div> */}
-
-		 {/* <div className='boxVistaRapida1'>
-			<h1 className="title red mt">Cuidado de la Piel</h1>
-			<Carousel interval={3000} indicators={false} variant="dark">
-			{maquillaje.map((lanzamiento)=>
-				<Carousel.Item >
-					<div className="boxProduct1">
-					 <img className="producto1" src="images/product1.jpg" alt="" />
-					 <h1>{lanzamiento.marca}</h1>
-					 <h3>NOMBRE DEL PRODUCTO</h3>
-					 <h3 className="precio">$799.00MXN</h3>
-					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
-					</div>
-				</Carousel.Item>
-       )}
-     </Carousel>
-		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" onClick={cuidadoDeLaPiel1} >Ver Todo Cudiado de la Piel</motion.button>
-		 </div> */}
-
-		 {/* <div className='boxVistaRapida1'>
-			<h1 className="title red mt">Accesorios</h1>
-			<Carousel interval={3000} indicators={false} variant="dark">
-			{maquillaje.map((lanzamiento)=>
-				<Carousel.Item >
-					<div className="boxProduct1">
-					 <img className="producto1" src="images/product1.jpg" alt="" />
-					 <h1>{lanzamiento.marca}</h1>
-					 <h3>NOMBRE DEL PRODUCTO</h3>
-					 <h3 className="precio">$799.00MXN</h3>
-					 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1">Ver Producto</motion.button>
-					</div>
-				</Carousel.Item>
-       )}
-     </Carousel>
-		 <motion.button whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" onClick={accesorios1}>Ver Todo en Accesorios</motion.button>
-		 </div> */}
 
 		</div>
   );

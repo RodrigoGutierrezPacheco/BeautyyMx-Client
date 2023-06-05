@@ -65,10 +65,10 @@ function HomePage() {
     </Carousel>
 		<div className="mt">
 		 <h1 className="title">LOS MEJORES PRODUCTOS AL MEJOR PRECIO</h1>
-		 <motion.button onClick={productos} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button mt">!Conocelos¡</motion.button>
+		 <motion.button onClick={productos} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button mt">Ver todos</motion.button>
 		</div>
 		<div className="lanzamientos">
-			<h1 className="title">Recien Llegados</h1>
+			<h1 className="title">Recién Llegados</h1>
 			<div className='boxVistaRapida1'>
 			<Carousel interval={3000} indicators={false} variant="dark">
 			{lanzamientos.map((lanzamiento)=>
@@ -86,7 +86,7 @@ function HomePage() {
 		 <motion.button  whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todo en Tamaño Viaje</motion.button>
 		 </div>
 		 <div>
-			<h1 className="title mt1">CATALOGO POR CATEGORIAS</h1>
+			<h1 className="title mt1">CATALOGO POR CATEGORÍAS</h1>
 			<Carousel indicators={false} variant="dark">
       <Carousel.Item>
         <img
@@ -115,7 +115,7 @@ function HomePage() {
 
 		<div className="nosotros mt1">
 			<h1 className="title red">ACERCA DE NOSOTROS</h1>
-			<h3 color="white">Somos una empresa dedicada a la venta de maquillaje 100% original, de alta calidar y de las mejores marcas. Contamos con envio a todas las partes de Mexico. Con distintos puntos de venta dentro de Cuernavaca, Morelos. Podemos enviar todo lo que tu quieras.</h3>
+			<h3 color="white">Somos una empresa dedicada a la venta de maquillaje 100% original, de alta calidad y de las mejores marcas. Contamos con envió a todas las partes de México. Con distintos puntos de venta dentro de Cuernavaca, Morelos. Podemos enviar todo lo que tu quieras.</h3>
 			<motion.button onClick={puntosDeVenta} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button mb">Puntos de Venta</motion.button>
 		</div>
 
