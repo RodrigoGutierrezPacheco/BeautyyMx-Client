@@ -47,6 +47,7 @@ function HomePage() {
           src="images/inicio.png"
           alt="First slide"
         />
+				<motion.button whileTap={{scale:1.1}} className="button">Inicio</motion.button>
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -54,6 +55,7 @@ function HomePage() {
           src="images/productos.png"
           alt="Second slide"
         />
+				<motion.button whileTap={{scale:1.1}} onClick={productos} className="button">Productos</motion.button>
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -61,12 +63,13 @@ function HomePage() {
           src="images/puntosVenta.png"
           alt="Third slide"
         />
+				<motion.button whileTap={{scale:1.1}} onClick={puntosDeVenta} className="button">Puntos de Venta</motion.button>
       </Carousel.Item>
     </Carousel>
-		<div className="mt">
+		{/* <div className="mt">
 		 <h1 className="title">LOS MEJORES PRODUCTOS AL MEJOR PRECIO</h1>
 		 <motion.button onClick={productos} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button mt">Ver todos</motion.button>
-		</div>
+		</div> */}
 		<div className="lanzamientos">
 			<h1 className="title">Recién Llegados</h1>
 			<div className='boxVistaRapida1'>
@@ -115,7 +118,7 @@ function HomePage() {
 
 		<div className="nosotros mt1">
 			<h1 className="title red">ACERCA DE NOSOTROS</h1>
-			<h3 color="white">Somos una empresa dedicada a la venta de maquillaje 100% original, de alta calidad y de las mejores marcas. Contamos con envió a todas las partes de México. Con distintos puntos de venta dentro de Cuernavaca, Morelos. Podemos enviar todo lo que tu quieras.</h3>
+			<h3 color="white">Somos una empresa dedicada a la venta de maquillaje 100% original, de alta calidad y de las mejores marcas. Contamos con envío a todas las partes de México. Con distintos puntos de venta dentro de Cuernavaca, Morelos. Podemos enviar todo lo que tu quieras.</h3>
 			<motion.button onClick={puntosDeVenta} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button mb">Puntos de Venta</motion.button>
 		</div>
 

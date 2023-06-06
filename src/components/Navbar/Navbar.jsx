@@ -1,4 +1,5 @@
 import './Navbar.css'
+import '../../pages/HomePage/HomePage.css'
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { CloseButton } from 'react-bootstrap';
@@ -6,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 import ReactDOM from 'react-dom';
-import Modal from 'react-modal';
+import { Modal } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import 'animate.css';
 import { slide as Menu } from 'react-burger-menu'
@@ -18,7 +19,7 @@ function CollapsibleExample() {
 		backgroundColor: "#C92C39",
 		color:"white",
 		fontSize:"100",
-		width:"60vw",
+		width:"50vw",
 		marginLeft:"10%",
 		border:"5px solid black",
 		transform: 'translate(-0%, -0%)',
@@ -27,10 +28,17 @@ function CollapsibleExample() {
 
 	let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
+	
 
   function openModal() {
     setIsOpen(true);	
   }
+
+	function openMenu(){
+		setIsOpen (true);
+		const modal = document.querySelector('.modal');
+		modal.classList.add("animate__animated" , "animate__backInDown")
+	}
 
 	function home(){
 		window.location.href="/"
@@ -85,18 +93,8 @@ function CollapsibleExample() {
 		<nav className='flex nav'>
 			<motion.img  whileTap={{scale:1.2}} whileHover={{scale:1.1}} onClick={openModal} className='menu animate__animated animate__bounce' src="images/menu.png" alt="" />
 		<motion.div className='animate__animated animate__slideInLeft'>
-			<Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example"
-				overlayClassName="overlayModal"
-				overlayBAckgroundColor="black"
-				overFlow="true"
-				id='outer-container'
-				backgroundColor="black"
-				>
+			<div className='animate__animated animate__backInLeft'>
+			<Modal show={modalIsOpen} className='animate__animated animate__backInLeft'>
       <div className='flex1'>
 				 <motion.img whileHover={{scale:1.1}} onClick={closeModal} className='x' src="images/x.png" alt="" />
 				<div className='start1'>
@@ -104,7 +102,7 @@ function CollapsibleExample() {
 				</div>
         <div className='white textoModal'>
 				<div start1>
-          <motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={loNuevo} className='textoModal'>Lo Nuevo</motion.h1>
+          {/* <motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={loNuevo} className='textoModal'>Lo Nuevo</motion.h1>
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={loMasVendido} className='textoModal'>Lo mas Vendido</motion.h1>
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={maquillaje} className='textoModal'>Maquillaje</motion.h1>
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={cuidadoParaLaPiel} className='textoModal'>Cuidado de la Piel</motion.h1>
@@ -113,13 +111,15 @@ function CollapsibleExample() {
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={minis} className='textoModal'>Minis</motion.h1>
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={ojos} className='textoModal'>Ojos</motion.h1>
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={paletas} className='textoModal'>Paletas</motion.h1>
-					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={rostro} className='textoModal'>Rostro</motion.h1>
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={rostro} className='textoModal'>Rostro</motion.h1> */}
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={todosLosProductos} className='textoModal'>Nosotros</motion.h1>
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={todosLosProductos} className='textoModal'>Todos los Productos</motion.h1>
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={puntosDeVenta} className='textoModal'>Puntos de Venta</motion.h1>
 				</div>
         </div>
 			</div>
       </Modal>
+					</div>
 		</motion.div>
 			<motion.img onClick={home} whileHover={{scale:1.1}} whileTap={{scale:1.2}}  className='logo' src="images/logoBeauty1.png" alt="" />
 		</nav>

@@ -13,7 +13,7 @@ export default function Footer() {
 			<div className="wrap mt1">
 			<div className="box ml">
 				<img className="logoFooter" src="images/envio.png" alt="" />
-				<h1 className="textoFooter">ENVIO GRATIS EN LA COMPRA DE $2000.00MXN</h1>
+				<h1 className="textoFooter">ENVÍO GRATIS EN LA COMPRA DE $2000.00MXN</h1>
 			</div>
 			<div className="box">
 				<img className="logoFooter" src="images/ubicacion.png" alt="" />
@@ -21,7 +21,7 @@ export default function Footer() {
 			</div>
 			<div className="box ml">
 				<img className="logoFooter" src="images/pago.png" alt="" />
-				<h1 className="textoFooter">ACEPTAMOS DIFERENTES METODOS DE PAGO</h1>
+				<h1 className="textoFooter">ACEPTAMOS DIFERENTES MÉTODOS DE PAGO</h1>
 			</div>
 			<div className="box">
 				<img className="logoFooter" src="images/maquillaje.png" alt="" />
@@ -55,7 +55,7 @@ export default function Footer() {
         </Accordion.Body>
       </Accordion.Item>
 			<Accordion.Item eventKey="2">
-        <Accordion.Header><a className='red'>Tendo una duda</a></Accordion.Header>
+        <Accordion.Header><a className='red'>Tengo una duda</a></Accordion.Header>
         <Accordion.Body>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad

@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-			<Navbar2/>
+			{/* <Navbar2/> */}
 
       <Routes>
         <Route path="/" element={<HomePage/>}/>

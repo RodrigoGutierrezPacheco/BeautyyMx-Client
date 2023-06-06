@@ -13,7 +13,9 @@ body,h1,h2,h3,p,button{
 		background-color: #FFCACA;
 	}
 
-
+  .modalMenu{
+		display: none;
+	}
 
 
 	.boxVistaRapida{
@@ -23,6 +25,10 @@ body,h1,h2,h3,p,button{
 		flex-wrap:wrap;
 		justify-content: center;
 		margin-left: 1rem;
+	}
+
+	.imgPuntoVenta{
+		width: 90vw;
 	}
 
 	.marca{
@@ -112,6 +118,15 @@ body,h1,h2,h3,p,button{
 		/* background-color: #C92C39; */
 	}
 
+	.modal-content{
+		width: 70% !important;
+		margin-left: auto ;
+		margin-right: auto;
+		border: .5rem solid black !important;
+		padding: .5rem;
+		background-color:#C92C39 !important;
+	}
+
 
 	.textoModal{
 		font-size: 1rem;
@@ -133,6 +148,21 @@ body,h1,h2,h3,p,button{
 		display: flex;
 		flex-direction: column;
 		background-color: #C92C39;
+	}
+
+	.hr{
+		background-color: red !important;
+		height: .1rem !important;
+		margin-top: .1rem;
+
+	}
+
+	.flexHorarios{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		color: black;
+		font-weight: 200 !important;
 	}
 
 	.inicio{
