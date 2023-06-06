@@ -119,7 +119,7 @@ body,h1,h2,h3,p,button{
 	}
 
 	.modal-content{
-		width: 70% !important;
+		width: 90% !important;
 		margin-left: auto ;
 		margin-right: auto;
 		border: .5rem solid black !important;
@@ -142,6 +142,10 @@ body,h1,h2,h3,p,button{
 	.x{
 		width: 4vw;
 		margin-left: 90%;		
+	}
+
+	.ubicacion{
+		width: 90%;
 	}
 
 	.flex1{
