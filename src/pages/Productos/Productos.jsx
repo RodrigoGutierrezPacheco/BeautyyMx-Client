@@ -69,13 +69,13 @@ export default function Productos() {
         </p>
         <h3 className="precio">${item.precio}.00MXN</h3>
         <p className="subtitle">{item.codigo} - {item.contenido}</p>
-        <motion.button
+        {/* <motion.button
           whileTap={{ scale: 1.2 }}
           whileHover={{ scale: 1.1 }}
           className="button1"
         >
           Ver Producto
-        </motion.button>
+        </motion.button> */}
       </div>
     ));
 
