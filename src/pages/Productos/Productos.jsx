@@ -82,6 +82,8 @@ export default function Productos() {
   return (
     <div>
       <img className="portada" src="images/productos.png" alt="" />
+			<div className='flex'>
+				<h1>Encontrar por Marca</h1>
         <select className='filtro' value={brandFilter} onChange={e => setBrandFilter(e.target.value)}>
           <option value="">Todas las marcas</option>
 					<option value="Anastasia Beverly Hills">Anastasia Beverly Hills</option>
@@ -140,7 +142,8 @@ export default function Productos() {
           {/* <option value=""></option> */}
           {/* Agrega más opciones de marcas aquí */}
         </select>
-      <div className="boxVistaRapida">
+				</div>
+      <div className="column">
         {/* <input
           type="text"
           value={searchTerm}
@@ -159,7 +162,7 @@ export default function Productos() {
          {/* <select value={productFilter} onChange={e => setProductFilter(e.target.value)}>
           <option value="">Todos los productos</option>
         </select>  */}
-				<div className='flexProductos'>
+				<div className='boxVistaRapida'>
         {displayProducts}
 				</div>
 

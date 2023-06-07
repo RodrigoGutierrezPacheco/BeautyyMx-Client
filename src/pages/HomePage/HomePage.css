@@ -124,8 +124,9 @@ body,h1,h2,h3,p,button{
 		/* background-color: #C92C39; */
 	}
 
-	.ul.pagination{
-		margin-top: 2rem;
+	.pagination{
+		display: flex;
+		justify-content: center;
 	}
 	.modal-content{
 		width: 90% !important;
@@ -138,6 +139,13 @@ body,h1,h2,h3,p,button{
 
 	.filtro{
 		width: 50%;
+		background-color: #C92C39;
+		color: white;
+		font-weight: 800;
+		font-size: 1.5rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 
@@ -340,6 +348,7 @@ body,h1,h2,h3,p,button{
 
 	.portada{
 		width: 100vw;
+		background-color: #FFCACA;
 	}
 
 	.accordion{
