@@ -47,7 +47,9 @@ function HomePage() {
           src="images/inicio.png"
           alt="First slide"
         />
-				<motion.button whileTap={{scale:1.1}} className="button">Inicio</motion.button>
+				<div className="pink">
+					<motion.button whileTap={{scale:1.1}} className="button pink">Inicio</motion.button>
+				</div>
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -55,7 +57,9 @@ function HomePage() {
           src="images/productos.png"
           alt="Second slide"
         />
-				<motion.button whileTap={{scale:1.1}} onClick={productos} className="button">Productos</motion.button>
+				<div className="pink">
+					<motion.button whileTap={{scale:1.1}} onClick={productos} className="button pink">Productos</motion.button>
+				</div>
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -63,7 +67,9 @@ function HomePage() {
           src="images/puntosVenta.png"
           alt="Third slide"
         />
-				<motion.button whileTap={{scale:1.1}} onClick={puntosDeVenta} className="button">Puntos de Venta</motion.button>
+				<div className="pink">
+					<motion.button whileTap={{scale:1.1}} onClick={puntosDeVenta} className="button pink">Puntos de Venta</motion.button>
+				</div>
       </Carousel.Item>
     </Carousel>
 		{/* <div className="mt">
@@ -86,9 +92,9 @@ function HomePage() {
 				</Carousel.Item>
        )}
      </Carousel>
-		 <motion.button  whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todo en Tamaño Viaje</motion.button>
+		 {/* <motion.button  whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button1 mt" >Ver Todo en Tamaño Viaje</motion.button> */}
 		 </div>
-		 <div>
+		 {/* <div>
 			<h1 className="title mt1">CATALOGO POR CATEGORÍAS</h1>
 			<Carousel indicators={false} variant="dark">
       <Carousel.Item>
@@ -113,7 +119,7 @@ function HomePage() {
         />
       </Carousel.Item>
     </Carousel>
-		 </div>
+		 </div> */}
 		</div>
 
 		<div className="nosotros mt1">

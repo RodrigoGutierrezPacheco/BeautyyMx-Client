@@ -17,6 +17,14 @@ body,h1,h2,h3,p,button{
 		display: none;
 	}
 
+	.pink{
+		background-color: #FFCACA;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 2rem;
+	}
+
 
 	.boxVistaRapida{
 		margin-top: 3rem;
