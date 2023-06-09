@@ -36,6 +36,10 @@ body,h1,h2,h3,p,button{
 		width: 90vw;
 	}
 
+	.img-producto{
+		width: 50%;
+	}
+
 	.marca{
 		font-size: 1rem;
 	}
@@ -130,7 +134,9 @@ body,h1,h2,h3,p,button{
 		justify-content: center;
 	}
 	.modal-content{
-		width: 90% !important;
+		width: 80% !important;
+		height: 70%;
+		margin-top: 15%;
 		margin-left: auto ;
 		margin-right: auto;
 		border: .5rem solid black !important;

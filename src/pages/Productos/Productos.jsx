@@ -188,7 +188,7 @@ export default function Productos() {
           {selectedProduct && (
             <>
               <h2 id="modal-title">{selectedProduct.descripcion}</h2>
-              <img src={`https://drive.google.com/uc?export=view&id=${selectedProduct.id}`} alt="Imagen del producto" />
+              <img className='img-producto marginr marginl' src={`https://drive.google.com/uc?export=view&id=${selectedProduct.id}`} alt="Imagen del producto" />
               <p>Marca: {selectedProduct.marca}</p>
 							<p>Descripcion: {selectedProduct.descripcion}</p>
               <p>Precio: ${selectedProduct.precio}.00 MXN</p>
