@@ -15,10 +15,11 @@ import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 
 export default function Productos() {
+
+  const [selectedProduct, setSelectedProduct] = useState(null); // Nuevo estado para almacenar el producto seleccionado
+
   const [data, setData] = useState([]);
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const [pageNumber, setPageNumber] = useState(0);
   const productsPerPage = 10;
   const pagesVisited = pageNumber * productsPerPage;
@@ -26,6 +27,15 @@ export default function Productos() {
   const [brandFilter, setBrandFilter] = useState('');
   const [priceFilter, setPriceFilter] = useState('');
   const [productFilter, setProductFilter] = useState('');
+
+	const handleOpen = (product) => { // Modificamos la función handleOpen para recibir el producto seleccionado
+    setSelectedProduct(product); // Almacenamos el producto seleccionado en el estado
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     axios
@@ -71,13 +81,14 @@ export default function Productos() {
 				<p className='contenedor-descripcion marginr marginl'>{item.descripcion}</p>
         <h3 className="precio">${item.precio}.00MXN</h3>
         <p className="subtitle">{item.codigo} - {item.contenido}</p>
-        {/* <motion.button
+				<motion.button
           whileTap={{ scale: 1.2 }}
           whileHover={{ scale: 1.1 }}
           className="button1"
+          onClick={() => handleOpen(item)} // Pasamos el producto seleccionado a la función handleOpen al hacer clic en el botón
         >
           Ver Producto
-        </motion.button> */}
+        </motion.button>
       </div>
     ));
 
@@ -167,6 +178,26 @@ export default function Productos() {
 				<div className='boxVistaRapida marginr marginl'>
         {displayProducts}
 				</div>
+				<Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-title"
+        aria-describedby="modal-description"
+      >
+        <div className="modal-content">
+          {selectedProduct && (
+            <>
+              <h2 id="modal-title">{selectedProduct.descripcion}</h2>
+              <img src={`https://drive.google.com/uc?export=view&id=${selectedProduct.id}`} alt="Imagen del producto" />
+              <p>Marca: {selectedProduct.marca}</p>
+							<p>Descripcion: {selectedProduct.descripcion}</p>
+              <p>Precio: ${selectedProduct.precio}.00 MXN</p>
+              <p>{selectedProduct.codigo} - {selectedProduct.contenido}</p>
+            </>
+          )}
+          <Button onClick={handleClose}>Cerrar</Button>
+        </div>
+      </Modal>
 
         <ReactPaginate
           previousLabel={<img src="https://cdn-icons-png.flaticon.com/128/151/151846.png" alt="Siguiente" className="siguiente" />}
