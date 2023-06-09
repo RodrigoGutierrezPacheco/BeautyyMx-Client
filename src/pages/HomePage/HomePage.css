@@ -163,6 +163,10 @@ body,h1,h2,h3,p,button{
 		align-items: center;
 	}
 
+	.buscador{
+		border:.2rem solid #C92C39;
+	}
+
 
 	.textoModal{
 		font-size: 1rem;

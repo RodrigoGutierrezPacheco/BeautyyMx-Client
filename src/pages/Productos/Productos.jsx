@@ -157,13 +157,14 @@ export default function Productos() {
         </select>
 				</div>
 				<h1 className='margint'>{brandFilter ? brandFilter : "Todas las marcas"}</h1>      
-				<div className="column">
-        {/* <input
+        <input
           type="text"
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
-          placeholder="Buscar productos..."
-        /> */}
+          placeholder="Buscar tus productos..."
+					className='buscador'
+        />
+				<div className="column">
 
 
         {/* <input
