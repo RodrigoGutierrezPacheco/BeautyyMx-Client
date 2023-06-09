@@ -27,12 +27,9 @@ body,h1,h2,h3,p,button{
 
 
 	.boxVistaRapida{
-		margin-top: 3rem;
-		margin-bottom: 3rem;
 		display: flex;
 		flex-wrap:wrap;
 		justify-content: center;
-		margin-left: 1rem;
 	}
 
 	.imgPuntoVenta{
@@ -247,54 +244,39 @@ body,h1,h2,h3,p,button{
 		font-family: 'Courier New', Courier, monospace;
 	} 
 
-	 .imagen-producto{
-		width: 100%;
-		height: 100%;
-		display: flex;
-	} 
-
-	 .boxProduct{
+	.boxProduct {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		text-align: center; /* Añade esta línea para centrar horizontalmente el texto */
 		width: 45vw;
 		height: 100%;
-	} 
-
-	 .descripcion{
-		color: black;
-		font-weight: 900;
-		height: 100%;
-		width: 80%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		padding: 10px;
+		margin: 0;
 	}
-
-	.precio{
-		color: black;
-		font-weight: 800;
-		font-size: 1rem;
-	} 
-
-	.contenedor-imagen{
-		width: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.contenedor-descripcion{
-		width: 80%;
-		height: 5rem;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-
 	
+	.contenedor-imagen {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 200px; /* Ajusta la altura deseada para el contenedor de la imagen */
+	}
+	
+	.imagen-producto {
+		max-height: 100%;
+		max-width: 100%;
+		object-fit: contain; /* Ajusta la imagen para mantener su relación de aspecto */
+	}
+	
+	.contenedor-descripcion {
+		margin: 10px 0; /* Ajusta el margen superior e inferior */
+		max-height: 100px; /* Ajusta la altura máxima deseada */
+		width: 80%;
+		overflow: hidden; /* Esto oculta cualquier parte de la descripción que exceda la altura máxima */
+		white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+		text-overflow: ellipsis; /* Agrega puntos suspensivos (...) al final del texto si se desborda del contenedor */
+		}
 
 	.marginr{
 		margin-right: auto;
@@ -302,6 +284,10 @@ body,h1,h2,h3,p,button{
 
 	.marginl{
 		margin-left: auto;
+	}
+
+	.precio{
+		font-size: 1rem;
 	}
 
 

@@ -66,7 +66,6 @@ export default function Productos() {
         	<img className="imagen-producto" src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt="imagen del producto" />
 				</div>
         <p className="descripcion marginl marginr">
-          <br />
           {item.marca}
         </p>
 				<p className='contenedor-descripcion marginr marginl'>{item.descripcion}</p>
@@ -165,7 +164,7 @@ export default function Productos() {
          {/* <select value={productFilter} onChange={e => setProductFilter(e.target.value)}>
           <option value="">Todos los productos</option>
         </select>  */}
-				<div className='boxVistaRapida'>
+				<div className='boxVistaRapida marginr marginl'>
         {displayProducts}
 				</div>
 
