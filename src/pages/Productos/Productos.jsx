@@ -95,7 +95,7 @@ export default function Productos() {
   return (
     <div>
       <img className="portada" src="images/productos.png" alt="" />
-			<div className='flex'>
+			<div className='flex marginb'>
 				<h1>Encontrar por Marca</h1>
         <select className='filtro' value={brandFilter} onChange={e => setBrandFilter(e.target.value)}>
           <option value="">Todas las marcas</option>
@@ -156,7 +156,8 @@ export default function Productos() {
           {/* Agrega más opciones de marcas aquí */}
         </select>
 				</div>
-      <div className="column">
+				<h1 className='margint'>{brandFilter ? brandFilter : "Todas las marcas"}</h1>      
+				<div className="column">
         {/* <input
           type="text"
           value={searchTerm}
