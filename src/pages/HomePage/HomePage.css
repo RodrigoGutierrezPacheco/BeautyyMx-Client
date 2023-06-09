@@ -135,13 +135,21 @@ body,h1,h2,h3,p,button{
 	}
 	.modal-content{
 		width: 80% !important;
-		height: 70%;
-		margin-top: 15%;
+		height: 80%;
+		margin-top: 10%;
 		margin-left: auto ;
 		margin-right: auto;
 		border: .5rem solid black !important;
 		padding: .5rem;
 		background-color:#ffffff !important;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.scrollable {
+		display: flex;
+		flex-direction: column;
 	}
 
 	.filtro{
@@ -173,7 +181,7 @@ body,h1,h2,h3,p,button{
 	}
 
 	.x1{
-		width: 10% !important;
+		width: 15% !important;
 		margin-left: auto;
 	}
 	
@@ -216,6 +224,7 @@ body,h1,h2,h3,p,button{
 		border: 2px solid #C92C39;
 		margin-top: 5%;
 		font-family: 'Montserrat Alternates', sans-serif;
+		margin-top: auto;
 	}
 
 	.mt{
@@ -294,8 +303,24 @@ body,h1,h2,h3,p,button{
 		margin-right: auto;
 	}
 
+	.product-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		flex: 1;
+		/* Estilos para el contenedor de la imagen y los detalles del producto */
+	}
+
 	.marginl{
 		margin-left: auto;
+	}
+
+	.margint{
+		margin-top: 1rem;
+	}
+
+	.marginb{
+		margin-bottom: 1rem;
 	}
 
 	.precio{

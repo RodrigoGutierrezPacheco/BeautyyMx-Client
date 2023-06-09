@@ -184,11 +184,10 @@ export default function Productos() {
         aria-labelledby="modal-title"
         aria-describedby="modal-description"
       >
-        <div className="modal-content">
+        <div className="modal-content scrolleable">
           {selectedProduct && (
             <>
 						<div className="row">
-							<img onClick={handleClose} src="images/x.png" alt="" className="x1" />
               <h2 id="modal-title">{selectedProduct.descripcion}</h2>
 						</div>
               <img className='img-producto marginr marginl' src={`https://drive.google.com/uc?export=view&id=${selectedProduct.id}`} alt="Imagen del producto" />
@@ -198,6 +197,7 @@ export default function Productos() {
               <p>{selectedProduct.codigo} - {selectedProduct.contenido}</p>
             </>
           )}
+					<motion.button whileHover={{scale:1.1}} onClick={handleClose} whileTap={{scale:1.1}} className=" margint marginb button1 marginr marginl">Cerrar</motion.button>
         </div>
       </Modal>
 
