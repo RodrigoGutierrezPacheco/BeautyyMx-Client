@@ -47,8 +47,8 @@ function HomePage() {
           src="images/inicio.png"
           alt="First slide"
         />
-				<div className="pink">
-					<motion.button whileTap={{scale:1.1}} className="button pink">Inicio</motion.button>
+				<div className="">
+					<motion.button whileTap={{scale:1.1}} className="button ">Inicio</motion.button>
 				</div>
       </Carousel.Item>
       <Carousel.Item>
@@ -57,8 +57,8 @@ function HomePage() {
           src="images/productos.png"
           alt="Second slide"
         />
-				<div className="pink">
-					<motion.button whileTap={{scale:1.1}} onClick={productos} className="button pink">Productos</motion.button>
+				<div className="">
+					<motion.button whileTap={{scale:1.1}} onClick={productos} className="button ">Productos</motion.button>
 				</div>
       </Carousel.Item>
       <Carousel.Item>
@@ -67,8 +67,8 @@ function HomePage() {
           src="images/puntosVenta.png"
           alt="Third slide"
         />
-				<div className="pink">
-					<motion.button whileTap={{scale:1.1}} onClick={puntosDeVenta} className="button pink margint">Puntos de Venta</motion.button>
+				<div className="">
+					<motion.button whileTap={{scale:1.1}} onClick={puntosDeVenta} className="button">Puntos de Venta</motion.button>
 				</div>
       </Carousel.Item>
     </Carousel>
@@ -76,6 +76,14 @@ function HomePage() {
 		 <h1 className="title">LOS MEJORES PRODUCTOS AL MEJOR PRECIO</h1>
 		 <motion.button onClick={productos} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button mt">Ver todos</motion.button>
 		</div> */}
+		<div className="nosotros">
+			<h1 className="title red width marginr marginl">Bienvenidos a Beautyymx, tu destino para el mejor maquillaje original en línea!</h1>
+			<p className="width marginr marginl">En Beautyymx, nos enorgullece ofrecerte una amplia selección de productos de maquillaje auténtico y de alta calidad. Nuestro objetivo es brindarte una experiencia de compra excepcional, donde puedas encontrar los productos que realcen tu belleza y te hagan sentir segura y empoderada.</p>
+			<p className="width marginr marginl">Explora nuestra tienda en línea y descubre marcas reconocidas y populares, así como productos exclusivos que no encontrarás en ningún otro lugar. Trabajamos directamente con proveedores confiables para garantizar la autenticidad de todos nuestros productos.</p>
+			<p className="width marginr marginl">Sabemos lo importante que es para ti lucir lo mejor posible, y estamos aquí para ayudarte en ese camino. Nuestro equipo de expertos en belleza está listo para brindarte asesoramiento personalizado y responder a todas tus preguntas.</p>
+			<p className="width marginr marginl">¡Gracias por visitar Beautyymx! Disfruta de tu experiencia de compra y encuentra los productos de maquillaje original que te harán lucir radiante.</p>
+			<motion.button onClick={puntosDeVenta} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button mb">Puntos de Venta</motion.button>
+		</div>
 		<div className="lanzamientos">
 			<h1 className="title">Recién Llegados</h1>
 			<div className='boxVistaRapida1'>
@@ -121,14 +129,6 @@ function HomePage() {
     </Carousel>
 		 </div> */}
 		</div>
-
-		<div className="nosotros mt1">
-			<h1 className="title red">ACERCA DE NOSOTROS</h1>
-			<h3 color="white">Somos una empresa dedicada a la venta de maquillaje 100% original, de alta calidad y de las mejores marcas. Contamos con envío a todas las partes de México. Con distintos puntos de venta dentro de Cuernavaca, Morelos. Podemos enviar todo lo que tu quieras.</h3>
-			<motion.button onClick={puntosDeVenta} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button mb">Puntos de Venta</motion.button>
-		</div>
-
-	
 		</div>
     
   );
