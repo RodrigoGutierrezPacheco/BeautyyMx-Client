@@ -73,7 +73,7 @@ export default function Productos() {
     .map(item => (
       <div className="boxProduct" key={item.codigo}>
 				<div className="contenedor-imagen">
-        	<img className="imagen-producto" src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt="imagen del producto" />
+        	<img onClick={() => handleOpen(item)} className="imagen-producto" src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt="imagen del producto" />
 				</div>
         <p className="descripcion marginl marginr">
           {item.marca}

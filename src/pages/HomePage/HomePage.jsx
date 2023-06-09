@@ -68,7 +68,7 @@ function HomePage() {
           alt="Third slide"
         />
 				<div className="pink">
-					<motion.button whileTap={{scale:1.1}} onClick={puntosDeVenta} className="button pink">Puntos de Venta</motion.button>
+					<motion.button whileTap={{scale:1.1}} onClick={puntosDeVenta} className="button pink margint">Puntos de Venta</motion.button>
 				</div>
       </Carousel.Item>
     </Carousel>
