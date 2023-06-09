@@ -43,11 +43,7 @@ body,h1,h2,h3,p,button{
 		font-size: 1rem;
 	}
 
-	.descripcion{
-		color: black;
-		font-weight: 900;
-		height: 100%;
-	}
+
 
 		.boxVistaRapida1{
 		margin-top: 3rem;
@@ -234,22 +230,71 @@ body,h1,h2,h3,p,button{
 		justify-content: center;
 	}
 
+	.producto2{
+		height: 100%;
+		width: auto; /* Esto mantiene la proporción original de la imagen */
+		display: block; /* Esto evita espacios vacíos debajo de las imágenes */
+	}
+
 	.producto1{
 		width: 80%;
 		margin-left: auto;
 		margin-right: auto;
 	}
 
-	.subtitle{
+	 .subtitle{
 		font-weight: 300 !important;
 		font-family: 'Courier New', Courier, monospace;
-	}
+	} 
 
-	.boxProduct{
+	 .imagen-producto{
+		width: 100%;
+		height: 100%;
+		display: flex;
+	} 
+
+	 .boxProduct{
 		display: flex;
 		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		width: 45vw;
+		height: 100%;
+	} 
+
+	 .descripcion{
+		color: black;
+		font-weight: 900;
+		height: 100%;
+		width: 80%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
+
+	.precio{
+		color: black;
+		font-weight: 800;
+		font-size: 1rem;
+	} 
+
+	.contenedor-imagen{
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.contenedor-descripcion{
+		width: 80%;
+		height: 5rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+
+	
 
 	.marginr{
 		margin-right: auto;
@@ -287,11 +332,7 @@ body,h1,h2,h3,p,button{
 		justify-content: center;
 	}
 
-	.precio{
-		color: black;
-		font-weight: 800;
-		font-size: 1rem;
-	}
+
 
 	.title{
 		color: rgb(0, 0, 0);

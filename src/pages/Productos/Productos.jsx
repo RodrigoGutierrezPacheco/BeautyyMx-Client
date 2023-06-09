@@ -62,11 +62,14 @@ export default function Productos() {
     .slice(pagesVisited, pagesVisited + productsPerPage)
     .map(item => (
       <div className="boxProduct" key={item.codigo}>
-        <img className="producto2" src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt="imagen del producto" />
-        <p className="descripcion">
+				<div className="contenedor-imagen">
+        	<img className="imagen-producto" src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt="imagen del producto" />
+				</div>
+        <p className="descripcion marginl marginr">
           <br />
-          {item.descripcion}
+          {item.marca}
         </p>
+				<p className='contenedor-descripcion marginr marginl'>{item.descripcion}</p>
         <h3 className="precio">${item.precio}.00MXN</h3>
         <p className="subtitle">{item.codigo} - {item.contenido}</p>
         {/* <motion.button
