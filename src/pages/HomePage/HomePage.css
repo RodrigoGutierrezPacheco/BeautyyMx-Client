@@ -172,6 +172,12 @@ body,h1,h2,h3,p,button{
 		margin-left: 90%;		
 	}
 
+	.x1{
+		width: 10% !important;
+		margin-left: auto;
+	}
+	
+
 	.ubicacion{
 		width: 90%;
 	}

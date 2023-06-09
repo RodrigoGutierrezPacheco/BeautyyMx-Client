@@ -187,7 +187,10 @@ export default function Productos() {
         <div className="modal-content">
           {selectedProduct && (
             <>
+						<div className="row">
+							<img onClick={handleClose} src="images/x.png" alt="" className="x1" />
               <h2 id="modal-title">{selectedProduct.descripcion}</h2>
+						</div>
               <img className='img-producto marginr marginl' src={`https://drive.google.com/uc?export=view&id=${selectedProduct.id}`} alt="Imagen del producto" />
               <p>Marca: {selectedProduct.marca}</p>
 							<p>Descripcion: {selectedProduct.descripcion}</p>
@@ -195,7 +198,6 @@ export default function Productos() {
               <p>{selectedProduct.codigo} - {selectedProduct.contenido}</p>
             </>
           )}
-          <Button onClick={handleClose}>Cerrar</Button>
         </div>
       </Modal>
 
