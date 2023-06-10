@@ -64,9 +64,9 @@ export default function Productos() {
         <div className="contenedor-imagen">
           <img onClick={() => handleOpen(item)} className="imagen-producto" src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt="imagen del producto" />
         </div>
-        <p className="descripcion marginl marginr">
+        <h1 className="descripcion marginl marginr">
           {item.marca}
-        </p>
+        </h1>
         <p className='contenedor-descripcion marginr marginl'>{item.descripcion}</p>
         <h3 className="precio">${item.precio}.00MXN</h3>
         <p className="subtitle">{item.codigo} - {item.contenido}</p>

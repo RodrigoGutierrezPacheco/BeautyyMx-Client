@@ -78,9 +78,8 @@ function HomePage() {
 		</div> */}
 		<div className="nosotros">
 			<h1 className="title red width marginr marginl">Bienvenidos a Beautyymx, tu destino para el mejor maquillaje original en línea!</h1>
-			<p className="width marginr marginl">En Beautyymx, nos enorgullece ofrecerte una amplia selección de productos de maquillaje auténtico y de alta calidad. Nuestro objetivo es brindarte una experiencia de compra excepcional, donde puedas encontrar los productos que realcen tu belleza y te hagan sentir segura y empoderada.</p>
+			<p className="width marginr marginl margint">En Beautyymx, nos enorgullece ofrecerte una amplia selección de productos de maquillaje auténtico y de alta calidad. Nuestro objetivo es brindarte una experiencia de compra excepcional, donde puedas encontrar los productos que realcen tu belleza y te hagan sentir segura y empoderada.</p>
 			<p className="width marginr marginl">Explora nuestra tienda en línea y descubre marcas reconocidas y populares, así como productos exclusivos que no encontrarás en ningún otro lugar. Trabajamos directamente con proveedores confiables para garantizar la autenticidad de todos nuestros productos.</p>
-			<p className="width marginr marginl">Sabemos lo importante que es para ti lucir lo mejor posible, y estamos aquí para ayudarte en ese camino. Nuestro equipo de expertos en belleza está listo para brindarte asesoramiento personalizado y responder a todas tus preguntas.</p>
 			<p className="width marginr marginl">¡Gracias por visitar Beautyymx! Disfruta de tu experiencia de compra y encuentra los productos de maquillaje original que te harán lucir radiante.</p>
 			<motion.button onClick={puntosDeVenta} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button mb">Puntos de Venta</motion.button>
 		</div>
