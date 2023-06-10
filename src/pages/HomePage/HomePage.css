@@ -255,6 +255,13 @@ body,h1,h2,h3,p,button{
 		width: 90%;
 	}
 
+	.marca{
+		width: 100%;
+		overflow: hidden;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
 
 	.button{
 		background-color:#C92C39;
@@ -396,6 +403,7 @@ body,h1,h2,h3,p,button{
 		width: 50%;
 		margin-left: auto;
 		margin-right: auto;
+		height: 200px;
 	}
 
 	.button1{
