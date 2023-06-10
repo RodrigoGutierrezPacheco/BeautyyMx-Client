@@ -390,6 +390,41 @@ body,h1,h2,h3,p,button{
 		font-size: 1rem;
 	}
 
+	.dhl{
+		display: inline-block;
+		background-color: #FFCC00;
+		color: #000000;
+		padding: 10px 20px;
+		font-size: 16px;
+		font-weight: bold;
+		text-decoration: none;
+		border-radius: 4px;
+	}
+
+	.black{
+		color: black;
+		font-weight: 600;
+	}
+
+	.envio{
+		width: 20%;
+	}
+
+	.space-arround{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+	
+	.dhl:hover{
+		background-color: #FFAA00;
+	}
+	
+	.dhl:active{
+		background-color: #FF8800;
+	}
+	
+
 
 		.boxProduct2{
 		display: flex;
