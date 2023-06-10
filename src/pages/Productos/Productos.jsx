@@ -64,7 +64,7 @@ export default function Productos() {
         <div className="contenedor-imagen">
           <img onClick={() => handleOpen(item)} className="imagen-producto" src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt="imagen del producto" />
         </div>
-        <h1 className="descripcion marginl marginr">
+        <h1 className="descripcion marginl marginr truncate-text">
           {item.marca}
         </h1>
         <p className='contenedor-descripcion marginr marginl'>{item.descripcion}</p>
@@ -165,13 +165,14 @@ export default function Productos() {
             {selectedProduct && (
               <>
                 <div className="row">
-                  <h2 id="modal-title">{selectedProduct.descripcion}</h2>
+                  <h1 id="modal-title marginr marginl">{selectedProduct.marca}</h1>
                 </div>
                 <img className='img-producto marginr marginl' src={`https://drive.google.com/uc?export=view&id=${selectedProduct.id}`} alt="Imagen del producto" />
                 <p>Marca: {selectedProduct.marca}</p>
                 <p>Descripcion: {selectedProduct.descripcion}</p>
                 <p>Precio: ${selectedProduct.precio}.00 MXN</p>
-                <p>{selectedProduct.codigo} - {selectedProduct.contenido}</p>
+								<p>Contenido: {selectedProduct.contenido}</p>
+                <p>Codigo: {selectedProduct.codigo}</p>
               </>
             )}
             <motion.button whileHover={{ scale: 1.1 }} onClick={handleClose} whileTap={{ scale: 1.1 }} className=" margint marginb button1 marginr marginl">Cerrar</motion.button>
