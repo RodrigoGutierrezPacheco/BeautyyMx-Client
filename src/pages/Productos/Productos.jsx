@@ -169,11 +169,25 @@ export default function Productos() {
                   <h1 id="modal-title marginr marginl">{selectedProduct.marca}</h1>
                 </div>
                 <img className='img-producto marginr marginl' src={`https://drive.google.com/uc?export=view&id=${selectedProduct.id}`} alt="Imagen del producto" />
-                <h2>Marca: {selectedProduct.descripcion}</h2>
-                <p>Descripcion: {selectedProduct.descripcion2}</p>
-                <h2>Precio: ${selectedProduct.precio}.00 MXN</h2>
-								<h2>Contenido: {selectedProduct.contenido}</h2>
-                <h2>Codigo: {selectedProduct.codigo}</h2>
+								<div className="row">
+                	<h2 className='width-100'>{selectedProduct.descripcion}</h2>
+								</div>
+								<div className="row">
+									<h2>Descripcion:</h2>
+                	<p>Descripcion: {selectedProduct.descripcion2}</p>
+								</div>
+								<div className="row">
+									<h2>Precio:</h2>
+                	<p>${selectedProduct.precio}.00 MXN</p>
+								</div>
+								<div className="row">
+									<h2>Contenido:</h2>
+									<p>{selectedProduct.contenido}</p>
+								</div>
+								<div className="row">
+									<h2>Codigo:</h2>
+                	<p>{selectedProduct.codigo}</p>
+								</div>
               </>
             )}
             <motion.button whileHover={{ scale: 1.1 }} onClick={handleClose} whileTap={{ scale: 1.1 }} className=" margint marginb button1 marginr marginl">Cerrar</motion.button>

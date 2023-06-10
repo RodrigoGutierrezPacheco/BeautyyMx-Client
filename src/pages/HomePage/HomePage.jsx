@@ -72,16 +72,11 @@ function HomePage() {
 				</div>
       </Carousel.Item>
     </Carousel>
-		{/* <div className="mt">
-		 <h1 className="title">LOS MEJORES PRODUCTOS AL MEJOR PRECIO</h1>
-		 <motion.button onClick={productos} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button mt">Ver todos</motion.button>
-		</div> */}
 		<div className="nosotros">
 			<h1 className="title red width marginr marginl">Bienvenidos a Beautyymx, tu destino para el mejor maquillaje original en línea!</h1>
-			<h3
-			 className="width marginr marginl margint">En Beautyymx, nos enorgullece ofrecerte una amplia selección de productos de maquillaje auténtico y de alta calidad. Nuestro objetivo es brindarte una experiencia de compra excepcional, donde puedas encontrar los productos que realcen tu belleza y te hagan sentir segura y empoderada.</h3>
-			<h3 className="width marginr marginl">Explora nuestra tienda en línea y descubre marcas reconocidas y populares, así como productos exclusivos que no encontrarás en ningún otro lugar. Trabajamos directamente con proveedores confiables para garantizar la autenticidad de todos nuestros productos.</h3>
-			<h3 className="width marginr marginl">¡Gracias por visitar Beautyymx! Disfruta de tu experiencia de compra y encuentra los productos de maquillaje original que te harán lucir radiante.</h3>
+			<h3 className="width marginr marginl margint">En Beautyymx, nos enorgullece ofrecerte una amplia selección de productos de maquillaje auténtico y de alta calidad. Nuestro objetivo es brindarte una experiencia de compra excepcional, donde puedas encontrar los productos que realcen tu belleza y te hagan sentir segura y empoderada.
+			Explora nuestra tienda en línea y descubre marcas reconocidas y populares, así como productos exclusivos que no encontrarás en ningún otro lugar. Trabajamos directamente con proveedores confiables para garantizar la autenticidad de todos nuestros productos.
+			¡Gracias por visitar Beautyymx! Disfruta de tu experiencia de compra y encuentra los productos de maquillaje original que te harán lucir radiante.</h3>
 			<motion.button onClick={puntosDeVenta} whileTap={{scale:1.2}} whileHover={{scale:1.1}} className="button mb">Puntos de Venta</motion.button>
 		</div>
 		<div className="lanzamientos">
