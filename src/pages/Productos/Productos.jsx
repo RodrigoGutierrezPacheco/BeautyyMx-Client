@@ -33,9 +33,10 @@ export default function Productos() {
 
   useEffect(() => {
     axios
-      .get('https://gist.githubusercontent.com/RodrigoGutierrezPacheco/6fdcbaee593f135f4d9a062bfeba3de7/raw/ae3b4765becde13ac7d29419b0d26a1ae9defa06/gistfile1.txt')
+      .get('https://gist.githubusercontent.com/RodrigoGutierrezPacheco/6fdcbaee593f135f4d9a062bfeba3de7/raw/25a0245430aac703a9de2d96486f74dbb1e1c1ad/gistfile1.txt')
       .then(response => {
         setData(response.data);
+				console.log(response.data)
       })
       .catch(error => {
         console.log(error);
@@ -161,18 +162,18 @@ export default function Productos() {
           aria-labelledby="modal-title"
           aria-describedby="modal-description"
         >
-          <div className="modal-content scrolleable">
+          <div className="modal-content scrolleable" style={{ overflow: 'auto' }}>
             {selectedProduct && (
               <>
                 <div className="row">
                   <h1 id="modal-title marginr marginl">{selectedProduct.marca}</h1>
                 </div>
                 <img className='img-producto marginr marginl' src={`https://drive.google.com/uc?export=view&id=${selectedProduct.id}`} alt="Imagen del producto" />
-                <p>Marca: {selectedProduct.marca}</p>
-                <p>Descripcion: {selectedProduct.descripcion}</p>
-                <p>Precio: ${selectedProduct.precio}.00 MXN</p>
-								<p>Contenido: {selectedProduct.contenido}</p>
-                <p>Codigo: {selectedProduct.codigo}</p>
+                <h2>Marca: {selectedProduct.marca}</h2>
+                <p>Descripcion: {selectedProduct.descripcion2}</p>
+                <h2>Precio: ${selectedProduct.precio}.00 MXN</h2>
+								<h2>Contenido: {selectedProduct.contenido}</h2>
+                <h2>Codigo: {selectedProduct.codigo}</h2>
               </>
             )}
             <motion.button whileHover={{ scale: 1.1 }} onClick={handleClose} whileTap={{ scale: 1.1 }} className=" margint marginb button1 marginr marginl">Cerrar</motion.button>
