@@ -33,7 +33,7 @@ export default function Productos() {
 
   useEffect(() => {
     axios
-      .get('https://gist.githubusercontent.com/RodrigoGutierrezPacheco/6fdcbaee593f135f4d9a062bfeba3de7/raw/25a0245430aac703a9de2d96486f74dbb1e1c1ad/gistfile1.txt')
+      .get('https://gist.githubusercontent.com/RodrigoGutierrezPacheco/6fdcbaee593f135f4d9a062bfeba3de7/raw/1eefbd634c3a49219d38ea5208754261d994880a/gistfile1.txt')
       .then(response => {
         setData(response.data);
 				console.log(response.data)
@@ -169,7 +169,7 @@ export default function Productos() {
                   <h1 id="modal-title marginr marginl">{selectedProduct.marca}</h1>
                 </div>
                 <img className='img-producto marginr marginl' src={`https://drive.google.com/uc?export=view&id=${selectedProduct.id}`} alt="Imagen del producto" />
-                <h2>Marca: {selectedProduct.marca}</h2>
+                <h2>Marca: {selectedProduct.descripcion}</h2>
                 <p>Descripcion: {selectedProduct.descripcion2}</p>
                 <h2>Precio: ${selectedProduct.precio}.00 MXN</h2>
 								<h2>Contenido: {selectedProduct.contenido}</h2>
