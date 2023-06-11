@@ -209,6 +209,7 @@ body,h1,h2,h3,p,button{
 		flex-direction: column;
 		align-items: start;
 		cursor: pointer;
+		width: 100%;
 	}
 
 	.x{
@@ -229,7 +230,7 @@ body,h1,h2,h3,p,button{
 	.flex1{
 		display: flex;
 		flex-direction: column;
-		background-color: #C92C39;
+		color: #C92C39;
 	}
 
 	.hr{
@@ -389,6 +390,7 @@ body,h1,h2,h3,p,button{
 	.precio{
 		font-size: 1rem;
 	}
+
 
 	.dhl{
 		display: inline-block;

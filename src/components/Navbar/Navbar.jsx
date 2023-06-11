@@ -14,18 +14,6 @@ import { slide as Menu } from 'react-burger-menu'
 
 function CollapsibleExample() {
 
-	const customStyles = {
-		content: {
-		backgroundColor: "#C92C39",
-		color:"white",
-		fontSize:"100",
-		width:"50vw",
-		marginLeft:"10%",
-		border:"5px solid black",
-		transform: 'translate(-0%, -0%)',
-		},
-	};
-
 	let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
 	
@@ -98,7 +86,7 @@ function CollapsibleExample() {
       <div className='flex1'>
 				 <motion.img whileHover={{scale:1.1}} onClick={closeModal} className='x' src="images/x.png" alt="" />
 				<div className='start1'>
-				 <motion.img whileHover={{scale:1.1}} onClick={home} className='logoMenu' src="images/logoBeauty2.png" alt="" />
+				 <motion.img whileHover={{scale:1.1}} onClick={home} className='logoMenu' src="images/logoBeauty3.jpeg" alt="" />
 				</div>
         <div className='white textoModal'>
 				<div start1>
@@ -112,9 +100,16 @@ function CollapsibleExample() {
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={ojos} className='textoModal'>Ojos</motion.h1>
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={paletas} className='textoModal'>Paletas</motion.h1>
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={rostro} className='textoModal'>Rostro</motion.h1> */}
-					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={todosLosProductos} className='textoModal'>Nosotros</motion.h1>
-					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={todosLosProductos} className='textoModal'>Todos los Productos</motion.h1>
-					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={puntosDeVenta} className='textoModal'>Puntos de Venta</motion.h1>
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={todosLosProductos} className='textoModal red'>Nosotros</motion.h1>
+					<hr className='hr' />
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={todosLosProductos} className='textoModal red'>Todos los Productos</motion.h1>
+					<hr className='hr' />
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={puntosDeVenta} className='textoModal red'>Contacto</motion.h1>
+					<hr className='hr'/>
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={puntosDeVenta} className='textoModal red'>Redes</motion.h1>
+					<hr className='hr'/>
+					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={puntosDeVenta} className='textoModal red'>Preguntas frecuentes</motion.h1>
+					<hr className='hr'/>
 				</div>
         </div>
 			</div>

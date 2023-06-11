@@ -174,7 +174,7 @@ export default function Productos() {
 								</div>
 								<div className="row">
 									<h2>Descripcion:</h2>
-                	<p>Descripcion: {selectedProduct.descripcion2}</p>
+                	<p>{selectedProduct.descripcion2}</p>
 								</div>
 								<div className="row">
 									<h2>Precio:</h2>
