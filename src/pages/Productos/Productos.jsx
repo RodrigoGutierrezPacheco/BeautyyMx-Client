@@ -21,6 +21,10 @@ export default function Productos() {
   const [pageNumber, setPageNumber] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
   const [brandFilter, setBrandFilter] = useState('');
+	const [loading, setLoading] = useState(true);
+	const handleImageLoaded = () => {
+		setLoading(false);
+	};
 
   const handleOpen = (product) => {
     setSelectedProduct(product);
@@ -59,8 +63,7 @@ export default function Productos() {
     setPageNumber(selected);
   };
 
-  const displayProducts = filteredProducts
-    .map(item => (
+  const displayProducts = filteredProducts.map(item => (
       <div className="boxProduct" key={item.codigo}>
         <div className="contenedor-imagen">
           <img onClick={() => handleOpen(item)} className="imagen-producto" src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt="imagen del producto" />

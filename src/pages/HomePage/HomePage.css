@@ -195,6 +195,31 @@ body,h1,h2,h3,p,button{
 		align-items: center;
 	}
 
+	.scroll-vertical-container {
+		height: 400px; /* Ajusta la altura según tus necesidades */
+		overflow-y: auto;
+	}
+	
+	.scroll-vertical-content {
+		padding: 20px;
+	}
+	
+	.flex {
+		display: flex;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+	}
+	
+	/* Estilos adicionales según tus necesidades */
+	h1 {
+		margin-bottom: 20px;
+	}
+	
+	p {
+		margin: 0;
+	}
+	
+
 	.buscador{
 		border:.2rem solid #C92C39;
 	}
