@@ -246,11 +246,11 @@ function HomePage() {
       </Modal>
 			<div>
 				<h1 className='title margin-1 width marginr marginl'>Manejamos las mejores marcas</h1>
-				<motion.img whileTap={{scale:1.1}} onClick={ordinary} className='marca' src="images/marca1.png" alt="" />
-				<motion.img whileTap={{scale:1.1}} onClick={colourpop} className='marca' src="images/marca2.png" alt="" />
-				<motion.img whileTap={{scale:1.1}} onClick={huda} className='marca' src="images/marca3.png" alt="" />
-				<motion.img whileTap={{scale:1.1}} onClick={cerave} className='marca' src="images/marca4.png" alt="" />
-				<motion.img whileTap={{scale:1.1}} onClick={anastasia} className='marca' src="images/marca5.png" alt="" />
+				<motion.img whileTap={{scale:1.1}}  className='marca' src="images/marca1.png" alt="" />
+				<motion.img whileTap={{scale:1.1}}  className='marca' src="images/marca2.png" alt="" />
+				<motion.img whileTap={{scale:1.1}} className='marca' src="images/marca3.png" alt="" />
+				<motion.img whileTap={{scale:1.1}} className='marca' src="images/marca4.png" alt="" />
+				<motion.img whileTap={{scale:1.1}} className='marca' src="images/marca5.png" alt="" />
 			</div>
     </div>
   );
