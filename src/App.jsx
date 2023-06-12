@@ -24,7 +24,11 @@ import Accesorios from "./pages/Accerorios/Accesorios";
 import Descuentos from "./pages/Descuentos/Descuentos";
 import Puntos from "./pages/Puntos/Puntos";
 import { Description } from "@mui/icons-material";
-
+import Theordinay from "./pages/Theordinay";
+import ColourPop from "./pages/Colourpop";
+import Cerave from "./pages/Cerave";
+import Anastacia from "./pages/Anastasia";
+import Hudabeauty from "./pages/Hudabeauty";
 
 function App() {
   return (
@@ -46,6 +50,14 @@ function App() {
 				<Route path="/accesorios" element={<Accesorios/>}/>
 				<Route path="/descuentos" element={<Descuentos/>}/>
 				<Route path="puntos-de-venta" element={<Puntos/>}/>
+				<Route path="The-Ordinary" element={<Theordinay/>}/>
+				<Route path="Colourpop" element={<ColourPop/>}/>
+				<Route path="Hudabeauty" element={<Hudabeauty/>}/>
+				<Route path="CeraVe" element={<Cerave/>}/>
+				<Route path="Anastasia" element={<Anastacia/>}/>
+
+
+
 
 
         <Route
