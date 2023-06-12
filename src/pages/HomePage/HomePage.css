@@ -203,7 +203,11 @@ body,h1,h2,h3,p,button{
 	.scroll-vertical-content {
 		padding: 20px;
 	}
-	
+
+	.margin-1{
+		margin-top: 3rem;
+	}
+
 	.flex {
 		display: flex;
 		flex-wrap: nowrap;
@@ -282,7 +286,7 @@ body,h1,h2,h3,p,button{
 	}
 
 	.marca{
-		width: 100%;
+		width: 60%;
 		overflow: hidden;
 		margin-top: auto;
 		margin-bottom: auto;
