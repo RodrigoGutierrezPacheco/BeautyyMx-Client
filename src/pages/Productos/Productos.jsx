@@ -28,14 +28,22 @@ export default function Productos() {
   const [cartItems, setCartItems] = useState([]);
 	const [showAlert, setShowAlert] = useState(false);
 
-	//function to generate message content based on cart items
+//function to generate message content based on cart items
 const createMessage = () => {
   let message = 'Lista de compras:\n';
+  let total = 0;
+
   cartItems.forEach(item => {
-    message += `${item.marca} - ${item.descripcion} - ${item.codigo} Cantidad: ${item.quantity}\n`;
+    let itemTotal = item.precio * item.quantity;  // assuming 'precio' is the field for price
+    total += itemTotal;
+    message += `${item.marca} - ${item.descripcion} - ${item.codigo} - Cantidad: ${item.quantity} - Total por artículo: ${itemTotal}\n`;
   });
+
+  message += `Precio total de todos los productos: $${total}.00 MXN`;
+
   return message;
 };
+
 
 //function to handle list submission
 const handleListSubmission = () => {
