@@ -16,6 +16,7 @@ import ReactPaginate from 'react-paginate';
 import Alert from 'react-bootstrap/Alert';
 import Swal from 'sweetalert2';
 
+
 export default function Productos() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [data, setData] = useState([]);
@@ -26,6 +27,28 @@ export default function Productos() {
   const [brandFilter, setBrandFilter] = useState('');
   const [cartItems, setCartItems] = useState([]);
 	const [showAlert, setShowAlert] = useState(false);
+
+	//function to generate message content based on cart items
+const createMessage = () => {
+  let message = 'Lista de compras:\n';
+  cartItems.forEach(item => {
+    message += `${item.marca} - ${item.descripcion} - ${item.codigo} Cantidad: ${item.quantity}\n`;
+  });
+  return message;
+};
+
+//function to handle list submission
+const handleListSubmission = () => {
+  if (cartItems.length > 0) {
+    window.open(`https://wa.me/525638686467?text=${encodeURIComponent(createMessage())}`);
+  } else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Carrito vacío',
+      text: 'Por favor, agregue algunos productos a su carrito antes de enviar la lista.',
+    });
+  }
+};
 
 
   const handleOpen = (product) => {
@@ -318,7 +341,7 @@ export default function Productos() {
 									</div>
               </>
             )}
-            <motion.button whileHover={{ scale: 1.1 }} onClick={handleCartClose} whileTap={{ scale: 1.1 }} className="margint marginb button1 marginr marginl">Enviar Lista</motion.button>
+						<motion.button whileHover={{ scale: 1.1 }} onClick={handleListSubmission} whileTap={{ scale: 1.1 }} className="margint marginb button1 marginr marginl">Enviar Lista</motion.button>
             <motion.button whileHover={{ scale: 1.1 }} onClick={handleCartClose} whileTap={{ scale: 1.1 }} className="margint marginb button1 marginr marginl">Cerrar</motion.button>
           </div>
         </Modal>
