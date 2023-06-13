@@ -95,8 +95,17 @@ body,h1,h2,h3,p,button{
 	}
 
 	.cart-item-button{
-		width: 15% !important;
+		width: 10% !important;
 	}
+
+	.sweetalert-container {
+		z-index: 9999;
+	}
+	
+	.cart-container {
+		z-index: 9998;
+	}
+	
 	
 
 
@@ -383,6 +392,17 @@ body,h1,h2,h3,p,button{
 		margin-top: auto;
 	}
 
+	.button-portada{
+		background-color:#C92C39;
+		color: white;
+		width: 60vw;
+		font-size: 1.5rem;
+		border: 2px solid #C92C39;
+		margin-top: 5%;
+		font-family: 'Montserrat', sans-serif;
+		margin-top: auto;
+	}
+
 	.mt{
 		margin-top: 5%;
 	}
@@ -421,6 +441,22 @@ body,h1,h2,h3,p,button{
 		font-family: 'Courier New', Courier, monospace;
 	} 
 
+	.subtitle1{
+		font-size: 1rem;
+	}
+
+	.inicio-portada {
+		background-image: url("../../../public/images/inicio.png");
+		background-size: cover;
+		background-position: center;
+		width: 100%;
+		height: 70vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	
+
 	.boxProduct {
 		display: flex;
 		flex-direction: column;
@@ -449,6 +485,7 @@ body,h1,h2,h3,p,button{
 	.contenedor-descripcion {
 		margin: 10px 0; /* Ajusta el margen superior e inferior */
 		max-height: 100px; /* Ajusta la altura máxima deseada */
+		font-size: 1.5rem !important;
 		width: 80%;
 		overflow: hidden; /* Esto oculta cualquier parte de la descripción que exceda la altura máxima */
 		white-space: nowrap; /* Evita que el texto se divida en varias líneas */

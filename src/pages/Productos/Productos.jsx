@@ -88,8 +88,8 @@ const handleListSubmission = () => {
       });
   }, []);
 
-  const addToCart = (product,event) => {
-    const existingItem = cartItems.find(item => item.codigo === product.codigo);
+  const addToCart = (product, event) => {
+		const existingItem = cartItems.find(item => item.codigo === product.codigo);
 		Swal.fire({
 			icon: 'success',
 			title: 'Producto Agregado',
@@ -98,44 +98,75 @@ const handleListSubmission = () => {
 			showConfirmButton: false,
 			timer: 1500
 		});
-
-    if (existingItem) {
-      setCartItems(cartItems.map(item => {
-        if (item.codigo === product.codigo) {
-          return {
-            ...item,
-            quantity: item.quantity + 1
-          };
-        }
-        return item;
-      }));
-    } else {
-      setCartItems([...cartItems, {
-        ...product,
-        quantity: 1
-      }]);
-    }
-		
-  };
-
-  const removeFromCart = (product) => {
-    const updatedCart = cartItems.filter(item => item.codigo !== product.codigo);
-    setCartItems(updatedCart);
-  };
-
+	
+		if (existingItem) {
+			setCartItems(cartItems.map(item => {
+				if (item.codigo === product.codigo) {
+					return {
+						...item,
+						quantity: item.quantity + 1
+					};
+				}
+				return item;
+			}));
+		} else {
+			setCartItems([...cartItems, {
+				...product,
+				quantity: 1
+			}]);
+		}
+	};
+	
+	const removeFromCart = (product) => {
+		// Verificar si el producto ya ha sido eliminado
+		if (cartItems.find((item) => item.codigo === product.codigo) === undefined) {
+			return;
+		}
+	
+		Swal.fire({
+			title: 'Eliminar producto',
+			text: '¿Deseas eliminar el producto del carrito?',
+			icon: 'question',
+			showCancelButton: true,
+			confirmButtonText: 'Aceptar',
+			cancelButtonText: 'Cancelar',
+			backdrop: true,
+			focusConfirm: false,
+			customClass: {
+				container: 'sweetalert-container'
+			}
+		}).then((result) => {
+			if (result.isConfirmed) {
+				const updatedCart = cartItems.filter((item) => item.codigo !== product.codigo);
+				setCartItems(updatedCart);
+			}
+		});
+	};
+	
 	const decreaseQuantity = (item) => {
 		const updatedCartItems = cartItems.map((cartItem) => {
 			if (cartItem.codigo === item.codigo) {
-				return {
-					...cartItem,
-					quantity: cartItem.quantity - 1
-				};
+				const newQuantity = cartItem.quantity - 1;
+				if (newQuantity >= 1) {
+					return {
+						...cartItem,
+						quantity: newQuantity
+					};
+				} else {
+					removeFromCart(cartItem);
+					return null;
+				}
 			}
 			return cartItem;
 		});
 	
-		setCartItems(updatedCartItems);
+		setCartItems(updatedCartItems.filter((item) => item !== null));
 	};
+	
+	
+
+	
+	
 	
 	const increaseQuantity = (item) => {
 		const updatedCartItems = cartItems.map((cartItem) => {
@@ -174,10 +205,10 @@ const handleListSubmission = () => {
       <div className="contenedor-imagen">
         <img onClick={() => handleOpen(item)} className="imagen-producto" src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt="imagen del producto" />
       </div>
-      <h1 className="descripcion marginl marginr truncate-text">
+      <p className='contenedor-descripcion title marginr marginl'>{item.descripcion}</p>
+      <h1 className="subtitle1 marginl marginr truncate-text">
         {item.marca}
       </h1>
-      <p className='contenedor-descripcion marginr marginl'>{item.descripcion}</p>
       <h3 className="precio">${item.precio}.00MXN</h3>
       <p className="subtitle">{item.codigo} - {item.contenido}</p>
       <motion.button
@@ -347,9 +378,9 @@ const handleListSubmission = () => {
 										<h2>Total:</h2>
 										<p>${cartItems.reduce((total, item) => total + item.precio * item.quantity, 0)}.00 MXN</p>
 									</div>
+									<motion.button whileHover={{ scale: 1.1 }} onClick={handleListSubmission} whileTap={{ scale: 1.1 }} className="margint marginb button1 marginr marginl">Enviar Lista</motion.button>
               </>
             )}
-						<motion.button whileHover={{ scale: 1.1 }} onClick={handleListSubmission} whileTap={{ scale: 1.1 }} className="margint marginb button1 marginr marginl">Enviar Lista</motion.button>
             <motion.button whileHover={{ scale: 1.1 }} onClick={handleCartClose} whileTap={{ scale: 1.1 }} className="margint marginb button1 marginr marginl">Cerrar</motion.button>
           </div>
         </Modal>

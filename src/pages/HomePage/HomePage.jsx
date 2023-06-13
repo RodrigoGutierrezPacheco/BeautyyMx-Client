@@ -54,34 +54,25 @@ function HomePage() {
   };
 
   const displayProducts = shuffledProducts.map(item => (
-    <div className="boxProduct" key={item.codigo}>
-      <div className="contenedor-imagen">
-        <img
-          onClick={() => handleOpen(item)}
-          className="imagen-producto"
-          src={`https://drive.google.com/uc?export=view&id=${item.id}`}
-          alt="imagen del producto"
-        />
-      </div>
-      <h1 className="descripcion marginl marginr truncate-text">
-        {item.marca}
-      </h1>
-      <p className="contenedor-descripcion marginr marginl">
-        {item.descripcion}
-      </p>
-      <h3 className="precio">${item.precio}.00MXN</h3>
-      <p className="subtitle">
-        {item.codigo} - {item.contenido}
-      </p>
-      <motion.button
-        whileTap={{ scale: 1.2 }}
-        whileHover={{ scale: 1.1 }}
-        className="button1"
-        onClick={() => handleOpen(item)}
-      >
-        Ver Producto
-      </motion.button>
-    </div>
+		<div className="boxProduct" key={item.codigo}>
+		<div className="contenedor-imagen">
+			<img onClick={() => handleOpen(item)} className="imagen-producto" src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt="imagen del producto" />
+		</div>
+		<p className='contenedor-descripcion title marginr marginl'>{item.descripcion}</p>
+		<h1 className="subtitle1 marginl marginr truncate-text">
+			{item.marca}
+		</h1>
+		<h3 className="precio">${item.precio}.00MXN</h3>
+		<p className="subtitle">{item.codigo} - {item.contenido}</p>
+		<motion.button
+			whileTap={{ scale: 1.2 }}
+			whileHover={{ scale: 1.1 }}
+			className="button1"
+			onClick={() => handleOpen(item)}
+		>
+			Ver Producto
+		</motion.button>   
+		</div>
   ));
 
   const productos = () => {
@@ -115,77 +106,29 @@ function HomePage() {
     <div>
       <Carousel indicators={false} variant="dark">
         <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="images/inicio.png"
-            alt="First slide"
-          />
-          <div className="">
-            <motion.button
-              whileTap={{ scale: 1.1 }}
-              className="button"
-            >
-              Inicio
-            </motion.button>
-          </div>
+					<div class="inicio-portada">
+						<div class="contenido">
+							<motion.button whileTap={{scale:1.1}} class="button-portada">Nosotros</motion.button>
+						</div>
+					</div>
         </Carousel.Item>
         <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="images/productos.png"
-            alt="Second slide"
-          />
-          <div className="">
-            <motion.button
-              whileTap={{ scale: 1.1 }}
-              onClick={productos}
-              className="button"
-            >
-              Productos
-            </motion.button>
-          </div>
+					<div class="inicio-portada">
+							<div class="contenido">
+								<motion.button whileTap={{scale:1.1}} onClick={productos} class="button-portada">Productos</motion.button>
+							</div>
+					</div>
         </Carousel.Item>
         <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="images/puntosVenta.png"
-            alt="Third slide"
-          />
-          <div className="">
-            <motion.button
-              whileTap={{ scale: 1.1 }}
-              onClick={puntosDeVenta}
-              className="button"
-            >
-              Puntos de Venta
-            </motion.button>
-          </div>
+					<div class="inicio-portada">
+								<div class="contenido">
+									<motion.button whileTap={{scale:1.1}} onClick={puntosDeVenta} class="button-portada">Puntos de venta</motion.button>
+								</div>
+					</div>
         </Carousel.Item>
       </Carousel>
-      <div className="nosotros">
-        <h1 className="title red width marginr marginl">
-          Bienvenidos a Beautyymx, tu destino para el mejor maquillaje original en línea!
-        </h1>
-        <h3 className="bienvenida marginr marginl margint">
-          En Beautyymx, nos enorgullece ofrecerte una amplia selección de productos de maquillaje auténtico y de alta calidad. Nuestro objetivo es brindarte una experiencia de compra excepcional, donde puedas encontrar los productos que realcen tu belleza y te hagan sentir segura y empoderada.
-          <br className="marginb" />
-          <br />
-          Explora nuestra tienda en línea y descubre marcas reconocidas y populares, así como productos exclusivos que no encontrarás en ningún otro lugar. Trabajamos directamente con proveedores confiables para garantizar la autenticidad de todos nuestros productos.
-          <br />
-          <br />
-          ¡Gracias por visitar Beautyymx! Disfruta de tu experiencia de compra y encuentra los productos de maquillaje original que te harán lucir radiante.
-        </h3>
-        <motion.button
-          onClick={puntosDeVenta}
-          whileTap={{ scale: 1.2 }}
-          whileHover={{ scale: 1.1 }}
-          className="button mb"
-        >
-          Puntos de Venta
-        </motion.button>
-      </div>
-      <div>
-        <h1>Algunos de nuestros productos más vendidos</h1>
+			<div>
+        <h1 className='title margint'>Productos mas vendidos</h1>
         <div className="flex">
           {displayProducts.length > 0 ? (
             displayProducts
@@ -217,7 +160,7 @@ function HomePage() {
                 <h2 className="width-100">{selectedProduct.descripcion}</h2>
               </div>
               <div className="row">
-                <h2>Descripcion:</h2>
+                <h2>Descripción:</h2>
                 <p>{selectedProduct.descripcion2}</p>
               </div>
               <div className="row">
@@ -229,7 +172,7 @@ function HomePage() {
                 <p>{selectedProduct.contenido}</p>
               </div>
               <div className="row">
-                <h2>Codigo:</h2>
+                <h2>Código:</h2>
                 <p>{selectedProduct.codigo}</p>
               </div>
             </>
@@ -252,6 +195,28 @@ function HomePage() {
 				<motion.img whileTap={{scale:1.1}} className='marca' src="images/marca4.png" alt="" />
 				<motion.img whileTap={{scale:1.1}} className='marca' src="images/marca5.png" alt="" />
 			</div>
+			<div className="nosotros">
+        <h1 className="title red width marginr marginl">
+          Bienvenidos a Beautyymx, tu destino para el mejor maquillaje original en línea!
+        </h1>
+        <h3 className="bienvenida marginr marginl margint">
+          En Beautyymx, nos enorgullece ofrecerte una amplia selección de productos de maquillaje auténtico y de alta calidad. Nuestro objetivo es brindarte una experiencia de compra excepcional, donde puedas encontrar los productos que realcen tu belleza y te hagan sentir segura y empoderada.
+          <br className="marginb" />
+          <br />
+          Explora nuestra tienda en línea y descubre marcas reconocidas y populares, así como productos exclusivos que no encontrarás en ningún otro lugar. Trabajamos directamente con proveedores confiables para garantizar la autenticidad de todos nuestros productos.
+          <br />
+          <br />
+          ¡Gracias por visitar Beautyymx! Disfruta de tu experiencia de compra y encuentra los productos de maquillaje original que te harán lucir radiante.
+        </h3>
+        <motion.button
+          onClick={puntosDeVenta}
+          whileTap={{ scale: 1.2 }}
+          whileHover={{ scale: 1.1 }}
+          className="button mb"
+        >
+          Puntos de Venta
+        </motion.button>
+      </div>
     </div>
   );
 }
