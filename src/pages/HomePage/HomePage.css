@@ -50,6 +50,28 @@ body,h1,h2,h3,p,button{
 		margin-bottom: 1rem !important;
 	}
 
+	@keyframes spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+	
+	.loading-spinner {
+		animation: spin 1s linear infinite;
+	}
+
+	.circular-loader {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 200px;
+	}
+	
+	
+
 	.cart-item {
 		display: flex;
 		justify-content: space-between;
