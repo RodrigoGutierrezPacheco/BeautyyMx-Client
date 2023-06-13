@@ -15,6 +15,7 @@ import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 import Alert from 'react-bootstrap/Alert';
 import Swal from 'sweetalert2';
+import LazyLoad from 'react-lazyload';
 
 export default function Productos() {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -26,19 +27,6 @@ export default function Productos() {
   const [brandFilter, setBrandFilter] = useState('');
   const [cartItems, setCartItems] = useState([]);
   const [showAlert, setShowAlert] = useState(false);
-
-  // Cargar los datos del carrito al inicializar la página
-  useEffect(() => {
-    const storedCartItems = localStorage.getItem('cartItems');
-    if (storedCartItems) {
-      setCartItems(JSON.parse(storedCartItems));
-    }
-  }, []);
-
-  // Actualizar el localStorage cada vez que el carrito cambie
-  useEffect(() => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  }, [cartItems]);
 
   // Function to generate message content based on cart items
   const createMessage = () => {
@@ -88,7 +76,9 @@ export default function Productos() {
 
   useEffect(() => {
     axios
-      .get('https://gist.githubusercontent.com/RodrigoGutierrezPacheco/6fdcbaee593f135f4d9a062bfeba3de7/raw/1eefbd634c3a49219d38ea5208754261d994880a/gistfile1.txt')
+      .get(
+        'https://gist.githubusercontent.com/RodrigoGutierrezPacheco/6fdcbaee593f135f4d9a062bfeba3de7/raw/1eefbd634c3a49219d38ea5208754261d994880a/gistfile1.txt'
+      )
       .then((response) => {
         setData(response.data);
         console.log(response.data);
@@ -96,39 +86,35 @@ export default function Productos() {
       .catch((error) => {
         console.log(error);
       });
+
+    const savedCartItems = localStorage.getItem('cartItems');
+    if (savedCartItems) {
+      setCartItems(JSON.parse(savedCartItems));
+    }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const addToCart = (product, event) => {
     const existingItem = cartItems.find((item) => item.codigo === product.codigo);
-    Swal.fire({
-      icon: 'success',
-      title: 'Producto Agregado',
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 1500
-    });
+    setShowAlert(true);
 
     if (existingItem) {
-      setCartItems((prevCartItems) => {
-        return prevCartItems.map((item) => {
+      setCartItems(
+        cartItems.map((item) => {
           if (item.codigo === product.codigo) {
             return {
               ...item,
-              quantity: item.quantity + 1
+              quantity: item.quantity + 1,
             };
           }
           return item;
-        });
-      });
+        })
+      );
     } else {
-      setCartItems((prevCartItems) => [
-        ...prevCartItems,
-        {
-          ...product,
-          quantity: 1
-        }
-      ]);
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
     }
   };
 
@@ -143,8 +129,8 @@ export default function Productos() {
       backdrop: true,
       focusConfirm: false,
       customClass: {
-        container: 'sweetalert-container'
-      }
+        container: 'sweetalert-container',
+      },
     }).then((result) => {
       if (result.isConfirmed) {
         const updatedCart = cartItems.filter((item) => item.codigo !== product.codigo);
@@ -154,37 +140,37 @@ export default function Productos() {
   };
 
   const decreaseQuantity = (item) => {
-    setCartItems((prevCartItems) => {
-      return prevCartItems.map((cartItem) => {
-        if (cartItem.codigo === item.codigo) {
-          const newQuantity = cartItem.quantity - 1;
-          if (newQuantity >= 1) {
-            return {
-              ...cartItem,
-              quantity: newQuantity
-            };
-          } else {
-            removeFromCart(cartItem);
-            return null;
-          }
+    const updatedCartItems = cartItems.map((cartItem) => {
+      if (cartItem.codigo === item.codigo) {
+        const newQuantity = cartItem.quantity - 1;
+        if (newQuantity >= 1) {
+          return {
+            ...cartItem,
+            quantity: newQuantity,
+          };
+        } else {
+          removeFromCart(cartItem);
+          return null;
         }
-        return cartItem;
-      });
+      }
+      return cartItem;
     });
+
+    setCartItems(updatedCartItems.filter((item) => item !== null));
   };
 
   const increaseQuantity = (item) => {
-    setCartItems((prevCartItems) => {
-      return prevCartItems.map((cartItem) => {
-        if (cartItem.codigo === item.codigo) {
-          return {
-            ...cartItem,
-            quantity: cartItem.quantity + 1
-          };
-        }
-        return cartItem;
-      });
+    const updatedCartItems = cartItems.map((cartItem) => {
+      if (cartItem.codigo === item.codigo) {
+        return {
+          ...cartItem,
+          quantity: cartItem.quantity + 1,
+        };
+      }
+      return cartItem;
     });
+
+    setCartItems(updatedCartItems);
   };
 
   const filteredProducts = data
@@ -206,32 +192,39 @@ export default function Productos() {
   };
 
   const displayProducts = filteredProducts.map((item) => (
-    <div className="boxProduct" key={item.codigo}>
-      <div className="contenedor-imagen">
-        <img onClick={() => handleOpen(item)} className="imagen-producto" src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt="imagen del producto" />
+    <LazyLoad key={item.codigo} height={200} offset={100} once>
+      <div className="boxProduct">
+        <div className="contenedor-imagen">
+          <img
+            onClick={() => handleOpen(item)}
+            className="imagen-producto"
+            src={`https://drive.google.com/uc?export=view&id=${item.id}`}
+            alt="imagen del producto"
+          />
+        </div>
+        <p className="contenedor-descripcion title marginr marginl">{item.descripcion}</p>
+        <h1 className="subtitle1 marginl marginr truncate-text">{item.marca}</h1>
+        <h3 className="precio">${item.precio}.00MXN</h3>
+        <p className="subtitle">{item.codigo} - {item.contenido}</p>
+        <motion.button
+          whileTap={{ scale: 1.2 }}
+          whileHover={{ scale: 1.1 }}
+          className="button1"
+          onClick={() => handleOpen(item)}
+        >
+          Ver Producto
+        </motion.button>
+        <br />
+        <motion.button
+          whileTap={{ scale: 1.2 }}
+          whileHover={{ scale: 1.1 }}
+          className="button1"
+          onClick={() => addToCart(item)}
+        >
+          Agregar al Carrito
+        </motion.button>
       </div>
-      <p className="contenedor-descripcion title marginr marginl">{item.descripcion}</p>
-      <h1 className="subtitle1 marginl marginr truncate-text">{item.marca}</h1>
-      <h3 className="precio">${item.precio}.00MXN</h3>
-      <p className="subtitle">{item.codigo} - {item.contenido}</p>
-      <motion.button
-        whileTap={{ scale: 1.2 }}
-        whileHover={{ scale: 1.1 }}
-        className="button1"
-        onClick={() => handleOpen(item)}
-      >
-        Ver Producto
-      </motion.button>
-      <br />
-      <motion.button
-        whileTap={{ scale: 1.2 }}
-        whileHover={{ scale: 1.1 }}
-        className="button1"
-        onClick={() => addToCart(item)}
-      >
-        Agregar al Carrito
-      </motion.button>
-    </div>
+    </LazyLoad>
   ));
 
   return (
