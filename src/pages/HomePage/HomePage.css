@@ -50,6 +50,38 @@ body,h1,h2,h3,p,button{
 		margin-bottom: 1rem !important;
 	}
 
+	.swal2-container {
+		z-index: 9999;
+	}
+
+	.alert-container {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 9999; /* Asegura que la alerta esté por encima de otros elementos */
+	}
+
+	.custom-swal-container {
+		padding: 10px;
+		background-color: #f4f8f7;
+		border: 1px solid #d8e7e5;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		font-size: 14px;
+	}
+	
+	.custom-swal-title {
+		margin-top: 5px;
+		color: #333;
+		font-weight: bold;
+	}
+	
+	.custom-swal-icon {
+		display: none;
+	}
+	
+	
+	
+
 	@keyframes spin {
 		0% {
 			transform: rotate(0deg);

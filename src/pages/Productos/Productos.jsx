@@ -103,26 +103,40 @@ export default function Productos() {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const addToCart = (product, event) => {
-    const existingItem = cartItems.find((item) => item.codigo === product.codigo);
-    setShowAlert(true);
-
-    if (existingItem) {
-      setCartItems(
-        cartItems.map((item) => {
-          if (item.codigo === product.codigo) {
-            return {
-              ...item,
-              quantity: item.quantity + 1,
-            };
-          }
-          return item;
-        })
-      );
-    } else {
-      setCartItems([...cartItems, { ...product, quantity: 1 }]);
-    }
-  };
+	const addToCart = (product, event) => {
+		const existingItem = cartItems.find((item) => item.codigo === product.codigo);
+	
+		if (existingItem) {
+			setCartItems(
+				cartItems.map((item) => {
+					if (item.codigo === product.codigo) {
+						return {
+							...item,
+							quantity: item.quantity + 1,
+						};
+					}
+					return item;
+				})
+			);
+		} else {
+			setCartItems([...cartItems, { ...product, quantity: 1 }]);
+		}
+	
+		Swal.fire({
+			icon: 'success',
+			title: 'Producto agregado al carrito',
+			showConfirmButton: false,
+			timer: 1500, // La alerta se cerrará automáticamente después de 1.5 segundos
+			customClass: {
+				container: 'custom-swal-container',
+				title: 'custom-swal-title',
+				icon: 'custom-swal-icon',
+			},
+		});
+	};
+	
+	
+	
 
   const removeFromCart = (product) => {
     Swal.fire({
@@ -145,25 +159,27 @@ export default function Productos() {
     });
   };
 
-  const decreaseQuantity = (item) => {
-    const updatedCartItems = cartItems.map((cartItem) => {
-      if (cartItem.codigo === item.codigo) {
-        const newQuantity = cartItem.quantity - 1;
-        if (newQuantity >= 1) {
-          return {
-            ...cartItem,
-            quantity: newQuantity,
-          };
-        } else {
-          removeFromCart(cartItem);
-          return null;
-        }
-      }
-      return cartItem;
-    });
-
-    setCartItems(updatedCartItems.filter((item) => item !== null));
-  };
+	const decreaseQuantity = (item) => {
+		const updatedCartItems = cartItems.map((cartItem) => {
+			if (cartItem.codigo === item.codigo) {
+				const newQuantity = cartItem.quantity - 1;
+				return {
+					...cartItem,
+					quantity: newQuantity >= 0 ? newQuantity : 0,
+				};
+			}
+			return cartItem;
+		});
+	
+		const filteredCartItems = updatedCartItems.filter((item) => item.quantity > 0);
+	
+		setCartItems(filteredCartItems);
+	};
+	
+	
+	
+	
+	
 
   const increaseQuantity = (item) => {
     const updatedCartItems = cartItems.map((cartItem) => {
@@ -409,9 +425,6 @@ export default function Productos() {
           <h1 className="carrito-length">{cartItems.reduce((total, item) => total + item.quantity, 0)}</h1>
         </div>
       </div>
-      <Alert show={showAlert} variant="success" onClose={() => setShowAlert(false)} dismissible>
-        Producto agregado al carrito
-      </Alert>
     </div>
   );
 }
