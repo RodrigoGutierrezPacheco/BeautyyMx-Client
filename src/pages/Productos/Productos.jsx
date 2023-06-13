@@ -16,7 +16,6 @@ import ReactPaginate from 'react-paginate';
 import Alert from 'react-bootstrap/Alert';
 import Swal from 'sweetalert2';
 
-
 export default function Productos() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [data, setData] = useState([]);
@@ -26,38 +25,49 @@ export default function Productos() {
   const [searchTerm, setSearchTerm] = useState('');
   const [brandFilter, setBrandFilter] = useState('');
   const [cartItems, setCartItems] = useState([]);
-	const [showAlert, setShowAlert] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
-//function to generate message content based on cart items
-const createMessage = () => {
-  let message = 'Lista de compras:\n';
-  let total = 0;
+  // Cargar los datos del carrito al inicializar la página
+  useEffect(() => {
+    const storedCartItems = localStorage.getItem('cartItems');
+    if (storedCartItems) {
+      setCartItems(JSON.parse(storedCartItems));
+    }
+  }, []);
 
-  cartItems.forEach(item => {
-    let itemTotal = item.precio * item.quantity;  // assuming 'precio' is the field for price
-    total += itemTotal;
-    message += `${item.marca} - ${item.descripcion} - ${item.codigo} - Cantidad: ${item.quantity} - Total por artículo: ${itemTotal}\n`;
-  });
+  // Actualizar el localStorage cada vez que el carrito cambie
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
 
-  message += `Precio total de todos los productos: $${total}.00 MXN`;
+  // Function to generate message content based on cart items
+  const createMessage = () => {
+    let message = 'Lista de compras:\n';
+    let total = 0;
 
-  return message;
-};
-
-
-//function to handle list submission
-const handleListSubmission = () => {
-  if (cartItems.length > 0) {
-    window.open(`https://wa.me/525638686467?text=${encodeURIComponent(createMessage())}`);
-  } else {
-    Swal.fire({
-      icon: 'error',
-      title: 'Carrito vacío',
-      text: 'Por favor, agregue algunos productos a su carrito antes de enviar la lista.',
+    cartItems.forEach((item) => {
+      let itemTotal = item.precio * item.quantity; // assuming 'precio' is the field for price
+      total += itemTotal;
+      message += `${item.marca} - ${item.descripcion} - ${item.codigo} - Cantidad: ${item.quantity} - Total por artículo: ${itemTotal}\n`;
     });
-  }
-};
 
+    message += `Precio total de todos los productos: $${total}.00 MXN`;
+
+    return message;
+  };
+
+  // Function to handle list submission
+  const handleListSubmission = () => {
+    if (cartItems.length > 0) {
+      window.open(`https://wa.me/525638686467?text=${encodeURIComponent(createMessage())}`);
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Carrito vacío',
+        text: 'Por favor, agregue algunos productos a su carrito antes de enviar la lista.',
+      });
+    }
+  };
 
   const handleOpen = (product) => {
     setSelectedProduct(product);
@@ -79,120 +89,115 @@ const handleListSubmission = () => {
   useEffect(() => {
     axios
       .get('https://gist.githubusercontent.com/RodrigoGutierrezPacheco/6fdcbaee593f135f4d9a062bfeba3de7/raw/1eefbd634c3a49219d38ea5208754261d994880a/gistfile1.txt')
-      .then(response => {
+      .then((response) => {
         setData(response.data);
-        console.log(response.data)
+        console.log(response.data);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   }, []);
 
   const addToCart = (product, event) => {
-		const existingItem = cartItems.find(item => item.codigo === product.codigo);
-		Swal.fire({
-			icon: 'success',
-			title: 'Producto Agregado',
-			toast: true,
-			position: 'top-end',
-			showConfirmButton: false,
-			timer: 1500
-		});
-	
-		if (existingItem) {
-			setCartItems(cartItems.map(item => {
-				if (item.codigo === product.codigo) {
-					return {
-						...item,
-						quantity: item.quantity + 1
-					};
-				}
-				return item;
-			}));
-		} else {
-			setCartItems([...cartItems, {
-				...product,
-				quantity: 1
-			}]);
-		}
-	};
-	
-	const removeFromCart = (product) => {
-		// Verificar si el producto ya ha sido eliminado
-		if (cartItems.find((item) => item.codigo === product.codigo) === undefined) {
-			return;
-		}
-	
-		Swal.fire({
-			title: 'Eliminar producto',
-			text: '¿Deseas eliminar el producto del carrito?',
-			icon: 'question',
-			showCancelButton: true,
-			confirmButtonText: 'Aceptar',
-			cancelButtonText: 'Cancelar',
-			backdrop: true,
-			focusConfirm: false,
-			customClass: {
-				container: 'sweetalert-container'
-			}
-		}).then((result) => {
-			if (result.isConfirmed) {
-				const updatedCart = cartItems.filter((item) => item.codigo !== product.codigo);
-				setCartItems(updatedCart);
-			}
-		});
-	};
-	
-	const decreaseQuantity = (item) => {
-		const updatedCartItems = cartItems.map((cartItem) => {
-			if (cartItem.codigo === item.codigo) {
-				const newQuantity = cartItem.quantity - 1;
-				if (newQuantity >= 1) {
-					return {
-						...cartItem,
-						quantity: newQuantity
-					};
-				} else {
-					removeFromCart(cartItem);
-					return null;
-				}
-			}
-			return cartItem;
-		});
-	
-		setCartItems(updatedCartItems.filter((item) => item !== null));
-	};
-	
-	
+    const existingItem = cartItems.find((item) => item.codigo === product.codigo);
+    Swal.fire({
+      icon: 'success',
+      title: 'Producto Agregado',
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 1500
+    });
 
-	
-	
-	
-	const increaseQuantity = (item) => {
-		const updatedCartItems = cartItems.map((cartItem) => {
-			if (cartItem.codigo === item.codigo) {
-				return {
-					...cartItem,
-					quantity: cartItem.quantity + 1
-				};
-			}
-			return cartItem;
-		});
-	
-		setCartItems(updatedCartItems);
-	};
-	
-	
+    if (existingItem) {
+      setCartItems((prevCartItems) => {
+        return prevCartItems.map((item) => {
+          if (item.codigo === product.codigo) {
+            return {
+              ...item,
+              quantity: item.quantity + 1
+            };
+          }
+          return item;
+        });
+      });
+    } else {
+      setCartItems((prevCartItems) => [
+        ...prevCartItems,
+        {
+          ...product,
+          quantity: 1
+        }
+      ]);
+    }
+  };
 
-  const filteredProducts = data ? data.filter(item => {
-    const lowerCaseSearchTerm = searchTerm.toLowerCase();
-    const lowerCaseBrandFilter = brandFilter.toLowerCase();
+  const removeFromCart = (product) => {
+    Swal.fire({
+      title: 'Eliminar producto',
+      text: '¿Deseas eliminar el producto del carrito?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar',
+      backdrop: true,
+      focusConfirm: false,
+      customClass: {
+        container: 'sweetalert-container'
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const updatedCart = cartItems.filter((item) => item.codigo !== product.codigo);
+        setCartItems(updatedCart);
+      }
+    });
+  };
 
-    const matchesSearchTerm = item.descripcion && item.descripcion.toLowerCase().includes(lowerCaseSearchTerm);
-    const matchesBrandFilter = item.marca && item.marca.toLowerCase() === lowerCaseBrandFilter || lowerCaseBrandFilter === '';
+  const decreaseQuantity = (item) => {
+    setCartItems((prevCartItems) => {
+      return prevCartItems.map((cartItem) => {
+        if (cartItem.codigo === item.codigo) {
+          const newQuantity = cartItem.quantity - 1;
+          if (newQuantity >= 1) {
+            return {
+              ...cartItem,
+              quantity: newQuantity
+            };
+          } else {
+            removeFromCart(cartItem);
+            return null;
+          }
+        }
+        return cartItem;
+      });
+    });
+  };
 
-    return matchesSearchTerm && matchesBrandFilter;
-  }) : [];
+  const increaseQuantity = (item) => {
+    setCartItems((prevCartItems) => {
+      return prevCartItems.map((cartItem) => {
+        if (cartItem.codigo === item.codigo) {
+          return {
+            ...cartItem,
+            quantity: cartItem.quantity + 1
+          };
+        }
+        return cartItem;
+      });
+    });
+  };
+
+  const filteredProducts = data
+    ? data.filter((item) => {
+        const lowerCaseSearchTerm = searchTerm.toLowerCase();
+        const lowerCaseBrandFilter = brandFilter.toLowerCase();
+
+        const matchesSearchTerm = item.descripcion && item.descripcion.toLowerCase().includes(lowerCaseSearchTerm);
+        const matchesBrandFilter = item.marca && item.marca.toLowerCase() === lowerCaseBrandFilter || lowerCaseBrandFilter === '';
+
+        return matchesSearchTerm && matchesBrandFilter;
+      })
+    : [];
 
   const pageCountFiltered = Math.ceil(filteredProducts.length / filteredProducts.length);
 
@@ -200,15 +205,13 @@ const handleListSubmission = () => {
     setPageNumber(selected);
   };
 
-  const displayProducts = filteredProducts.map(item => (
+  const displayProducts = filteredProducts.map((item) => (
     <div className="boxProduct" key={item.codigo}>
       <div className="contenedor-imagen">
         <img onClick={() => handleOpen(item)} className="imagen-producto" src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt="imagen del producto" />
       </div>
-      <p className='contenedor-descripcion title marginr marginl'>{item.descripcion}</p>
-      <h1 className="subtitle1 marginl marginr truncate-text">
-        {item.marca}
-      </h1>
+      <p className="contenedor-descripcion title marginr marginl">{item.descripcion}</p>
+      <h1 className="subtitle1 marginl marginr truncate-text">{item.marca}</h1>
       <h3 className="precio">${item.precio}.00MXN</h3>
       <p className="subtitle">{item.codigo} - {item.contenido}</p>
       <motion.button
@@ -219,24 +222,24 @@ const handleListSubmission = () => {
       >
         Ver Producto
       </motion.button>
-			<br />
-			<motion.button
-				whileTap={{ scale: 1.2 }}
-				whileHover={{ scale: 1.1 }}
-				className="button1"
-				onClick={() => addToCart(item)}
-			>
-				Agregar al Carrito
-			</motion.button>    
-			</div>
+      <br />
+      <motion.button
+        whileTap={{ scale: 1.2 }}
+        whileHover={{ scale: 1.1 }}
+        className="button1"
+        onClick={() => addToCart(item)}
+      >
+        Agregar al Carrito
+      </motion.button>
+    </div>
   ));
 
   return (
     <div>
       <img className="portada" src="images/productos.png" alt="" />
-      <div className='flex marginb'>
+      <div className="flex marginb">
         <h1>Encontrar por Marca</h1>
-        <select className='filtro' value={brandFilter} onChange={e => setBrandFilter(e.target.value)}>
+        <select className="filtro" value={brandFilter} onChange={(e) => setBrandFilter(e.target.value)}>
           <option value="">Todas las marcas</option>
           <option value="Anastasia Beverly Hills">Anastasia Beverly Hills</option>
           <option value="AOA">AOA</option>
@@ -297,14 +300,12 @@ const handleListSubmission = () => {
       <input
         type="text"
         value={searchTerm}
-        onChange={e => setSearchTerm(e.target.value)}
+        onChange={(e) => setSearchTerm(e.target.value)}
         placeholder="Buscar tus productos..."
-        className='buscador'
+        className="buscador"
       />
       <div className="column">
-        <div className='boxVistaRapida marginr marginl'>
-          {displayProducts}
-        </div>
+        <div className="boxVistaRapida marginr marginl">{displayProducts}</div>
         <Modal
           open={open}
           onClose={handleClose}
@@ -317,9 +318,13 @@ const handleListSubmission = () => {
                 <div className="row">
                   <h1 id="modal-title marginr marginl">{selectedProduct.marca}</h1>
                 </div>
-                <img className='img-producto marginr marginl' src={`https://drive.google.com/uc?export=view&id=${selectedProduct.id}`} alt="Imagen del producto" />
+                <img
+                  className="img-producto marginr marginl"
+                  src={`https://drive.google.com/uc?export=view&id=${selectedProduct.id}`}
+                  alt="Imagen del producto"
+                />
                 <div className="row">
-                  <h2 className='width-100'>{selectedProduct.descripcion}</h2>
+                  <h2 className="width-100">{selectedProduct.descripcion}</h2>
                 </div>
                 <div className="row">
                   <h2>Descripcion:</h2>
@@ -339,7 +344,9 @@ const handleListSubmission = () => {
                 </div>
               </>
             )}
-            <motion.button whileHover={{ scale: 1.1 }} onClick={handleClose} whileTap={{ scale: 1.1 }} className=" margint marginb button1 marginr marginl">Cerrar</motion.button>
+            <motion.button whileHover={{ scale: 1.1 }} onClick={handleClose} whileTap={{ scale: 1.1 }} className=" margint marginb button1 marginr marginl">
+              Cerrar
+            </motion.button>
           </div>
         </Modal>
 
@@ -350,48 +357,57 @@ const handleListSubmission = () => {
           aria-describedby="modal-description"
         >
           <div className="modal-content scrolleable" style={{ overflow: 'auto' }}>
-            <h1 id="modal-title marginr marginl" className='title modal-title'>Resumen de tu compra</h1>
+            <h1 id="modal-title marginr marginl" className="title modal-title">
+              Resumen de tu compra
+            </h1>
             {cartItems.length === 0 ? (
-              <p className='title' id="modal-description">El carrito está vacío.</p>
+              <p className="title" id="modal-description">
+                El carrito está vacío.
+              </p>
             ) : (
               <>
-                {cartItems.map(item => (
-									<div key={item.codigo} className="cart-item">
-										<img className="cart-item-image" src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt="Imagen del producto" />
-										<div className="cart-item-details">
-											<div className="cart-item-row">
-												<h2 className="cart-item-title">{item.marca}-{item.descripcion}</h2>
-											</div>
-											<div className="cart-item-row">
-												<p className="cart-item-price">${item.precio}.00 MXN</p>
-													<img src="images/menos.png" className="cart-item-button" onClick={() => decreaseQuantity(item)} alt="" />
-													<span className="cart-item-quantity">{item.quantity}</span>
-													<img src="images/mas.png"  className="cart-item-button" onClick={() => increaseQuantity(item)} alt="" />
-													<img className="cart-item-remove" onClick={() => removeFromCart(item)} className="eliminar" src="images/eliminar.png" alt="" />
-											</div>
-										<hr className="hr" />
-										</div>
-									</div>
-
+                {cartItems.map((item) => (
+                  <div key={item.codigo} className="cart-item">
+                    <img className="cart-item-image" src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt="Imagen del producto" />
+                    <div className="cart-item-details">
+                      <div className="cart-item-row">
+                        <h2 className="cart-item-title">
+                          {item.marca}-{item.descripcion}
+                        </h2>
+                      </div>
+                      <div className="cart-item-row">
+                        <p className="cart-item-price">${item.precio}.00 MXN</p>
+                        <img src="images/menos.png" className="cart-item-button" onClick={() => decreaseQuantity(item)} alt="" />
+                        <span className="cart-item-quantity">{item.quantity}</span>
+                        <img src="images/mas.png" className="cart-item-button" onClick={() => increaseQuantity(item)} alt="" />
+                        <img className="cart-item-remove" onClick={() => removeFromCart(item)} className="eliminar" src="images/eliminar.png" alt="" />
+                      </div>
+                      <hr className="hr" />
+                    </div>
+                  </div>
                 ))}
-									<div className="cart-total">
-										<h2>Total:</h2>
-										<p>${cartItems.reduce((total, item) => total + item.precio * item.quantity, 0)}.00 MXN</p>
-									</div>
-									<motion.button whileHover={{ scale: 1.1 }} onClick={handleListSubmission} whileTap={{ scale: 1.1 }} className="margint marginb button1 marginr marginl">Enviar Lista</motion.button>
+                <div className="cart-total">
+                  <h2>Total:</h2>
+                  <p>${cartItems.reduce((total, item) => total + item.precio * item.quantity, 0)}.00 MXN</p>
+                </div>
+                <motion.button whileHover={{ scale: 1.1 }} onClick={handleListSubmission} whileTap={{ scale: 1.1 }} className="margint marginb button1 marginr marginl">
+                  Enviar Lista
+                </motion.button>
               </>
             )}
-            <motion.button whileHover={{ scale: 1.1 }} onClick={handleCartClose} whileTap={{ scale: 1.1 }} className="margint marginb button1 marginr marginl">Cerrar</motion.button>
+            <motion.button whileHover={{ scale: 1.1 }} onClick={handleCartClose} whileTap={{ scale: 1.1 }} className="margint marginb button1 marginr marginl">
+              Cerrar
+            </motion.button>
           </div>
         </Modal>
-      <div className="cart-container">
-        <img className='carrito' src="images/carrito.png" alt="" onClick={handleCartOpen} />
-<h1 className='carrito-length'>{cartItems.reduce((total, item) => total + item.quantity, 0)}</h1>
+        <div className="cart-container">
+          <img className="carrito" src="images/carrito.png" alt="" onClick={handleCartOpen} />
+          <h1 className="carrito-length">{cartItems.reduce((total, item) => total + item.quantity, 0)}</h1>
+        </div>
       </div>
-      </div>
-			<Alert show={showAlert} variant="success" onClose={() => setShowAlert(false)} dismissible>
-				Producto agregado al carrito
-			</Alert>
+      <Alert show={showAlert} variant="success" onClose={() => setShowAlert(false)} dismissible>
+        Producto agregado al carrito
+      </Alert>
     </div>
   );
 }
