@@ -15,7 +15,6 @@ import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 import Alert from 'react-bootstrap/Alert';
 import Swal from 'sweetalert2';
-import nodemailer from 'nodemailer';
 
 export default function Productos() {
   const [selectedProduct, setSelectedProduct] = useState(null);
