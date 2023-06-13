@@ -18,6 +18,7 @@ import Swal from 'sweetalert2';
 import LazyLoad from 'react-lazyload';
 
 export default function Productos() {
+	const [imageLoading, setImageLoading] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [data, setData] = useState([]);
   const [open, setOpen] = useState(false);
@@ -27,6 +28,7 @@ export default function Productos() {
   const [brandFilter, setBrandFilter] = useState('');
   const [cartItems, setCartItems] = useState([]);
   const [showAlert, setShowAlert] = useState(false);
+	const [loadingImages, setLoadingImages] = useState(true); // Nuevo estado para controlar la carga de las imágenes
 
   // Function to generate message content based on cart items
   const createMessage = () => {
@@ -56,6 +58,10 @@ export default function Productos() {
       });
     }
   };
+
+	const handleImageLoad = () => {
+		setImageLoading(false);
+	};	
 
   const handleOpen = (product) => {
     setSelectedProduct(product);
@@ -191,40 +197,45 @@ export default function Productos() {
     setPageNumber(selected);
   };
 
+
   const displayProducts = filteredProducts.map((item) => (
-    <LazyLoad key={item.codigo} height={200} offset={100} once>
-      <div className="boxProduct">
+    <div className="boxProduct" key={item.codigo}>
+      <LazyLoad height={200} offset={100} once>
         <div className="contenedor-imagen">
-          <img
-            onClick={() => handleOpen(item)}
-            className="imagen-producto"
-            src={`https://drive.google.com/uc?export=view&id=${item.id}`}
-            alt="imagen del producto"
-          />
+          {loadingImages && <ProgressBar now={100} />}
+          <LazyLoad>
+            <img
+              onClick={() => handleOpen(item)}
+              className="imagen-producto margint"
+              src={`https://drive.google.com/uc?export=view&id=${item.id}`}
+              alt="imagen del producto"
+              onLoad={handleImageLoad}
+            />
+          </LazyLoad>
         </div>
-        <p className="contenedor-descripcion title marginr marginl">{item.descripcion}</p>
-        <h1 className="subtitle1 marginl marginr truncate-text">{item.marca}</h1>
-        <h3 className="precio">${item.precio}.00MXN</h3>
-        <p className="subtitle">{item.codigo} - {item.contenido}</p>
-        <motion.button
-          whileTap={{ scale: 1.2 }}
-          whileHover={{ scale: 1.1 }}
-          className="button1"
-          onClick={() => handleOpen(item)}
-        >
-          Ver Producto
-        </motion.button>
-        <br />
-        <motion.button
-          whileTap={{ scale: 1.2 }}
-          whileHover={{ scale: 1.1 }}
-          className="button1"
-          onClick={() => addToCart(item)}
-        >
-          Agregar al Carrito
-        </motion.button>
-      </div>
-    </LazyLoad>
+      </LazyLoad>
+      <p className="contenedor-descripcion title marginr marginl">{item.descripcion}</p>
+      <h1 className="subtitle1 marginl marginr truncate-text">{item.marca}</h1>
+      <h3 className="precio">${item.precio}.00MXN</h3>
+      <p className="subtitle">{item.codigo} - {item.contenido}</p>
+      <motion.button
+        whileTap={{ scale: 1.2 }}
+        whileHover={{ scale: 1.1 }}
+        className="button1"
+        onClick={() => handleOpen(item)}
+      >
+        Ver Producto
+      </motion.button>
+      <br />
+      <motion.button
+        whileTap={{ scale: 1.2 }}
+        whileHover={{ scale: 1.1 }}
+        className="button1"
+        onClick={() => addToCart(item)}
+      >
+        Agregar al Carrito
+      </motion.button>
+    </div>
   ));
 
   return (
