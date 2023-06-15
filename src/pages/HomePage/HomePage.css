@@ -289,6 +289,8 @@ body,h1,h2,h3,p,button{
 		margin-bottom: 1%;
 		cursor: pointer;
 		cursor: context-menu;
+		display: flex;
+		justify-content: flex-start;
 	}
 
 	.modal{
@@ -537,7 +539,6 @@ body,h1,h2,h3,p,button{
 	}
 	
 	.contenedor-descripcion {
-		margin: 10px 0; /* Ajusta el margen superior e inferior */
 		max-height: 100px; /* Ajusta la altura máxima deseada */
 		font-size: 1rem !important;
 		width: 100%;
@@ -545,6 +546,8 @@ body,h1,h2,h3,p,button{
 		overflow: hidden; /* Esto oculta cualquier parte de la descripción que exceda la altura máxima */
 		white-space: nowrap; /* Evita que el texto se divida en varias líneas */
 		text-overflow: ellipsis; /* Agrega puntos suspensivos (...) al final del texto si se desborda del contenedor */
+		display: flex;
+		margin-top: 1rem;
 		}
 
 		.contenedor-descripcion p {
@@ -633,6 +636,7 @@ body,h1,h2,h3,p,button{
 		flex-direction: column;
 		width: 50%;
 		align-items: center;
+		justify-content: center;
 	}
 		.boxProduct1{
 		display: flex;

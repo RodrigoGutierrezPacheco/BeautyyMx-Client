@@ -230,7 +230,7 @@ export default function Productos() {
           </LazyLoad>
         </div>
       </LazyLoad>
-      <p className="contenedor-descripcion title marginr marginl">{item.descripcion}</p>
+      <p className="contenedor-descripcion marginr marginl">{item.descripcion}</p>
       <h1 className="subtitle1 marginl marginr truncate-text">{item.marca}</h1>
       <h3 className="precio">${item.precio}.00MXN</h3>
       <p className="subtitle">{item.codigo} - {item.contenido}</p>

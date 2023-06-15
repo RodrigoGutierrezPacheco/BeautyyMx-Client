@@ -19,10 +19,10 @@ export default function Footer() {
 			<div className="wrap mt1">
 			<div className="box ml">
 				<img className="logoFooter" src="images/envio.png" alt="" />
-				<h1 className="textoFooter">ENVÍOS A TODA LA REPÚBLICA MEXICANA DESDE $299.00MXN</h1>
+				<h1 className="textoFooter">ENVÍOS A TODA LA REPÚBLICA MEXICANA DESDE $129.00MXN</h1>
 			</div>
 			<div className="box">
-				<img className="logoFooter" src="images/ubicacion.png" alt="" />
+				<motion.img whileTap={{scale:1.1}} onClick={puntos} className="logoFooter" src="images/ubicacion.png" alt="" />
 				<h1 className="textoFooter">UBICANOS EN NUESTROS DISTINTOS PUNTOS DE VENTA</h1>
 			</div>
 			<div className="box ml">

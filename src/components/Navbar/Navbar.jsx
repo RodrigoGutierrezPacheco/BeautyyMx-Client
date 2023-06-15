@@ -86,7 +86,7 @@ function CollapsibleExample() {
       <div className='flex1'>
 				 <motion.img whileHover={{scale:1.1}} onClick={closeModal} className='x' src="images/x.png" alt="" />
 				<div className='start1'>
-				 <motion.img whileHover={{scale:1.1}} onClick={home} className='logoMenu' src="images/logoBeauty3.jpeg" alt="" />
+				 <motion.img whileHover={{scale:1.1}} onClick={home} className='logoMenu' src="images/logoBeauty1.png" alt="" />
 				</div>
         <div className='white textoModal'>
 				<div start1>
