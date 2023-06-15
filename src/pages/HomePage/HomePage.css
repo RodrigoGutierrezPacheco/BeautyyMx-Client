@@ -533,22 +533,38 @@ body,h1,h2,h3,p,button{
 	}
 	
 	.imagen-producto {
-		max-height: 100%;
-		max-width: 100%;
+		width: 80%;
+		height: 90%;
 		object-fit: contain; /* Ajusta la imagen para mantener su relación de aspecto */
 	}
 	
 	.contenedor-descripcion {
-		max-height: 100px; /* Ajusta la altura máxima deseada */
-		font-size: 1rem !important;
-		width: 100%;
-		font-weight: 900;
-		overflow: hidden; /* Esto oculta cualquier parte de la descripción que exceda la altura máxima */
-		white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-		text-overflow: ellipsis; /* Agrega puntos suspensivos (...) al final del texto si se desborda del contenedor */
-		display: flex;
 		margin-top: 1rem;
-		}
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		overflow: hidden;
+		text-align: center;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+	
+	.contenedor-descripcion::before {
+		content: attr(data-text); /* Recupera el texto completo del atributo data-text */
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 100%;
+		display: block;
+		white-space: nowrap;
+		max-width: calc(100% - 1rem); /* Resta el espacio para el margen izquierdo y derecho */
+	}
+	
+	
+	
+	
+	
+	
+	
 
 		.contenedor-descripcion p {
 			display: inline-block;

@@ -18,7 +18,7 @@ import Swal from 'sweetalert2';
 import LazyLoad from 'react-lazyload';
 
 export default function Productos() {
-	const [imageLoading, setImageLoading] = useState(true);
+  const [imageLoading, setImageLoading] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [data, setData] = useState([]);
   const [open, setOpen] = useState(false);
@@ -28,40 +28,11 @@ export default function Productos() {
   const [brandFilter, setBrandFilter] = useState('');
   const [cartItems, setCartItems] = useState([]);
   const [showAlert, setShowAlert] = useState(false);
-	const [loadingImages, setLoadingImages] = useState(true); // Nuevo estado para controlar la carga de las imágenes
+  const [loadingImages, setLoadingImages] = useState(true);
 
-  // Function to generate message content based on cart items
-  const createMessage = () => {
-    let message = 'Lista de compras:\n';
-    let total = 0;
-
-    cartItems.forEach((item) => {
-      let itemTotal = item.precio * item.quantity; // assuming 'precio' is the field for price
-      total += itemTotal;
-      message += `${item.marca} - ${item.descripcion} - ${item.codigo} - Cantidad: ${item.quantity} - Total por artículo: ${itemTotal}\n`;
-    });
-
-    message += `Precio total de todos los productos: $${total}.00 MXN`;
-
-    return message;
+  const handleImageLoad = () => {
+    setImageLoading(false);
   };
-
-  // Function to handle list submission
-  const handleListSubmission = () => {
-    if (cartItems.length > 0) {
-      window.open(`https://wa.me/525638686467?text=${encodeURIComponent(createMessage())}`);
-    } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Carrito vacío',
-        text: 'Por favor, agregue algunos productos a su carrito antes de enviar la lista.',
-      });
-    }
-  };
-
-	const handleImageLoad = () => {
-		setImageLoading(false);
-	};	
 
   const handleOpen = (product) => {
     setSelectedProduct(product);
@@ -103,83 +74,54 @@ export default function Productos() {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
-	const addToCart = (product, event) => {
-		const existingItem = cartItems.find((item) => item.codigo === product.codigo);
-	
-		if (existingItem) {
-			setCartItems(
-				cartItems.map((item) => {
-					if (item.codigo === product.codigo) {
-						return {
-							...item,
-							quantity: item.quantity + 1,
-						};
-					}
-					return item;
-				})
-			);
-		} else {
-			setCartItems([...cartItems, { ...product, quantity: 1 }]);
-		}
-	
-		Swal.fire({
-			icon: 'success',
-			title: 'Producto agregado al carrito',
-			showConfirmButton: false,
-			timer: 1500, // La alerta se cerrará automáticamente después de 1.5 segundos
-			customClass: {
-				container: 'custom-swal-container',
-				title: 'custom-swal-title',
-				icon: 'custom-swal-icon',
-			},
-		});
-	};
-	
-	
-	
+  const addToCart = (product) => {
+    const existingItem = cartItems.find((item) => item.codigo === product.codigo);
 
-  const removeFromCart = (product) => {
+    if (existingItem) {
+      setCartItems(
+        cartItems.map((item) => {
+          if (item.codigo === product.codigo) {
+            return {
+              ...item,
+              quantity: item.quantity + 1,
+            };
+          }
+          return item;
+        })
+      );
+    } else {
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+    }
+
     Swal.fire({
-      title: 'Eliminar producto',
-      text: '¿Deseas eliminar el producto del carrito?',
-      icon: 'question',
-      showCancelButton: true,
-      confirmButtonText: 'Aceptar',
-      cancelButtonText: 'Cancelar',
-      backdrop: true,
-      focusConfirm: false,
+      icon: 'success',
+      title: 'Producto agregado al carrito',
+      showConfirmButton: false,
+      timer: 1500,
       customClass: {
-        container: 'sweetalert-container',
+        container: 'custom-swal-container',
+        title: 'custom-swal-title',
+        icon: 'custom-swal-icon',
       },
-    }).then((result) => {
-      if (result.isConfirmed) {
-        const updatedCart = cartItems.filter((item) => item.codigo !== product.codigo);
-        setCartItems(updatedCart);
-      }
     });
   };
 
-	const decreaseQuantity = (item) => {
-		const updatedCartItems = cartItems.map((cartItem) => {
-			if (cartItem.codigo === item.codigo) {
-				const newQuantity = cartItem.quantity - 1;
-				return {
-					...cartItem,
-					quantity: newQuantity >= 0 ? newQuantity : 0,
-				};
-			}
-			return cartItem;
-		});
-	
-		const filteredCartItems = updatedCartItems.filter((item) => item.quantity > 0);
-	
-		setCartItems(filteredCartItems);
-	};
-	
-	
-	
-	
-	
+  const decreaseQuantity = (item) => {
+    const updatedCartItems = cartItems.map((cartItem) => {
+      if (cartItem.codigo === item.codigo) {
+        const newQuantity = cartItem.quantity - 1;
+        return {
+          ...cartItem,
+          quantity: newQuantity >= 0 ? newQuantity : 0,
+        };
+      }
+      return cartItem;
+    });
+
+    const filteredCartItems = updatedCartItems.filter((item) => item.quantity > 0);
+
+    setCartItems(filteredCartItems);
+  };
 
   const increaseQuantity = (item) => {
     const updatedCartItems = cartItems.map((cartItem) => {
@@ -195,6 +137,61 @@ export default function Productos() {
     setCartItems(updatedCartItems);
   };
 
+  const removeFromCart = (product) => {
+    Swal.fire({
+      title: 'Eliminar producto',
+      text: '¿Deseas eliminar el producto del carrito?',
+      icon: 'question',
+      buttons: ['Cancelar', 'Aceptar'],
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        const updatedCart = cartItems.filter((item) => item.codigo !== product.codigo);
+        setCartItems(updatedCart);
+        Swal.fire('Producto eliminado del carrito', {
+          icon: 'success',
+        });
+      }
+    });
+  };
+
+  const createMessage = () => {
+    let message = 'Lista de compras:\n';
+    let total = 0;
+
+    cartItems.forEach((item) => {
+      let itemTotal = item.precio * item.quantity;
+      total += itemTotal;
+      message += `${item.marca} - ${item.descripcion} - ${item.codigo} - Cantidad: ${item.quantity} - Total por artículo: ${itemTotal}\n`;
+    });
+
+    message += `Precio total de todos los productos: $${total}.00 MXN`;
+
+    return message;
+  };
+
+	const handleListSubmission = () => {
+		if (cartItems.length > 0) {
+			Swal.fire({
+				title: '¿Deseas continuar con tu compra en WhatsApp?',
+				text: 'Serás redirigido a WhatsApp para finalizar la compra.',
+				icon: 'info',
+				showCancelButton: true, // Mostrar botón de cancelar
+				buttons: ['Cancelar', 'Aceptar'],
+			}).then((willContinue) => {
+				if (willContinue.isConfirmed) {
+					window.open(`https://wa.me/525638686467?text=${encodeURIComponent(createMessage())}`);
+				}
+			});
+		} else {
+			Swal.fire({
+				title: 'Carrito vacío',
+				text: 'Por favor, agregue algunos productos a su carrito antes de enviar la lista.',
+				icon: 'error',
+			});
+		}
+	};
+	
   const filteredProducts = data
     ? data.filter((item) => {
         const lowerCaseSearchTerm = searchTerm.toLowerCase();
@@ -213,6 +210,9 @@ export default function Productos() {
     setPageNumber(selected);
   };
 
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
   const displayProducts = filteredProducts.map((item) => (
     <div className="boxProduct" key={item.codigo}>
@@ -230,10 +230,10 @@ export default function Productos() {
           </LazyLoad>
         </div>
       </LazyLoad>
-      <p className="contenedor-descripcion marginr marginl">{item.descripcion}</p>
+      <p className="contenedor-descripcion" data-text={capitalizeFirstLetter(item.descripcion)}></p>
       <h1 className="subtitle1 marginl marginr truncate-text">{item.marca}</h1>
       <h3 className="precio">${item.precio}.00MXN</h3>
-      <p className="subtitle">{item.codigo} - {item.contenido}</p>
+      <p className="">{item.codigo} - {item.contenido}</p>
       <motion.button
         whileTap={{ scale: 1.2 }}
         whileHover={{ scale: 1.1 }}
@@ -253,6 +253,7 @@ export default function Productos() {
       </motion.button>
     </div>
   ));
+
 
   return (
     <div>
@@ -322,7 +323,7 @@ export default function Productos() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         placeholder="Buscar tus productos..."
-        className="buscador"
+        className="buscador marginb"
       />
       <div className="column">
         <div className="boxVistaRapida marginr marginl">{displayProducts}</div>

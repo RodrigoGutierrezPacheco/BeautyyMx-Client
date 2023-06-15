@@ -53,12 +53,17 @@ function HomePage() {
     setOpen(false);
   };
 
+	function capitalizeFirstLetter(string) {
+		if (!string) return ""; // Agregar esta línea para evitar errores con valores nulos o indefinidos
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+	
   const displayProducts = shuffledProducts.map(item => (
 		<div className="boxProduct" key={item.codigo}>
 		<div className="contenedor-imagen">
 			<img onClick={() => handleOpen(item)} className="imagen-producto" src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt="imagen del producto" />
 		</div>
-		<p className='contenedor-descripcion title marginr marginl'>{item.descripcion}</p>
+		<p className="contenedor-descripcion" data-text={capitalizeFirstLetter(item.descripcion)}></p>
 		<h1 className="subtitle1 marginl marginr truncate-text">
 			{item.marca}
 		</h1>
@@ -133,7 +138,7 @@ function HomePage() {
           {displayProducts.length > 0 ? (
             displayProducts
           ) : (
-            <p>No hay productos disponibles de la marca "The Ordinary".</p>
+            <p></p>
           )}
         </div>
       </div>
