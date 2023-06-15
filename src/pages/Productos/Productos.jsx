@@ -411,7 +411,7 @@ export default function Productos() {
                   <p>${cartItems.reduce((total, item) => total + item.precio * item.quantity, 0)}.00 MXN</p>
                 </div>
                 <motion.button whileHover={{ scale: 1.1 }} onClick={handleListSubmission} whileTap={{ scale: 1.1 }} className="margint marginb button1 marginr marginl">
-                  Enviar Lista
+                  Comprar 
                 </motion.button>
               </>
             )}
