@@ -15,7 +15,7 @@ export default function Footer() {
 	}
 
   return (
-   <footer>
+   <footer className='celular'>
 			<div className="wrap mt1">
 			<div className="box ml">
 				<img className="logoFooter" src="images/envio.png" alt="" />

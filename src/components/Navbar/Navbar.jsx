@@ -78,8 +78,8 @@ function CollapsibleExample() {
     subtitle.style.color = '#f00';
   }
   return (
-		<nav className='flex nav'>
-			<motion.img  whileTap={{scale:1.2}} whileHover={{scale:1.1}} onClick={openModal} className='menu animate__animated animate__bounce' src="images/menu.png" alt="" />
+		<nav className='flex nav celular'>
+			<motion.img  whileTap={{scale:1.2}} whileHover={{scale:1.1}} onClick={openModal} className='celular menu animate__animated animate__bounce' src="images/menu.png" alt="" />
 		<motion.div className='animate__animated animate__slideInLeft'>
 			<div className='animate__animated animate__backInLeft'>
 			<Modal show={modalIsOpen} className='animate__animated animate__backInLeft'>
@@ -116,7 +116,7 @@ function CollapsibleExample() {
       </Modal>
 					</div>
 		</motion.div>
-			<motion.img onClick={home} whileHover={{scale:1.1}} whileTap={{scale:1.2}}  className='logo' src="images/logoBeauty1.png" alt="" />
+			<motion.img onClick={home} whileHover={{scale:1.1}} whileTap={{scale:1.2}}  className='logo celular' src="images/logoBeauty1.png" alt="" />
 		</nav>
   );
 }

@@ -20,6 +20,11 @@ body,h1,h2,h3,p,button{
 		font-weight: 700 !important;
 	}
 @media(max-width:600px){
+
+	.computadora{
+		display: none;
+	}
+
   .navbar2{
 		background-color: #FFCACA;
 		color: rgb(0, 0, 0);	
@@ -523,6 +528,7 @@ body,h1,h2,h3,p,button{
 		height: 100%;
 		padding: 10px;
 		margin: 0;
+		scroll-snap-align: start;
 	}
 	
 	.contenedor-imagen {
@@ -531,6 +537,20 @@ body,h1,h2,h3,p,button{
 		align-items: center;
 		height: 200px; /* Ajusta la altura deseada para el contenedor de la imagen */
 	}
+
+	.productos-container {
+		display: flex;
+		overflow-x: scroll;
+		scroll-snap-type: x mandatory;
+		scroll-behavior: smooth;
+	}
+	
+	.producto {
+		display: inline-block;
+		margin-right: 20px;
+		/* Agrega otros estilos necesarios */
+	}
+	
 	
 	.imagen-producto {
 		width: 80%;
@@ -663,6 +683,10 @@ body,h1,h2,h3,p,button{
 		height: 200px;
 	}
 
+	.width-90{
+		width: 90%;
+	}
+
 	.button1{
 		background-color: #C92C39;
 		color: white;
@@ -689,6 +713,11 @@ body,h1,h2,h3,p,button{
 
 	.red{
 		color: #C92C39;
+	}
+
+	.row{
+		display: flex;
+		flex-direction: row;
 	}
 
 	.white{
@@ -849,4 +878,13 @@ body,h1,h2,h3,p,button{
 		border-radius: 5px;
 	} */
 
+}
+
+@media(min-width:601px){
+	.celular{
+		display: none;
+	}
+
+	.computadora{
+	}
 }
