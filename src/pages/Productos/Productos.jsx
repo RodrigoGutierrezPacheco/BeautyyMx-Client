@@ -53,9 +53,9 @@ export default function Productos() {
 
   useEffect(() => {
     axios
-      .get(
-        'https://gist.githubusercontent.com/RodrigoGutierrezPacheco/6fdcbaee593f135f4d9a062bfeba3de7/raw/1eefbd634c3a49219d38ea5208754261d994880a/gistfile1.txt'
-      )
+		.get(
+			'https://gist.githubusercontent.com/RodrigoGutierrezPacheco/6fdcbaee593f135f4d9a062bfeba3de7/raw/ce91ab841162c3fc53527e1d074de70bc73789e9/gistfile1.txt'
+		)
       .then((response) => {
         setData(response.data);
         console.log(response.data);
@@ -223,7 +223,7 @@ export default function Productos() {
             <img
               onClick={() => handleOpen(item)}
               className="imagen-producto margint"
-              src={`https://drive.google.com/uc?export=view&id=${item.id}`}
+              src={item?.fotos}
               alt="imagen del producto"
               onLoad={handleImageLoad}
             />
@@ -341,7 +341,7 @@ export default function Productos() {
                 </div>
                 <img
                   className="img-producto marginr marginl"
-                  src={`https://drive.google.com/uc?export=view&id=${selectedProduct.id}`}
+                  src={selectedProduct?.fotos}
                   alt="Imagen del producto"
                 />
                 <div className="row">
