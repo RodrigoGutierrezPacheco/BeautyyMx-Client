@@ -1,96 +1,92 @@
-import React, { useState, useEffect } from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import CardActionArea from '@mui/material/CardActionArea';
-import Button from '@mui/material/Button';
-import './Producto.css';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import Carousel from 'react-bootstrap/Carousel';
-import { motion } from 'framer-motion';
-import ProgressBar from 'react-bootstrap/ProgressBar';
-import axios from 'axios';
-import ReactPaginate from 'react-paginate';
-import Alert from 'react-bootstrap/Alert';
-import Swal from 'sweetalert2';
-import LazyLoad from 'react-lazyload';
+import React, { useState, useEffect } from 'react'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import Typography from '@mui/material/Typography'
+import CardActionArea from '@mui/material/CardActionArea'
+import Button from '@mui/material/Button'
+import './Producto.css'
+import Box from '@mui/material/Box'
+import Modal from '@mui/material/Modal'
+import Carousel from 'react-bootstrap/Carousel'
+import { motion } from 'framer-motion'
+import ProgressBar from 'react-bootstrap/ProgressBar'
+import axios from 'axios'
+import ReactPaginate from 'react-paginate'
+import Alert from 'react-bootstrap/Alert'
+import Swal from 'sweetalert2'
+import LazyLoad from 'react-lazyload'
 
 export default function Productos() {
-  const [imageLoading, setImageLoading] = useState(true);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [data, setData] = useState([]);
-  const [open, setOpen] = useState(false);
-  const [openCart, setOpenCart] = useState(false);
-  const [pageNumber, setPageNumber] = useState(0);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [brandFilter, setBrandFilter] = useState('');
-  const [cartItems, setCartItems] = useState([]);
-  const [showAlert, setShowAlert] = useState(false);
-  const [loadingImages, setLoadingImages] = useState(true);
+  const [imageLoading, setImageLoading] = useState(true)
+  const [selectedProduct, setSelectedProduct] = useState(null)
+  const [data, setData] = useState([])
+  const [open, setOpen] = useState(false)
+  const [openCart, setOpenCart] = useState(false)
+  const [pageNumber, setPageNumber] = useState(0)
+  const [searchTerm, setSearchTerm] = useState('')
+  const [brandFilter, setBrandFilter] = useState('')
+  const [cartItems, setCartItems] = useState([])
+  const [showAlert, setShowAlert] = useState(false)
+  const [loadingImages, setLoadingImages] = useState(true)
 
   const handleImageLoad = () => {
-    setImageLoading(false);
-  };
+    setImageLoading(false)
+  }
 
-  const handleOpen = (product) => {
-    setSelectedProduct(product);
-    setOpen(true);
-  };
+  const handleOpen = product => {
+    setSelectedProduct(product)
+    setOpen(true)
+  }
 
   const handleClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   const handleCartOpen = () => {
-    setOpenCart(true);
-  };
+    setOpenCart(true)
+  }
 
   const handleCartClose = () => {
-    setOpenCart(false);
-  };
+    setOpenCart(false)
+  }
 
   useEffect(() => {
-    axios
-		.get(
-			'https://gist.githubusercontent.com/RodrigoGutierrezPacheco/6fdcbaee593f135f4d9a062bfeba3de7/raw/ce91ab841162c3fc53527e1d074de70bc73789e9/gistfile1.txt'
-		)
-      .then((response) => {
-        setData(response.data);
-        console.log(response.data);
+    import('../../productos.json')
+      .then(response => {
+        setData(response.default)
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch(error => {
+        console.log(error)
+      })
 
-    const savedCartItems = localStorage.getItem('cartItems');
+    const savedCartItems = localStorage.getItem('cartItems')
     if (savedCartItems) {
-      setCartItems(JSON.parse(savedCartItems));
+      setCartItems(JSON.parse(savedCartItems))
     }
-  }, []);
+  }, [])
 
   useEffect(() => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  }, [cartItems]);
+    localStorage.setItem('cartItems', JSON.stringify(cartItems))
+  }, [cartItems])
 
-  const addToCart = (product) => {
-    const existingItem = cartItems.find((item) => item.codigo === product.codigo);
+  const addToCart = product => {
+    const existingItem = cartItems.find(item => item.codigo === product.codigo)
 
     if (existingItem) {
       setCartItems(
-        cartItems.map((item) => {
+        cartItems.map(item => {
           if (item.codigo === product.codigo) {
             return {
               ...item,
-              quantity: item.quantity + 1,
-            };
+              quantity: item.quantity + 1
+            }
           }
-          return item;
+          return item
         })
-      );
+      )
     } else {
-      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+      setCartItems([...cartItems, { ...product, quantity: 1 }])
     }
 
     Swal.fire({
@@ -101,120 +97,121 @@ export default function Productos() {
       customClass: {
         container: 'custom-swal-container',
         title: 'custom-swal-title',
-        icon: 'custom-swal-icon',
-      },
-    });
-  };
+        icon: 'custom-swal-icon'
+      }
+    })
+  }
 
-  const decreaseQuantity = (item) => {
-    const updatedCartItems = cartItems.map((cartItem) => {
+  const decreaseQuantity = item => {
+    const updatedCartItems = cartItems.map(cartItem => {
       if (cartItem.codigo === item.codigo) {
-        const newQuantity = cartItem.quantity - 1;
+        const newQuantity = cartItem.quantity - 1
         return {
           ...cartItem,
-          quantity: newQuantity >= 0 ? newQuantity : 0,
-        };
+          quantity: newQuantity >= 0 ? newQuantity : 0
+        }
       }
-      return cartItem;
-    });
+      return cartItem
+    })
 
-    const filteredCartItems = updatedCartItems.filter((item) => item.quantity > 0);
+    const filteredCartItems = updatedCartItems.filter(item => item.quantity > 0)
 
-    setCartItems(filteredCartItems);
-  };
+    setCartItems(filteredCartItems)
+  }
 
-  const increaseQuantity = (item) => {
-    const updatedCartItems = cartItems.map((cartItem) => {
+  const increaseQuantity = item => {
+    const updatedCartItems = cartItems.map(cartItem => {
       if (cartItem.codigo === item.codigo) {
         return {
           ...cartItem,
-          quantity: cartItem.quantity + 1,
-        };
+          quantity: cartItem.quantity + 1
+        }
       }
-      return cartItem;
-    });
+      return cartItem
+    })
 
-    setCartItems(updatedCartItems);
-  };
+    setCartItems(updatedCartItems)
+  }
 
-  const removeFromCart = (product) => {
+  const removeFromCart = product => {
     Swal.fire({
       title: 'Eliminar producto',
       text: '¿Deseas eliminar el producto del carrito?',
       icon: 'question',
       buttons: ['Cancelar', 'Aceptar'],
-      dangerMode: true,
-    }).then((willDelete) => {
+      dangerMode: true
+    }).then(willDelete => {
       if (willDelete) {
-        const updatedCart = cartItems.filter((item) => item.codigo !== product.codigo);
-        setCartItems(updatedCart);
+        const updatedCart = cartItems.filter(item => item.codigo !== product.codigo)
+        setCartItems(updatedCart)
         Swal.fire('Producto eliminado del carrito', {
-          icon: 'success',
-        });
+          icon: 'success'
+        })
       }
-    });
-  };
-
-  const createMessage = () => {
-    let message = 'Lista de compras:\n';
-    let total = 0;
-
-    cartItems.forEach((item) => {
-      let itemTotal = item.precio * item.quantity;
-      total += itemTotal;
-      message += `${item.marca} - ${item.descripcion} - ${item.codigo} - Cantidad: ${item.quantity} - Total por artículo: ${itemTotal}\n`;
-    });
-
-    message += `Precio total de todos los productos: $${total}.00 MXN`;
-
-    return message;
-  };
-
-	const handleListSubmission = () => {
-		if (cartItems.length > 0) {
-			Swal.fire({
-				title: '¿Deseas continuar con tu compra en WhatsApp?',
-				text: 'Serás redirigido a WhatsApp para finalizar la compra.',
-				icon: 'info',
-				showCancelButton: true, // Mostrar botón de cancelar
-				buttons: ['Cancelar', 'Aceptar'],
-			}).then((willContinue) => {
-				if (willContinue.isConfirmed) {
-					window.open(`https://wa.me/525638686467?text=${encodeURIComponent(createMessage())}`);
-				}
-			});
-		} else {
-			Swal.fire({
-				title: 'Carrito vacío',
-				text: 'Por favor, agregue algunos productos a su carrito antes de enviar la lista.',
-				icon: 'error',
-			});
-		}
-	};
-	
-  const filteredProducts = data
-    ? data.filter((item) => {
-        const lowerCaseSearchTerm = searchTerm.toLowerCase();
-        const lowerCaseBrandFilter = brandFilter.toLowerCase();
-
-        const matchesSearchTerm = item.descripcion && item.descripcion.toLowerCase().includes(lowerCaseSearchTerm);
-        const matchesBrandFilter = item.marca && item.marca.toLowerCase() === lowerCaseBrandFilter || lowerCaseBrandFilter === '';
-
-        return matchesSearchTerm && matchesBrandFilter;
-      })
-    : [];
-
-  const pageCountFiltered = Math.ceil(filteredProducts.length / filteredProducts.length);
-
-  const changePage = ({ selected }) => {
-    setPageNumber(selected);
-  };
-
-  function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+    })
   }
 
-  const displayProducts = filteredProducts.map((item) => (
+  const createMessage = () => {
+    let message = 'Lista de compras:\n'
+    let total = 0
+
+    cartItems.forEach(item => {
+      let itemTotal = item.precio * item.quantity
+      total += itemTotal
+      message += `${item.marca} - ${item.descripcion} - ${item.codigo} - Cantidad: ${item.quantity} - Total por artículo: ${itemTotal}\n`
+    })
+
+    message += `Precio total de todos los productos: $${total}.00 MXN`
+
+    return message
+  }
+
+  const handleListSubmission = () => {
+    if (cartItems.length > 0) {
+      Swal.fire({
+        title: '¿Deseas continuar con tu compra en WhatsApp?',
+        text: 'Serás redirigido a WhatsApp para finalizar la compra.',
+        icon: 'info',
+        showCancelButton: true, // Mostrar botón de cancelar
+        buttons: ['Cancelar', 'Aceptar']
+      }).then(willContinue => {
+        if (willContinue.isConfirmed) {
+          window.open(`https://wa.me/525638686467?text=${encodeURIComponent(createMessage())}`)
+        }
+      })
+    } else {
+      Swal.fire({
+        title: 'Carrito vacío',
+        text: 'Por favor, agregue algunos productos a su carrito antes de enviar la lista.',
+        icon: 'error'
+      })
+    }
+  }
+
+  const filteredProducts = data
+    ? data.filter(item => {
+        const lowerCaseSearchTerm = searchTerm.toLowerCase()
+        const lowerCaseBrandFilter = brandFilter.toLowerCase()
+
+        const matchesSearchTerm = item.descripcion && item.descripcion.toLowerCase().includes(lowerCaseSearchTerm)
+        const matchesBrandFilter =
+          (item.marca && item.marca.toLowerCase() === lowerCaseBrandFilter) || lowerCaseBrandFilter === ''
+
+        return matchesSearchTerm && matchesBrandFilter
+      })
+    : []
+
+  const pageCountFiltered = Math.ceil(filteredProducts.length / filteredProducts.length)
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected)
+  }
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+  }
+
+  const displayProducts = filteredProducts.map(item => (
     <div className="boxProduct" key={item.codigo}>
       <LazyLoad height={200} offset={100} once>
         <div className="contenedor-imagen">
@@ -233,7 +230,9 @@ export default function Productos() {
       <p className="contenedor-descripcion" data-text={capitalizeFirstLetter(item.descripcion)}></p>
       <h1 className="subtitle1 marginl marginr truncate-text">{item.marca}</h1>
       <h3 className="precio">${item.precio}.00MXN</h3>
-      <p className="">{item.codigo} - {item.contenido}</p>
+      <p className="">
+        {item.codigo} - {item.contenido}
+      </p>
       <motion.button
         whileTap={{ scale: 1.2 }}
         whileHover={{ scale: 1.1 }}
@@ -252,15 +251,14 @@ export default function Productos() {
         Agregar al Carrito
       </motion.button>
     </div>
-  ));
-
+  ))
 
   return (
     <div>
       <img className="portada" src="images/productos.png" alt="" />
       <div className="flex marginb">
         <h1>Encontrar por Marca</h1>
-        <select className="filtro" value={brandFilter} onChange={(e) => setBrandFilter(e.target.value)}>
+        <select className="filtro" value={brandFilter} onChange={e => setBrandFilter(e.target.value)}>
           <option value="">Todas las marcas</option>
           <option value="Anastasia Beverly Hills">Anastasia Beverly Hills</option>
           <option value="AOA">AOA</option>
@@ -317,33 +315,24 @@ export default function Productos() {
           <option value="Wet n Wild">Wet n Wild</option>
         </select>
       </div>
-      <h1>{brandFilter ? brandFilter : "Todas las marcas"}</h1>
+      <h1>{brandFilter ? brandFilter : 'Todas las marcas'}</h1>
       <input
         type="text"
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={e => setSearchTerm(e.target.value)}
         placeholder="Buscar tus productos..."
         className="buscador marginb"
       />
       <div className="column">
         <div className="boxVistaRapida marginr marginl">{displayProducts}</div>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-title"
-          aria-describedby="modal-description"
-        >
+        <Modal open={open} onClose={handleClose} aria-labelledby="modal-title" aria-describedby="modal-description">
           <div className="modal-content scrolleable" style={{ overflow: 'auto' }}>
             {selectedProduct && (
               <>
                 <div className="row">
                   <h1 id="modal-title marginr marginl">{selectedProduct.marca}</h1>
                 </div>
-                <img
-                  className="img-producto marginr marginl"
-                  src={selectedProduct?.fotos}
-                  alt="Imagen del producto"
-                />
+                <img className="img-producto marginr marginl" src={selectedProduct?.fotos} alt="Imagen del producto" />
                 <div className="row">
                   <h2 className="width-100">{selectedProduct.descripcion}</h2>
                 </div>
@@ -365,7 +354,12 @@ export default function Productos() {
                 </div>
               </>
             )}
-            <motion.button whileHover={{ scale: 1.1 }} onClick={handleClose} whileTap={{ scale: 1.1 }} className=" margint marginb button1 marginr marginl">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              onClick={handleClose}
+              whileTap={{ scale: 1.1 }}
+              className=" margint marginb button1 marginr marginl"
+            >
               Cerrar
             </motion.button>
           </div>
@@ -387,9 +381,13 @@ export default function Productos() {
               </p>
             ) : (
               <>
-                {cartItems.map((item) => (
+                {cartItems.map(item => (
                   <div key={item.codigo} className="cart-item">
-                    <img className="cart-item-image" src={`https://drive.google.com/uc?export=view&id=${item.id}`} alt="Imagen del producto" />
+                    <img
+                      className="cart-item-image"
+                      src={item?.fotos}
+                      alt="Imagen del producto"
+                    />
                     <div className="cart-item-details">
                       <div className="cart-item-row">
                         <h2 className="cart-item-title">
@@ -398,10 +396,26 @@ export default function Productos() {
                       </div>
                       <div className="cart-item-row">
                         <p className="cart-item-price">${item.precio}.00 MXN</p>
-                        <img src="images/menos.png" className="cart-item-button" onClick={() => decreaseQuantity(item)} alt="" />
+                        <img
+                          src="images/menos.png"
+                          className="cart-item-button"
+                          onClick={() => decreaseQuantity(item)}
+                          alt=""
+                        />
                         <span className="cart-item-quantity">{item.quantity}</span>
-                        <img src="images/mas.png" className="cart-item-button" onClick={() => increaseQuantity(item)} alt="" />
-                        <img className="cart-item-remove" onClick={() => removeFromCart(item)} className="eliminar" src="images/eliminar.png" alt="" />
+                        <img
+                          src="images/mas.png"
+                          className="cart-item-button"
+                          onClick={() => increaseQuantity(item)}
+                          alt=""
+                        />
+                        <img
+                          className="cart-item-remove"
+                          onClick={() => removeFromCart(item)}
+                          className="eliminar"
+                          src="images/eliminar.png"
+                          alt=""
+                        />
                       </div>
                       <hr className="hr" />
                     </div>
@@ -411,12 +425,22 @@ export default function Productos() {
                   <h2>Total:</h2>
                   <p>${cartItems.reduce((total, item) => total + item.precio * item.quantity, 0)}.00 MXN</p>
                 </div>
-                <motion.button whileHover={{ scale: 1.1 }} onClick={handleListSubmission} whileTap={{ scale: 1.1 }} className="margint marginb button1 marginr marginl">
-                  Comprar 
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  onClick={handleListSubmission}
+                  whileTap={{ scale: 1.1 }}
+                  className="margint marginb button1 marginr marginl"
+                >
+                  Comprar
                 </motion.button>
               </>
             )}
-            <motion.button whileHover={{ scale: 1.1 }} onClick={handleCartClose} whileTap={{ scale: 1.1 }} className="margint marginb button1 marginr marginl">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              onClick={handleCartClose}
+              whileTap={{ scale: 1.1 }}
+              className="margint marginb button1 marginr marginl"
+            >
               Cerrar
             </motion.button>
           </div>
@@ -427,5 +451,5 @@ export default function Productos() {
         </div>
       </div>
     </div>
-  );
+  )
 }

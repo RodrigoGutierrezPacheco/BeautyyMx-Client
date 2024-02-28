@@ -12,24 +12,24 @@ function HomePage() {
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [shuffledProducts, setShuffledProducts] = useState([])
 
-  useEffect(() => {
-    axios
-      .get(
-        'https://gist.githubusercontent.com/RodrigoGutierrezPacheco/6fdcbaee593f135f4d9a062bfeba3de7/raw/ce91ab841162c3fc53527e1d074de70bc73789e9/gistfile1.txt'
-      )
-      .then(response => {
-        setData(response.data)
-        console.log(response.data)
-        const shuffled = response.data
-          .filter(item => item.marca)
-          .sort(() => 0.5 - Math.random())
-          .slice(0, 15)
-        setShuffledProducts(shuffled)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }, [])
+
+	useEffect(() => {
+		// Cargar datos desde productos.json
+		import('../../productos.json')
+			.then(response => {
+				setData(response.default); // La respuesta es un módulo con un objeto default
+				console.log(response.default);
+				const shuffled = response.default
+					.filter(item => item.marca)
+					.sort(() => 0.5 - Math.random())
+					.slice(0, 15);
+				setShuffledProducts(shuffled);
+			})
+			.catch(error => {
+				console.log(error);
+			});
+	}, []);
+	
 
   const filteredProducts = data
     ? data.filter(item => {
