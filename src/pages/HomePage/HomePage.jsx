@@ -61,7 +61,7 @@ function HomePage() {
       <h1 className="subtitle1 marginl marginr truncate-text">{item.marca}</h1>
       <h3 className="precio">${item.precio}.00MXN</h3>
       <p className="subtitle">
-        {item.codigo} - {item.contenido}
+        {item.codigo} - {item.contenido === undefined ? 'n/a' : item?.contenido}
       </p>
       <motion.button
         whileTap={{ scale: 1.2 }}
@@ -142,7 +142,7 @@ function HomePage() {
             {selectedProduct && (
               <>
                 <div className="row">
-                  <h1 id="modal-title" className="marginr marginl">
+                  <h1 id="modal-title" className="center ml-auto mr-auto">
                     {selectedProduct.marca}
                   </h1>
                 </div>
@@ -150,7 +150,7 @@ function HomePage() {
                 <div className="row contenedor-descripcion">
                   <h2 className="width-100">{selectedProduct.descripcion}</h2>
                 </div>
-                <div className="row">
+                <div className="row mt-4">
                   <h2>Descripción:</h2>
                   <p>{selectedProduct.descripcion2}</p>
                 </div>
@@ -160,7 +160,7 @@ function HomePage() {
                 </div>
                 <div className="row">
                   <h2>Contenido:</h2>
-                  <p>{selectedProduct.contenido}</p>
+                  <p>{selectedProduct?.contenido === undefined ? 'n/a' : selectedProduct.contenido}</p>
                 </div>
                 <div className="row">
                   <h2>Código:</h2>

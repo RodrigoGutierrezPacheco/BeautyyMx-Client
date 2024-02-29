@@ -334,9 +334,9 @@ export default function Productos() {
                 </div>
                 <img className="img-producto marginr marginl" src={selectedProduct?.fotos} alt="Imagen del producto" />
                 <div className="row">
-                  <h2 className="width-100">{selectedProduct.descripcion}</h2>
+                  <h2 className="width-100 mt-2">{selectedProduct.descripcion}</h2>
                 </div>
-                <div className="row">
+                <div className="row mt-2">
                   <h2>Descripcion:</h2>
                   <p>{selectedProduct.descripcion2}</p>
                 </div>
@@ -383,11 +383,7 @@ export default function Productos() {
               <>
                 {cartItems.map(item => (
                   <div key={item.codigo} className="cart-item">
-                    <img
-                      className="cart-item-image"
-                      src={item?.fotos}
-                      alt="Imagen del producto"
-                    />
+                    <img className="cart-item-image" src={item?.fotos} alt="Imagen del producto" />
                     <div className="cart-item-details">
                       <div className="cart-item-row">
                         <h2 className="cart-item-title">

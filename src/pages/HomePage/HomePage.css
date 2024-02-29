@@ -210,6 +210,8 @@ body,h1,h2,h3,p,button{
 
 	.img-producto{
 		width: 50%;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
 	}
 
 	.marca{
@@ -560,6 +562,8 @@ body,h1,h2,h3,p,button{
 		width: 80%;
 		height: 90%;
 		object-fit: contain;
+		margin-left: auto;
+		margin-right: auto;
 	}
 	
 	.contenedor-descripcion {
