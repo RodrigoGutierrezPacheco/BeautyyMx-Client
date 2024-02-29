@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
 body,h1,h2,h3,p,button{
 	font-family: 'Montserrat', sans-serif;}
@@ -19,6 +22,7 @@ body,h1,h2,h3,p,button{
 	button{
 		font-weight: 700 !important;
 	}
+
 @media(max-width:600px){
 
 	.computadora{
@@ -555,7 +559,7 @@ body,h1,h2,h3,p,button{
 	.imagen-producto {
 		width: 80%;
 		height: 90%;
-		object-fit: contain; /* Ajusta la imagen para mantener su relación de aspecto */
+		object-fit: contain;
 	}
 	
 	.contenedor-descripcion {
@@ -567,6 +571,8 @@ body,h1,h2,h3,p,button{
 		text-align: center;
 		white-space: nowrap;
 		text-overflow: ellipsis;
+		min-height: 2rem;
+		
 	}
 	
 	.contenedor-descripcion::before {
@@ -750,7 +756,9 @@ body,h1,h2,h3,p,button{
 	}
 
 	.logoFooter{
-		width: 70%;
+		width: 60%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.width{

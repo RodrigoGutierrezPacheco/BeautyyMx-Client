@@ -113,7 +113,8 @@ export default function Footer() {
 			<div className='start'>
 				<h1 className='black'>Redes Sociales</h1>
 				<div className='redes1'>
-				 <a className='mr' href="https://www.facebook.com/beautyymx"><img className='pngFooter mr' src="images/fb.png" alt="" /></a>
+
+				 <a className='mr' href="https://www.facebook.com/beautyymx"><img className='pngFooter mr' src="images/facebook.png" alt="" /></a>
 					<a className='mr' href="https://www.instagram.com/beautyymx/"><img className='pngFooter mr' src="images/instagram.png" alt="" /></a>
 					<a className='mr' href="https://www.tiktok.com/@beautyymx"><img className='pngFooter ' src="images/tiktok.png" alt="" /></a>
 			</div>
@@ -122,11 +123,11 @@ export default function Footer() {
 		<div className='start'>
 			<h1 className='black'>Metodos de Pago</h1>
 			<div className='redes1'>
-				<img className='pngFooter mr' src="images/tarjeta.png" alt="" />
-				<img className='pngFooter mr' src="images/efectivo.png" alt="" />
+				<img className='pngFooter mr' src="images/tarjeta-de-credito.png" alt="" />
+				<img className='pngFooter mr' src="images/dinero.png" alt="" />
 			</div>
 		</div>
-		<h1 className='black final'>Copyright © 2023 Beautyy-Mx</h1>
+		<h1 className='black final'>Copyright © 2024 Beautyy-Mx</h1>
 	 </footer>
   );
 }

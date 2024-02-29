@@ -12,24 +12,20 @@ function HomePage() {
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [shuffledProducts, setShuffledProducts] = useState([])
 
-
-	useEffect(() => {
-		// Cargar datos desde productos.json
-		import('../../productos.json')
-			.then(response => {
-				setData(response.default); // La respuesta es un módulo con un objeto default
-				console.log(response.default);
-				const shuffled = response.default
-					.filter(item => item.marca)
-					.sort(() => 0.5 - Math.random())
-					.slice(0, 15);
-				setShuffledProducts(shuffled);
-			})
-			.catch(error => {
-				console.log(error);
-			});
-	}, []);
-	
+  useEffect(() => {
+    import('../../productos.json')
+      .then(response => {
+        setData(response.default)
+        const shuffled = response.default
+          .filter(item => item.marca)
+          .sort(() => 0.5 - Math.random())
+          .slice(0, 15)
+        setShuffledProducts(shuffled)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }, [])
 
   const filteredProducts = data
     ? data.filter(item => {
@@ -57,15 +53,9 @@ function HomePage() {
   }
 
   const displayProducts = shuffledProducts.map(item => (
-		<div className="boxProduct" key={item.codigo}>
+    <div className="boxProduct" key={item.codigo}>
       <div className="contenedor-imagen">
-        <img
-          onClick={() => handleOpen(item)}
-          className="imagen-producto"
-          src={item.fotos}
-          alt="imagen del producto"
-					/>
-					{console.log(shuffledProducts)}
+        <img onClick={() => handleOpen(item)} className="imagen-producto" src={item.fotos} alt="imagen del producto" />
       </div>
       <p className="contenedor-descripcion" data-text={capitalizeFirstLetter(item.descripcion)}></p>
       <h1 className="subtitle1 marginl marginr truncate-text">{item.marca}</h1>
@@ -156,12 +146,8 @@ function HomePage() {
                     {selectedProduct.marca}
                   </h1>
                 </div>
-                <img
-                  className="img-producto marginr marginl"
-                  src={selectedProduct.fotos}
-                  alt="Imagen del producto"
-                />
-                <div className="row">
+                <img className="img-producto marginr marginl" src={selectedProduct.fotos} alt="Imagen del producto" />
+                <div className="row contenedor-descripcion">
                   <h2 className="width-100">{selectedProduct.descripcion}</h2>
                 </div>
                 <div className="row">
@@ -194,11 +180,13 @@ function HomePage() {
         </Modal>
         <div>
           <h1 className="title margin-1 width marginr marginl">Manejamos las mejores marcas</h1>
-          <motion.img whileTap={{ scale: 1.1 }} className="marca" src="images/marca1.png" alt="" />
-          <motion.img whileTap={{ scale: 1.1 }} className="marca" src="images/marca2.png" alt="" />
-          <motion.img whileTap={{ scale: 1.1 }} className="marca" src="images/marca3.png" alt="" />
-          <motion.img whileTap={{ scale: 1.1 }} className="marca" src="images/marca4.png" alt="" />
-          <motion.img whileTap={{ scale: 1.1 }} className="marca" src="images/marca5.png" alt="" />
+          <div className="marcasPortada">
+            <motion.img whileTap={{ scale: 1.1 }} className="marca1" src="images/marca1.png" alt="" />
+            <motion.img whileTap={{ scale: 1.1 }} className="marca1" src="images/marca2.png" alt="" />
+            <motion.img whileTap={{ scale: 1.1 }} className="marca1" src="images/marca3.png" alt="" />
+            <motion.img whileTap={{ scale: 1.1 }} className="marca1" src="images/marca4.png" alt="" />
+            <motion.img whileTap={{ scale: 1.1 }} className="marca1" src="images/marca5.png" alt="" />
+          </div>
         </div>
         <div className="nosotros">
           <h1 className="title red width marginr marginl">
@@ -222,7 +210,7 @@ function HomePage() {
             onClick={puntosDeVenta}
             whileTap={{ scale: 1.2 }}
             whileHover={{ scale: 1.1 }}
-            className="button mb"
+            className="button mb mt-3"
           >
             Puntos de Venta
           </motion.button>
