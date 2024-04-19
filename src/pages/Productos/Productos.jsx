@@ -485,6 +485,7 @@ export default function Productos() {
                 </motion.button> */}
               </>
             )}
+            
             <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID_TEST, components: "buttons", currency: "MXN", locale: "es_MX" }}>
               <PayPalButtons
                 createOrder={(data, actions) => {
