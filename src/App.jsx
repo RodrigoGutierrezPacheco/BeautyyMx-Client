@@ -29,6 +29,7 @@ import ColourPop from "./pages/Colourpop";
 import Cerave from "./pages/Cerave";
 import Anastacia from "./pages/Anastasia";
 import Hudabeauty from "./pages/Hudabeauty";
+import FinalizarCompra from "./pages/FinalizarCompra/FinalizarCompra";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage/>}/>
+				<Route path="/finalizar-compra" element={<FinalizarCompra/>}/>
 				<Route path="/todos-los-productos" element={<Productos/>}/>
 				<Route  path="/puntos-de-venta" element={<PuntosDeVenta/>}/>
 				<Route path="/maquillaje" element={<Maquillaje/>}/>

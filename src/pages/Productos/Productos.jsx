@@ -314,6 +314,14 @@ export default function Productos() {
     });
   };
 
+  useEffect(() => {
+    const totalAmount = cartItems.reduce((total, item) => total + item.precio * item.quantity, 0);
+    setPaypalAmount(totalAmount);
+  }, [cartItems]);
+
+
+
+
   return (
     <div>
       <img className="portada" src="images/productos.png" alt="" />
@@ -485,84 +493,19 @@ export default function Productos() {
                 </motion.button> */}
               </>
             )}
-
-            <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID_TEST, components: "buttons", currency: "MXN", locale: "es_MX" }}>
-              <PayPalButtons
-                createOrder={(data, actions) => {
-                  return actions.order.create({
-                    purchase_units: [
-                      {
-                        amount: {
-                          value: cartItems.reduce((total, item) => total + item.precio * item.quantity, 0),
-                          currency_code: "MXN",
-                        },
-
-                        name: "Reto 1",
-                        description: "Reto que te ayudara a cumplir todas tus metas del mundo",
-                      },
-                    ],
-                    application_context: {
-                      brand_name: "Beautyy Mx",
-                      name: "Reto 1",
-                      description: "Reto 1 que ye ayudará a cumplir todas tus metas",
-                      landing_page: "NO_PREFERENCE",
-                      user_action: "PAY_NOW",
-                    }
-                  });
-                }}
-                onApprove={(data, actions) => {
-                  return actions.order.capture().then((details) => {
-                    const orderDetails = {
-                      orderId: details.id,
-                      name: details.payer.name.given_name,
-                      lastName: details.payer.name.surname,
-                      email: details.payer.email_address,
-                      shippingAddress: details.purchase_units[0].shipping.address,
-                      calle: details.purchase_units[0].shipping.address?.address_line_1,
-                      coloniadelegacion: details.purchase_units[0].shipping.address?.address_line_2,
-                      estado: details.purchase_units[0].shipping.address?.admin_area_1,
-                      municipio: details.purchase_units[0].shipping.address?.admin_area_2,
-                      cp: details.purchase_units[0].shipping.address?.postal_code,
-                      products: cartItems,
-                      numeroDeProductos: cartItems?.length,
-                      productos: cartItems.map((producto) => { return producto?.codigo }),
-                      totalAmount: cartItems.reduce((total, item) => total + item.precio * item.quantity, 0),
-                    };
-                    console.log(orderDetails)
-                    handlePaypalPurchase(orderDetails);
-                    const name = details.payer.name.given_name;
-                    const orderId = details.id;
-                    const email = details.payer.email_address;
-                    // Swal.fire({
-                    //   icon: 'success',
-                    //   title: 'Pago Completado!',
-                    //   text: `Gracias por tu pago ${name}, en breve recibirás un correo a ${email} con la información solicitada y otro correo con la información de pago de PayPal`,
-                    //   confirmButtonColor: '#3085d6',
-                    // })
-                    // emailjs.send("service_n648gkj", "template_0wzy1rm", {
-                    //   user_name: details.payer.name,
-                    //   from: "ketochallengecuerna@gmail.com",
-                    //   user_email: details.payer.email_address,
-                    //   message: "confirmacion de compra",
-                    // }, process.env.REACT_APP_EMAILJS_PUBLICKEY);
-
-                  })
-                }}
-                onCancel={() => {
-                  Swal.fire({
-                    icon: 'error',
-                    title: 'Pago Cancelado',
-                    text: 'Se ha cancelado la solicitud con exito',
-                    confirmButtonColor: '#3085d6',
-                  })
-                }}
-              />
-            </PayPalScriptProvider>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              onClick={() => { window.location.href = "/finalizar-compra" }}
+              whileTap={{ scale: 1.1 }}
+              className="button1 marginr marginl"
+            >
+              Continiuar con la compra
+            </motion.button>
             <motion.button
               whileHover={{ scale: 1.1 }}
               onClick={handleCartClose}
               whileTap={{ scale: 1.1 }}
-              className="margint marginb button1 marginr marginl"
+              className="button1 marginr marginl"
             >
               Cerrar
             </motion.button>
