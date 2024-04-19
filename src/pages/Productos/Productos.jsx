@@ -485,7 +485,7 @@ export default function Productos() {
                 </motion.button> */}
               </>
             )}
-            
+
             <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID_TEST, components: "buttons", currency: "MXN", locale: "es_MX" }}>
               <PayPalButtons
                 createOrder={(data, actions) => {
@@ -502,7 +502,7 @@ export default function Productos() {
                       },
                     ],
                     application_context: {
-                      brand_name: "Keto Challenge",
+                      brand_name: "Beautyy Mx",
                       name: "Reto 1",
                       description: "Reto 1 que ye ayudará a cumplir todas tus metas",
                       landing_page: "NO_PREFERENCE",
