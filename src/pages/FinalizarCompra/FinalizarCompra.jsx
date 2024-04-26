@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js'
 import Swal from 'sweetalert2'
 import emailjs from '@emailjs/browser';
+import jsPDF from 'jspdf';
 
 export default function FinalizarCompra() {
     const form = useRef();
@@ -176,7 +177,7 @@ export default function FinalizarCompra() {
                             const params = {
                                 user_name: orderDetails?.name,
                                 from: "ketochallengecuerna@gmail.com",
-                                userEmail: "gutierrezpachecorodrigo@gmail.com",
+                                userEmail: "",
                                 user_orderId: orderDetails?.orderId,
                                 products: orderDetails.products.map(product => ({
                                     name: product.descripcion,
@@ -210,8 +211,18 @@ export default function FinalizarCompra() {
                                         confirmButtonColor: '#3085d6',
                                     }).then((result) => {
                                         if (result.isConfirmed) {
-                                            window.alert('Descargando');
-                                            // Aquí puedes agregar el código para descargar el ticket
+                                            const pdf = new jsPDF();
+                                            const imgUrl = 'https://i.postimg.cc/NjSkBHBz/beauty-ico.png';
+                                            pdf.addImage(imgUrl, 'PNG', 10, 10, 50, 50);
+                                            pdf.text(`¡Gracias por tu compra, ${orderDetails.name}!`, 10, 70);
+                                            pdf.text(`Pedido numero: #${orderDetails.orderId}`, 10, 80);
+                                            pdf.text(`Detalles de la compra:`, 10, 90);
+                                            orderDetails.products.forEach((product, index) => {
+                                                const quantityText = product.quantity > 1 ? 'pzs' : 'pz';
+                                                pdf.text(`${index + 1}. ${product.descripcion} - ${product?.codigo} - ${product.quantity} ${quantityText} - Precio: $${product.precio}.00 MXN`, 10, 100 + index * 10);
+                                            });
+                                            pdf.text(`Total: $${orderDetails.totalAmount}.00 MXN`, 10, 110 + orderDetails.products.length * 10);
+                                            pdf.save(`Detalle_Compra_${orderDetails.name}_${orderDetails.orderId}.pdf`);
                                         }
                                     });
 
