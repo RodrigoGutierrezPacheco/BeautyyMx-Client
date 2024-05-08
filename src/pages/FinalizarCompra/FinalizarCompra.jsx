@@ -106,7 +106,7 @@ export default function FinalizarCompra() {
 
     return (
         <div>
-            <h2>Productos en el carrito:</h2>
+            <h2 className=''>Productos en el carrito:</h2>
             {cartItems.map((item, index) => (
                 <div key={index}>
                     <div key={item.codigo} className="cart-item">
@@ -170,14 +170,22 @@ export default function FinalizarCompra() {
                                 productos: cartItems.map((producto) => { return producto?.codigo }),
                                 totalAmount: cartItems.reduce((total, item) => total + item.precio * item.quantity, 0),
                             };
-                            handlePaypalPurchase(orderDetails);
                             const name = details.payer.name.given_name;
                             const orderId = details.id;
                             const email = details.payer.email_address;
+
+                            // Expresión regular para detectar dominios de correo electrónico de Outlook
+                            const isOutlookEmail = email.includes('outlook') || email.includes('live') || email.includes('hotmail');
+                            const serviceId = isOutlookEmail ? process.env.REACT_APP_EMAILJS_SERVICEID_OUTLOOK : process.env.REACT_APP_EMAILJS_SERVICEID_GMAIL;
+                            console.log(isOutlookEmail)
+                            console.log('Correo electrónico:', email);
+                            console.log('Service ID:', serviceId);
+                            REACT_APP_EMAILJS_SERVICEID_OUTLOOK: process.env.REACT_APP_EMAILJS_SERVICEID_GMAIL;
+                            console.log(serviceId)
                             const params = {
                                 user_name: orderDetails?.name,
                                 from: "ketochallengecuerna@gmail.com",
-                                userEmail: "",
+                                userEmail: email,
                                 user_orderId: orderDetails?.orderId,
                                 products: orderDetails.products.map(product => ({
                                     name: product.descripcion,
@@ -187,26 +195,15 @@ export default function FinalizarCompra() {
                                 })),
                                 totalAmount: orderDetails.totalAmount
                             }
-                            emailjs.send(process.env.REACT_APP_EMAILJS_SERVICEID, process.env.REACT_APP_EMAILJS_TEMPLATE, params, process.env.REACT_APP_EMAILJS_PUBLICKEY).then(
+                            emailjs.send(serviceId, process.env.REACT_APP_EMAILJS_TEMPLATE, params, process.env.REACT_APP_EMAILJS_PUBLICKEY).then(
                                 (response) => {
                                     console.log('SUCCESS!', response.status, response.text);
                                     Swal.fire({
                                         icon: 'success',
                                         title: 'Pago Completado!',
-                                        text: `Gracias por tu pago ${name}, en breve recibirás un correo a ${email} con la información de tu compra.`,
-                                        confirmButtonColor: '#3085d6',
-                                        allowOutsideClick: false, // Evita que se cierre haciendo clic fuera del modal
-                                        allowEscapeKey: false, // Evita que se cierre al presionar la tecla "Esc"
-                                    })
-                                },
-                                (error) => {
-                                    console.log('FAILED...', error);
-                                    Swal.fire({
-                                        icon: 'success',
-                                        title: 'Pago Completado!',
-                                        text: `Gracias por tu pago ${name}, por desgracia el sistema no podrá enviarte un correo electrónico con los detalles de tu compra, pero aquí tienes tu ticket.`,
-                                        allowOutsideClick: false, // Evita que se cierre haciendo clic fuera del modal
-                                        allowEscapeKey: false, // Evita que se cierre al presionar la tecla "Esc"
+                                        text: `Gracias por tu pago ${name}, se enviará un correo electrónico con los detalles de tu compra a ${email}, aquí tienes tu ticket`,
+                                        allowOutsideClick: false,
+                                        allowEscapeKey: false,
                                         confirmButtonText: 'Descargar',
                                         confirmButtonColor: '#3085d6',
                                     }).then((result) => {
@@ -226,6 +223,33 @@ export default function FinalizarCompra() {
                                         }
                                     });
 
+                                },
+                                (error) => {
+                                    console.log('FAILED...', error);
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Pago Completado!',
+                                        text: `Gracias por tu pago ${name}, por desgracia el sistema no podrá enviarte un correo electrónico con los detalles de tu compra, pero aquí tienes tu ticket.`,
+                                        allowOutsideClick: false,
+                                        allowEscapeKey: false,
+                                        confirmButtonText: 'Descargar',
+                                        confirmButtonColor: '#3085d6',
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            const pdf = new jsPDF();
+                                            const imgUrl = 'https://i.postimg.cc/NjSkBHBz/beauty-ico.png';
+                                            pdf.addImage(imgUrl, 'PNG', 10, 10, 50, 50);
+                                            pdf.text(`¡Gracias por tu compra, ${orderDetails.name}!`, 10, 70);
+                                            pdf.text(`Pedido numero: #${orderDetails.orderId}`, 10, 80);
+                                            pdf.text(`Detalles de la compra:`, 10, 90);
+                                            orderDetails.products.forEach((product, index) => {
+                                                const quantityText = product.quantity > 1 ? 'pzs' : 'pz';
+                                                pdf.text(`${index + 1}. ${product.descripcion} - ${product?.codigo} - ${product.quantity} ${quantityText} - Precio: $${product.precio}.00 MXN`, 10, 100 + index * 10);
+                                            });
+                                            pdf.text(`Total: $${orderDetails.totalAmount}.00 MXN`, 10, 110 + orderDetails.products.length * 10);
+                                            pdf.save(`Detalle_Compra_${orderDetails.name}_${orderDetails.orderId}.pdf`);
+                                        }
+                                    });
 
                                 },
                             );
@@ -236,10 +260,12 @@ export default function FinalizarCompra() {
                         Swal.fire({
                             icon: 'error',
                             title: 'Pago Cancelado',
-                            text: 'Se ha cancelado la solicitud con exito',
+                            text: 'Se ha cancelado el Pago con éxito',
                             confirmButtonColor: '#3085d6',
                         })
                     }}
+
+
                 />
             </PayPalScriptProvider>
         </div>
