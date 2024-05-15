@@ -73,3 +73,14 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.computadora-container {
+  display: none; /* Por defecto, oculto */
+}
+
+@media (min-width: 600px) {
+  .computadora-container {
+    display: block; /* Mostrar el contenedor después de los 700px */
+  }
+}
+

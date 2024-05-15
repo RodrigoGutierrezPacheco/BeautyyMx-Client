@@ -15,82 +15,82 @@ import { slide as Menu } from 'react-burger-menu'
 function CollapsibleExample() {
 
 	let subtitle;
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-	
+	const [modalIsOpen, setIsOpen] = React.useState(false);
 
-  function openModal() {
-    setIsOpen(true);	
-  }
 
-	function openMenu(){
-		setIsOpen (true);
+	function openModal() {
+		setIsOpen(true);
+	}
+
+	function openMenu() {
+		setIsOpen(true);
 		const modal = document.querySelector('.modal');
-		modal.classList.add("animate__animated" , "animate__backInDown")
+		modal.classList.add("animate__animated", "animate__backInDown")
 	}
 
-	function home(){
-		window.location.href="/"
+	function home() {
+		window.location.href = "/"
 	}
 
-	function closeModal(){
+	function closeModal() {
 		setIsOpen(false);
 	}
 
-	function loNuevo(){
-		window.location.href="/lo-nuevo"
+	function loNuevo() {
+		window.location.href = "/lo-nuevo"
 	}
-	function loMasVendido(){
-		window.location.href="/lo-mas-vendido"
+	function loMasVendido() {
+		window.location.href = "/lo-mas-vendido"
 	}
-	function maquillaje(){
-		window.location.href="/maquillaje"
+	function maquillaje() {
+		window.location.href = "/maquillaje"
 	}
-	function cuidadoParaLaPiel(){
-		window.location.href="/cuidado-para-la-piel"
+	function cuidadoParaLaPiel() {
+		window.location.href = "/cuidado-para-la-piel"
 	}
-	function descuentos(){
-		window.location.href="/descuentos"
+	function descuentos() {
+		window.location.href = "/descuentos"
 	}
-	function labios(){
-		window.location.href="/labios"
+	function labios() {
+		window.location.href = "/labios"
 	}
-	function minis(){
-		window.location.href="/minis"
+	function minis() {
+		window.location.href = "/minis"
 	}
-	function ojos(){
-		window.location.href="/ojos"
+	function ojos() {
+		window.location.href = "/ojos"
 	}
-	function paletas(){
-		window.location.href="/paletas"
+	function paletas() {
+		window.location.href = "/paletas"
 	}
-	function rostro(){
-		window.location.href="/rostro"
+	function rostro() {
+		window.location.href = "/rostro"
 	}
-	function todosLosProductos(){
-		window.location.href="/todos-los-productos"
+	function todosLosProductos() {
+		window.location.href = "/todos-los-productos"
 	}
-	function puntosDeVenta(){
-		window.location.href="/puntos-de-venta"
+	function puntosDeVenta() {
+		window.location.href = "/puntos-de-venta"
 	}
 
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = '#f00';
-  }
-  return (
+	function afterOpenModal() {
+		// references are now sync'd and can be accessed.
+		subtitle.style.color = '#f00';
+	}
+	return (
 		<nav className='flex nav celular'>
-			<motion.img  whileTap={{scale:1.2}} whileHover={{scale:1.1}} onClick={openModal} className='celular menu animate__animated animate__bounce' src="images/menu.png" alt="" />
-		<motion.div className='animate__animated animate__slideInLeft'>
-			<div className='animate__animated animate__backInLeft'>
-			<Modal show={modalIsOpen} className='animate__animated animate__backInLeft'>
-      <div className='flex1'>
-				 <motion.img whileHover={{scale:1.1}} onClick={closeModal} className='x' src="images/x.png" alt="" />
-				<div className='start1'>
-				 <motion.img whileHover={{scale:1.1}} onClick={home} className='logoMenu' src="images/logoBeauty1.png" alt="" />
-				</div>
-        <div className='white textoModal'>
-				<div start1>
-          {/* <motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={loNuevo} className='textoModal'>Lo Nuevo</motion.h1>
+			<motion.img whileTap={{ scale: 1.2 }} whileHover={{ scale: 1.1 }} onClick={openModal} className='celular menu animate__animated animate__bounce' src="images/menu.png" alt="" />
+			<motion.div className='animate__animated animate__slideInLeft'>
+				<div className='animate__animated animate__backInLeft'>
+					<Modal show={modalIsOpen} className='animate__animated animate__backInLeft'>
+						<div className='flex1'>
+							<motion.img whileHover={{ scale: 1.1 }} onClick={closeModal} className='x' src="images/x.png" alt="" />
+							<div className='start1'>
+								<motion.img whileHover={{ scale: 1.1 }} onClick={home} className='logoMenu' src="images/logoBeauty1.png" alt="" />
+							</div>
+							<div className='flex w-[100%] ml-2'>
+								<div start1>
+									{/* <motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={loNuevo} className='textoModal'>Lo Nuevo</motion.h1>
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={loMasVendido} className='textoModal'>Lo mas Vendido</motion.h1>
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={maquillaje} className='textoModal'>Maquillaje</motion.h1>
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={cuidadoParaLaPiel} className='textoModal'>Cuidado de la Piel</motion.h1>
@@ -100,25 +100,25 @@ function CollapsibleExample() {
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={ojos} className='textoModal'>Ojos</motion.h1>
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={paletas} className='textoModal'>Paletas</motion.h1>
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={rostro} className='textoModal'>Rostro</motion.h1> */}
-					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={todosLosProductos} className='textoModal red'>Nosotros</motion.h1>
-					<hr className='hr' />
-					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={todosLosProductos} className='textoModal red'>Todos los Productos</motion.h1>
-					<hr className='hr' />
-					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={puntosDeVenta} className='textoModal red'>Contacto</motion.h1>
-					<hr className='hr'/>
-					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={puntosDeVenta} className='textoModal red'>Redes</motion.h1>
-					<hr className='hr'/>
-					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={puntosDeVenta} className='textoModal red'>Preguntas frecuentes</motion.h1>
-					<hr className='hr'/>
+									<motion.h1 whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.2 }} onClick={todosLosProductos} className='textoModal red'>Nosotros</motion.h1>
+									<hr className='hr w-full' />
+									<motion.h1 whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.2 }} onClick={todosLosProductos} className='textoModal red'>Todos los Productos</motion.h1>
+									<hr className='hr' />
+									<motion.h1 whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.2 }} onClick={puntosDeVenta} className='textoModal red'>Contacto</motion.h1>
+									<hr className='hr' />
+									<motion.h1 whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.2 }} onClick={puntosDeVenta} className='textoModal red'>Redes</motion.h1>
+									<hr className='hr' />
+									{/* <motion.h1 whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.2 }} onClick={puntosDeVenta} className='textoModal red'>Preguntas frecuentes</motion.h1>
+									<hr className='hr' /> */}
+								</div>
+							</div>
+						</div>
+					</Modal>
 				</div>
-        </div>
-			</div>
-      </Modal>
-					</div>
-		</motion.div>
-			<motion.img onClick={home} whileHover={{scale:1.1}} whileTap={{scale:1.2}}  className='logo celular' src="images/logoBeauty1.png" alt="" />
+			</motion.div>
+			<motion.img onClick={home} whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.2 }} className='logo celular' src="images/logoBeauty1.png" alt="" />
 		</nav>
-  );
+	);
 }
 
 

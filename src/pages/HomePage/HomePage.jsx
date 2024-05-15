@@ -216,10 +216,6 @@ function HomePage() {
           </motion.button>
         </div>
       </div>
-      <div className="computadora">
-        <img src="images/logoBeauty3.jpeg" alt="" />
-        <h1>Vistas de computadora en mantenimiento, accede desde tu celular para mejorar la experiencia.</h1>
-      </div>
     </div>
   )
 }

@@ -50,7 +50,7 @@ const PuntosDeVenta = () => {
 	}
 
   return (
-    <div>
+    <div className='celular'>
       <img src="images/puntosVenta.png" alt="" className="portada" />
       <div className="puntos">
         {puntos.map((punto) => (

@@ -323,7 +323,7 @@ export default function Productos() {
 
 
   return (
-    <div>
+    <div className='celular'>
       <img className="portada" src="images/productos.png" alt="" />
       <div className="flex marginb">
         <h1>Encontrar por Marca</h1>

@@ -105,7 +105,7 @@ export default function FinalizarCompra() {
     };
 
     return (
-        <div>
+        <div className='celular'>
             <h2 className=''>Productos en el carrito:</h2>
             {cartItems.map((item, index) => (
                 <div key={index}>
