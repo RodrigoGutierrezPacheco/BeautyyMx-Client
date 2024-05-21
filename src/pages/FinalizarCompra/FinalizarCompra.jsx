@@ -180,7 +180,6 @@ export default function FinalizarCompra() {
                             console.log(isOutlookEmail)
                             console.log('Correo electrónico:', email);
                             console.log('Service ID:', serviceId);
-                            REACT_APP_EMAILJS_SERVICEID_OUTLOOK: process.env.REACT_APP_EMAILJS_SERVICEID_GMAIL;
                             console.log(serviceId)
                             const params = {
                                 user_name: orderDetails?.name,
