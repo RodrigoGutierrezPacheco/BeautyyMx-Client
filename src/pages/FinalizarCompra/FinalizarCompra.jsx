@@ -105,8 +105,8 @@ export default function FinalizarCompra() {
     };
 
     return (
-        <div className='celular'>
-            <h2 className=''>Productos en el carrito:</h2>
+        <div className='celular px-5'>
+            <h2 className='mb-5'>Productos en el carrito:</h2>
             {cartItems.map((item, index) => (
                 <div key={index}>
                     <div key={item.codigo} className="cart-item">
@@ -126,7 +126,7 @@ export default function FinalizarCompra() {
                     </div>
                 </div>
             ))}
-            <span>Total: {paypalAmount}</span>
+            <span>Total: {`$${paypalAmount}.00 MXN`}</span>
             <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID_TEST, components: "buttons", currency: "MXN", locale: "es_MX" }}>
                 <PayPalButtons
                     createOrder={(data, actions) => {

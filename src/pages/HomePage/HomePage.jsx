@@ -105,7 +105,7 @@ function HomePage() {
     <div>
       <div className="celular">
         <Carousel indicators={false} variant="dark">
-          <Carousel.Item>
+          {/* <Carousel.Item>
             <div class="inicio-portada">
               <div class="contenido">
                 <motion.button whileTap={{ scale: 1.1 }} class="button-portada">
@@ -113,7 +113,7 @@ function HomePage() {
                 </motion.button>
               </div>
             </div>
-          </Carousel.Item>
+          </Carousel.Item> */}
           <Carousel.Item>
             <div class="inicio-portada">
               <div class="contenido">

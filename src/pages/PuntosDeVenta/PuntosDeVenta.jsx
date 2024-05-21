@@ -23,16 +23,16 @@ const PuntosDeVenta = () => {
       modal: 1,
 			ubicacion: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15095.675630932092!2d-99.2289707!3d18.9349832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cddf3bdce41ec7%3A0x9e29afe1e55aa717!2sPlaza%20Cuernavaca!5e0!3m2!1ses-419!2smx!4v1686019070179!5m2!1ses-419!2smx"
     },
-    {
-      nombre: 'Espacio Pink',
-      horarios: 'todo el dia',
-      png: 'espacioPink',
-      entreSemana: '9:00 - 19:30',
-      sabado: '10:00 - 17:00',
-      domingo: 'Cerrado',
-      modal: 2,
-			ubicacion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.7875750764993!2d-99.21844582573512!3d18.940794456205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cddf365df96dd1%3A0xabbcf2d353c76345!2sEspacio%20Pink!5e0!3m2!1ses-419!2smx!4v1686019134524!5m2!1ses-419!2smx"
-    },
+    // {
+    //   nombre: 'Espacio Pink',
+    //   horarios: 'todo el dia',
+    //   png: 'espacioPink',
+    //   entreSemana: '9:00 - 19:30',
+    //   sabado: '10:00 - 17:00',
+    //   domingo: 'Cerrado',
+    //   modal: 2,
+		// 	ubicacion:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.7875750764993!2d-99.21844582573512!3d18.940794456205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cddf365df96dd1%3A0xabbcf2d353c76345!2sEspacio%20Pink!5e0!3m2!1ses-419!2smx!4v1686019134524!5m2!1ses-419!2smx"
+    // },
     {
       nombre: 'Puertas Abiertas - Forum',
       horarios: 'todo el dia',

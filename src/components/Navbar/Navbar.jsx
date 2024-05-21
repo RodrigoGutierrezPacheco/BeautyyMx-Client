@@ -100,14 +100,14 @@ function CollapsibleExample() {
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={ojos} className='textoModal'>Ojos</motion.h1>
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={paletas} className='textoModal'>Paletas</motion.h1>
 					<motion.h1 whileHover={{scale:1.1}} whileTap={{scale:1.2}} onClick={rostro} className='textoModal'>Rostro</motion.h1> */}
-									<motion.h1 whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.2 }} onClick={todosLosProductos} className='textoModal red'>Nosotros</motion.h1>
+									<h1 onClick={home} className='textoModal red'>Inicio</h1>
 									<hr className='hr w-full' />
-									<motion.h1 whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.2 }} onClick={todosLosProductos} className='textoModal red'>Todos los Productos</motion.h1>
+									<h1 onClick={todosLosProductos} className='textoModal red'>Todos los Productos</h1>
 									<hr className='hr' />
-									<motion.h1 whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.2 }} onClick={puntosDeVenta} className='textoModal red'>Contacto</motion.h1>
+									<h1 onClick={puntosDeVenta} className='textoModal red'>Puntos de Venta</h1>
 									<hr className='hr' />
-									<motion.h1 whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.2 }} onClick={puntosDeVenta} className='textoModal red'>Redes</motion.h1>
-									<hr className='hr' />
+									{/* <h1 onClick={puntosDeVenta} className='textoModal red'>Redes</h1>
+									<hr className='hr' /> */}
 									{/* <motion.h1 whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.2 }} onClick={puntosDeVenta} className='textoModal red'>Preguntas frecuentes</motion.h1>
 									<hr className='hr' /> */}
 								</div>

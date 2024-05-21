@@ -497,9 +497,9 @@ export default function Productos() {
               whileHover={{ scale: 1.1 }}
               onClick={() => { window.location.href = "/finalizar-compra" }}
               whileTap={{ scale: 1.1 }}
-              className="button1 marginr marginl"
+              className="button1 marginr marginl mb-3"
             >
-              Continiuar con la compra
+              Continuar con la compra
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.1 }}
