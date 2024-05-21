@@ -467,8 +467,9 @@ export default function Productos() {
                           alt=""
                         />
                         <img
-                          className="cart-item-remove eliminar"
+                          // className="cart-item-remove"
                           onClick={() => removeFromCart(item)}
+                          className="eliminar"
                           src="images/eliminar.png"
                           alt=""
                         />
