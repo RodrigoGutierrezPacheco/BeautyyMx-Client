@@ -195,7 +195,7 @@ export default function FinalizarCompra() {
                                 })),
                                 totalAmount: orderDetails.totalAmount
                             }
-                            emailjs.send(serviceId, process.env.REACT_APP_EMAILJS_TEMPLATE, params, process.env.REACT_APP_EMAILJS_PUBLICKEY).then(
+                            emailjs.send(serviceId, process.env.REACT_APP_EMAILJS_TEMPLATE, params, process.env.REACT_APP_EMAILJS_PK).then(
                                 (response) => {
                                     console.log('SUCCESS!', response.status, response.text);
                                     Swal.fire({
