@@ -417,6 +417,18 @@ body,h1,h2,h3,p,button{
 		color: #C92C39;
 	}
 
+	.flex2{
+		display: flex;
+		flex-direction: column;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.cp{
+		border: 2px solid black;
+		border-radius: 5px;
+	}
+
 	.hr{
 		background-color: red !important;
 		height: .1rem !important;

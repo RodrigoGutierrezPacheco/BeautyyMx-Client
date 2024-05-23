@@ -6,6 +6,7 @@ import jsPDF from 'jspdf';
 
 export default function FinalizarCompra() {
     const form = useRef();
+    const [cp, setCp] = useState(0)
 
     // const sendEmail = (e) => {
     //     console.log("entrando funcion")
@@ -104,6 +105,11 @@ export default function FinalizarCompra() {
         // });
     };
 
+    const handleCpChange = (event) => {
+        setCp(event.target.value);
+        console.log(cp)
+    };
+
     return (
         <div className='celular px-5'>
             <h2 className='mb-5'>Productos en el carrito:</h2>
@@ -119,23 +125,37 @@ export default function FinalizarCompra() {
                             </div>
                             <div className="cart-item-row">
                                 <p className="cart-item-price">${item.precio}.00 MXN</p>
-                                <span className="cart-item-quantity">{item.quantity}</span>
+                                <span className="cart-item-quantity">{item.quantity} {item?.quantity > 1 ? "pzs" : "pz"}</span>
                             </div>
                             <hr className="hr" />
                         </div>
                     </div>
                 </div>
             ))}
-            <span>Total: {`$${paypalAmount}.00 MXN`}</span>
-            <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID_TEST, components: "buttons", currency: "MXN", locale: "es_MX" }}>
+            <div className='flex2'>
+                <span>Ingresa tu CP para calcular tu envio</span>
+                {/* <div>
+                    <input
+                        value={cp}
+                        onChange={handleCpChange}
+                        className='cp'
+                        type="number"
+                        placeholder='CP'
+                    />
+                </div> */}
+                <span>Total: {`$${paypalAmount}.00 MXN`}</span>
+            </div>
+            {console.log(cp!=="")}
+            <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID, components: "buttons", currency: "MXN", locale: "es_MX" }}>
                 <PayPalButtons
+                    // disabledc ={!cp.length !== ""}
                     createOrder={(data, actions) => {
-                        console.log(data, actions)
                         return actions.order.create({
                             purchase_units: [
                                 {
                                     amount: {
-                                        value: cartItems.reduce((total, item) => total + item.precio * item.quantity, 0),
+                                        // value: cartItems.reduce((total, item) => total + item.precio * item.quantity, 0),
+                                        value: 0.1,
                                         currency_code: "MXN",
                                     },
 
