@@ -29,6 +29,18 @@ body,h1,h2,h3,p,button{
 		display: none;
 	}
 
+	.domicilio {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem; 
+	}
+	
+
+	.costo-envio{
+		display: flex;
+		justify-content: space-between;
+	}
+
   .navbar2{
 		background-color: #FFCACA;
 		color: rgb(0, 0, 0);	

@@ -7,6 +7,29 @@ import jsPDF from 'jspdf';
 export default function FinalizarCompra() {
     const form = useRef();
     const [cp, setCp] = useState(0)
+    const [direccion, setDireccion] = useState({
+        nombreRecibe: "",
+        calle: "",
+        numeroExterior: "",
+        numeroInterior: "",
+        colonia: "",
+        ciudad: "",
+        estado: "",
+        cp: "",
+        numeroContacto: "",
+        correoContacto: "",
+        referencias: ""
+    })
+
+    const handleInputChange = (event) => {
+        console.log(event)
+        const { name, value } = event.target;
+        console.log(name)
+        setDireccion({
+            ...direccion,
+            [name]: value
+        });
+    };
 
     // const sendEmail = (e) => {
     //     console.log("entrando funcion")
@@ -110,6 +133,8 @@ export default function FinalizarCompra() {
         console.log(cp)
     };
 
+    const costoEnvio = 129
+
     return (
         <div className='celular px-5'>
             <h2 className='mb-5'>Productos en el carrito:</h2>
@@ -132,41 +157,148 @@ export default function FinalizarCompra() {
                     </div>
                 </div>
             ))}
-            <div className='flex2'>
-                <span>Ingresa tu CP para calcular tu envio</span>
-                {/* <div>
-                    <input
-                        value={cp}
-                        onChange={handleCpChange}
-                        className='cp'
-                        type="number"
-                        placeholder='CP'
-                    />
-                </div> */}
-                <span>Total: {`$${paypalAmount}.00 MXN`}</span>
+            <div className='costo-envio'>
+                <span>Costo de envio</span>
+                <span className='ml-3'>{`$${costoEnvio}.00 MXN`}</span>
             </div>
-            {console.log(cp!=="")}
+            <div className='flex2'>
+                <span>¿Dónde quieres recibir tu orden?</span>
+                <div className='domicilio'>
+                    <div className=''>
+                        <span>Nombre de quién recibe</span>
+                        <input
+                            name='nombreRecibe'
+                            value={direccion?.nombreRecibe}
+                            onChange={handleInputChange}
+                            className='cp'
+                            type="text"
+                            placeholder='Quién recibe'
+                        />
+                    </div>
+                    <div className=''>
+                        <span>Teléfono</span>
+                        <input
+                            name='numeroContacto'
+                            value={direccion?.numeroContacto}
+                            onChange={handleInputChange}
+                            className='cp'
+                            type="text"
+                            placeholder='Teléfono'
+                        />
+                    </div>
+                    <div className=''>
+                        <span>Calle</span>
+                        <input
+                            name='calle'
+                            value={direccion?.calle}
+                            onChange={handleInputChange}
+                            className='cp'
+                            type="text"
+                            placeholder='Calle'
+                        />
+                    </div>
+                    <div className=''>
+                        <span>Número Exterior</span>
+                        <input
+                            name='numeroExterior'
+                            value={direccion?.numeroExterior}
+                            onChange={handleInputChange}
+                            className='cp'
+                            type="text"
+                            placeholder='Número Exterior'
+                        />
+                    </div>
+                    <div className=''>
+                        <span>Número Interior</span>
+                        <input
+                            name='numeroInterior'
+                            value={direccion?.numeroInterior}
+                            onChange={handleInputChange}
+                            className='cp'
+                            type="text"
+                            placeholder='Número Interior'
+                        />
+                    </div>
+                    <div className=''>
+                        <span>Colonia</span>
+                        <input
+                            name='colonia'
+                            value={direccion?.colonia}
+                            onChange={handleInputChange}
+                            className='cp'
+                            type="text"
+                            placeholder='Colonia'
+                        />
+                    </div>
+                    <div className=''>
+                        <span>Ciudad</span>
+                        <input
+                            name='ciudad'
+                            value={direccion?.ciudad}
+                            onChange={handleInputChange}
+                            className='cp'
+                            type="text"
+                            placeholder='Ciudad'
+                        />
+                    </div>
+                    <div className=''>
+                        <span>Estado</span>
+                        <input
+                            name='estado'
+                            value={direccion?.estado}
+                            onChange={handleInputChange}
+                            className='cp'
+                            type="text"
+                            placeholder='Estado'
+                        />
+                    </div>
+                    <div className=''>
+                        <span>Código Postal</span>
+                        <input
+                            name='cp'
+                            value={direccion?.cp}
+                            onChange={handleInputChange}
+                            className='cp'
+                            type="text"
+                            placeholder='Código Postal'
+                        />
+                    </div>
+                    <div className=''>
+                        <span>Referencias</span>
+                        <input
+                            name='referencias'
+                            value={direccion?.referencias}
+                            onChange={handleInputChange}
+                            className='cp'
+                            type="text"
+                            placeholder='Referencias'
+                        />
+                    </div>
+                </div>
+                <span>Total: {`$${paypalAmount + costoEnvio}.00 MXN`}</span>
+            </div>
+            <span className=''>{direccion?.calle === "" || direccion?.ciudad === "" || direccion?.colonia === "" || direccion?.cp === "" || direccion?.estado === "" || direccion?.nombreRecibe === "" || direccion?.numeroContacto === "" || direccion?.numeroInterior === "" ? "Completa todos los datos para poder continuar con la compra" : ""}</span>
             <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID, components: "buttons", currency: "MXN", locale: "es_MX" }}>
                 <PayPalButtons
-                    // disabledc ={!cp.length !== ""}
+                    disabled={direccion?.calle === "" || direccion?.ciudad === "" || direccion?.colonia === "" || direccion?.cp === "" || direccion?.estado === "" || direccion?.nombreRecibe === "" || direccion?.numeroContacto === "" || direccion?.numeroInterior === ""}
                     createOrder={(data, actions) => {
                         return actions.order.create({
                             purchase_units: [
                                 {
                                     amount: {
-                                        // value: cartItems.reduce((total, item) => total + item.precio * item.quantity, 0),
+                                        // value: paypalAmount + costoEnvio,
                                         value: 0.1,
                                         currency_code: "MXN",
                                     },
 
-                                    name: "Reto 1",
-                                    description: "Reto que te ayudara a cumplir todas tus metas del mundo",
+                                    name: "Beautyy Mx",
+                                    description: "",
                                 },
                             ],
                             application_context: {
                                 brand_name: "Beautyy Mx",
-                                name: "Reto 1",
-                                description: "Reto 1 que ye ayudará a cumplir todas tus metas",
+                                name: "Beautyy Mx",
+                                description: "",
                                 landing_page: "NO_PREFERENCE",
                                 user_action: "PAY_NOW",
                             }
@@ -174,6 +306,7 @@ export default function FinalizarCompra() {
                     }}
                     onApprove={(data, actions) => {
                         return actions.order.capture().then((details) => {
+                            console.log("DETALLES---------->", details)
                             const orderDetails = {
                                 orderId: details.id,
                                 name: details.payer.name.given_name,
@@ -197,13 +330,10 @@ export default function FinalizarCompra() {
                             // Expresión regular para detectar dominios de correo electrónico de Outlook
                             const isOutlookEmail = email.includes('outlook') || email.includes('live') || email.includes('hotmail');
                             const serviceId = isOutlookEmail ? process.env.REACT_APP_EMAILJS_SERVICEID_OUTLOOK : process.env.REACT_APP_EMAILJS_SERVICEID_GMAIL;
-                            console.log(isOutlookEmail)
                             console.log('Correo electrónico:', email);
-                            console.log('Service ID:', serviceId);
-                            console.log(serviceId)
                             const params = {
                                 user_name: orderDetails?.name,
-                                from: "ketochallengecuerna@gmail.com",
+                                from: "beautyymx@gmail.com",
                                 userEmail: email,
                                 user_orderId: orderDetails?.orderId,
                                 products: orderDetails.products.map(product => ({
@@ -212,11 +342,11 @@ export default function FinalizarCompra() {
                                     price: product.precio,
                                     image: product.fotos
                                 })),
-                                totalAmount: orderDetails.totalAmount
+                                totalAmount: orderDetails.totalAmount,
+                                direccion: direccion
                             }
                             emailjs.send(serviceId, process.env.REACT_APP_EMAILJS_TEMPLATE, params, process.env.REACT_APP_EMAILJS_PK).then(
                                 (response) => {
-                                    console.log('SUCCESS!', response.status, response.text);
                                     Swal.fire({
                                         icon: 'success',
                                         title: 'Pago Completado!',
@@ -237,7 +367,7 @@ export default function FinalizarCompra() {
                                                 const quantityText = product.quantity > 1 ? 'pzs' : 'pz';
                                                 pdf.text(`${index + 1}. ${product.descripcion} - ${product?.codigo} - ${product.quantity} ${quantityText} - Precio: $${product.precio}.00 MXN`, 10, 100 + index * 10);
                                             });
-                                            pdf.text(`Total: $${orderDetails.totalAmount}.00 MXN`, 10, 110 + orderDetails.products.length * 10);
+                                            pdf.text(`Total: $${orderDetails.totalAmount + costoEnvio}.00 MXN`, 10, 110 + orderDetails.products.length * 10);
                                             pdf.save(`Detalle_Compra_${orderDetails.name}_${orderDetails.orderId}.pdf`);
                                         }
                                     });
