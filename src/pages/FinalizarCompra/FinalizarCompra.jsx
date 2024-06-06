@@ -157,11 +157,22 @@ export default function FinalizarCompra() {
                     </div>
                 </div>
             ))}
-            <div className='costo-envio'>
+            <div className=''>
+                <div className=''>
+                    <span>Código Postal</span>
+                    <input
+                        name='cp'
+                        value={direccion?.cp}
+                        onChange={handleInputChange}
+                        className='cp'
+                        type="text"
+                        placeholder='Código Postal'
+                    />
+                </div>
                 <span>Costo de envio</span>
                 <span className='ml-3'>{`$${costoEnvio}.00 MXN`}</span>
             </div>
-            <div className='flex2'>
+            {/* <div className='flex2'>
                 <span>¿Dónde quieres recibir tu orden?</span>
                 <div className='domicilio'>
                     <div className=''>
@@ -275,12 +286,14 @@ export default function FinalizarCompra() {
                         />
                     </div>
                 </div>
-                <span>Total: {`$${paypalAmount + costoEnvio}.00 MXN`}</span>
-            </div>
-            <span className=''>{direccion?.calle === "" || direccion?.ciudad === "" || direccion?.colonia === "" || direccion?.cp === "" || direccion?.estado === "" || direccion?.nombreRecibe === "" || direccion?.numeroContacto === "" || direccion?.numeroInterior === "" ? "Completa todos los datos para poder continuar con la compra" : ""}</span>
+            </div> */}
+            <span>Total: {`$${paypalAmount + costoEnvio}.00 MXN`}</span>
+            {/* <span className=''>{direccion?.calle === "" || direccion?.ciudad === "" || direccion?.colonia === "" || direccion?.cp === "" || direccion?.estado === "" || direccion?.nombreRecibe === "" || direccion?.numeroContacto === "" || direccion?.numeroInterior === "" ? "Completa todos los datos para poder continuar con la compra" : ""}</span> */}
+            <span>{direccion?.cp === "" ? "Ingresa el codigo postal para continuar con la orden" : ""}</span>
             <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID, components: "buttons", currency: "MXN", locale: "es_MX" }}>
                 <PayPalButtons
-                    disabled={direccion?.calle === "" || direccion?.ciudad === "" || direccion?.colonia === "" || direccion?.cp === "" || direccion?.estado === "" || direccion?.nombreRecibe === "" || direccion?.numeroContacto === "" || direccion?.numeroInterior === ""}
+                    // disabled={direccion?.calle === "" || direccion?.ciudad === "" || direccion?.colonia === "" || direccion?.cp === "" || direccion?.estado === "" || direccion?.nombreRecibe === "" || direccion?.numeroContacto === "" || direccion?.numeroInterior === ""}
+                    disabled={direccion?.cp === ""}
                     createOrder={(data, actions) => {
                         return actions.order.create({
                             purchase_units: [
@@ -306,7 +319,6 @@ export default function FinalizarCompra() {
                     }}
                     onApprove={(data, actions) => {
                         return actions.order.capture().then((details) => {
-                            console.log("DETALLES---------->", details)
                             const orderDetails = {
                                 orderId: details.id,
                                 name: details.payer.name.given_name,
@@ -326,13 +338,13 @@ export default function FinalizarCompra() {
                             const name = details.payer.name.given_name;
                             const orderId = details.id;
                             const email = details.payer.email_address;
-
+                            console.log(orderDetails)
                             // Expresión regular para detectar dominios de correo electrónico de Outlook
                             const isOutlookEmail = email.includes('outlook') || email.includes('live') || email.includes('hotmail');
                             const serviceId = isOutlookEmail ? process.env.REACT_APP_EMAILJS_SERVICEID_OUTLOOK : process.env.REACT_APP_EMAILJS_SERVICEID_GMAIL;
                             console.log('Correo electrónico:', email);
                             const params = {
-                                user_name: orderDetails?.name,
+                                user_name: orderDetails?.name + " " + orderDetails?.lastName,
                                 from: "beautyymx@gmail.com",
                                 userEmail: email,
                                 user_orderId: orderDetails?.orderId,
@@ -342,8 +354,13 @@ export default function FinalizarCompra() {
                                     price: product.precio,
                                     image: product.fotos
                                 })),
-                                totalAmount: orderDetails.totalAmount,
-                                direccion: direccion
+                                totalAmount: orderDetails.totalAmount + costoEnvio,
+                                calle: orderDetails?.calle,
+                                colonia: orderDetails?.coloniadelegacion,
+                                cp: orderDetails?.cp,
+                                estado: orderDetails?.estado,
+                                municipio: orderDetails?.municipio,
+                                costoEnvio: costoEnvio
                             }
                             emailjs.send(serviceId, process.env.REACT_APP_EMAILJS_TEMPLATE, params, process.env.REACT_APP_EMAILJS_PK).then(
                                 (response) => {
@@ -362,12 +379,20 @@ export default function FinalizarCompra() {
                                             pdf.addImage(imgUrl, 'PNG', 10, 10, 50, 50);
                                             pdf.text(`¡Gracias por tu compra, ${orderDetails.name}!`, 10, 70);
                                             pdf.text(`Pedido numero: #${orderDetails.orderId}`, 10, 80);
-                                            pdf.text(`Detalles de la compra:`, 10, 90);
+                                            pdf.text("Direccion de envio:", 10, 90)
+                                            pdf.text(`Colonia: ${orderDetails?.coloniadelegacion}`, 10, 100)
+                                            pdf.text(`Calle: ${orderDetails?.calle}`, 10, 110)
+                                            pdf.text(`Codigo postal: ${orderDetails?.cp}`, 10, 120)
+                                            pdf.text(`Estado: ${orderDetails?.estado}`, 10, 130)
+                                            pdf.text(`Municipio: ${orderDetails?.municipio}`, 10, 1400)
+                                            pdf.text(`Detalles de la compra:`, 10, 150);
                                             orderDetails.products.forEach((product, index) => {
                                                 const quantityText = product.quantity > 1 ? 'pzs' : 'pz';
-                                                pdf.text(`${index + 1}. ${product.descripcion} - ${product?.codigo} - ${product.quantity} ${quantityText} - Precio: $${product.precio}.00 MXN`, 10, 100 + index * 10);
+                                                pdf.text(`${index + 1}. ${product.descripcion} - ${product?.codigo} - ${product.quantity} ${quantityText} - Precio: $${product.precio}.00 MXN`, 10, 160 + index * 10);
                                             });
-                                            pdf.text(`Total: $${orderDetails.totalAmount + costoEnvio}.00 MXN`, 10, 110 + orderDetails.products.length * 10);
+                                            pdf.text(`Costo de envio: $${costoEnvio}.00 MXN`, 10, 170 + orderDetails.products.length * 10);
+                                            pdf.text(`Subotal: $${orderDetails.totalAmount}.00 MXN`, 10, 180 + orderDetails.products.length * 10);
+                                            pdf.text(`Total: $${orderDetails.totalAmount + costoEnvio}.00 MXN`, 10, 190 + orderDetails.products.length * 10);
                                             pdf.save(`Detalle_Compra_${orderDetails.name}_${orderDetails.orderId}.pdf`);
                                         }
                                     });
