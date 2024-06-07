@@ -495,7 +495,7 @@ export default function Productos() {
             )}
             <motion.button
               whileHover={{ scale: 1.1 }}
-              onClick={() => { window.location.href = "/finalizar-compra" }}
+              onClick={() => { window.location.href = "/datos-orden" }}
               whileTap={{ scale: 1.1 }}
               className="button1 marginr marginl mb-3"
             >

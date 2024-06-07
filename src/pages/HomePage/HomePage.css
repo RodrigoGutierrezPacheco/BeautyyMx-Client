@@ -734,6 +734,10 @@ body,h1,h2,h3,p,button{
 		justify-content: center;
 	}
 
+	.botones-paypal{
+		margin: 1.5rem;
+	}
+
 
 
 	.title{
