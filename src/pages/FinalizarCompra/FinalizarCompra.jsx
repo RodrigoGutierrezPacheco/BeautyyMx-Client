@@ -153,12 +153,9 @@ export default function FinalizarCompra() {
                             });
                         }}
                         onApprove={(data, actions) => {
-                            console.log("DATA------------->", data)
                             return actions.order.capture().then((details) => {
-                                console.log("DETAILS---------------->", details)
                                 const orderDetails = {
                                     orderId: details.id,
-                                    phone: phone,
                                     name: details.payer.name.given_name,
                                     lastName: details.payer.name.surname,
                                     email: details.payer.email_address,
