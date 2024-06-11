@@ -94,7 +94,6 @@ export default function FinalizarCompra() {
         console.log(cp)
     };
 
-    const costoEnvio = 129
 
     useEffect(() => {
         const savedUserDetails = JSON.parse(localStorage.getItem('userDetails'));
@@ -106,6 +105,21 @@ export default function FinalizarCompra() {
     return (
         <div className='celular px-5'>
             <h2 className='mb-5'>Finalizar compra</h2>
+            <div className='datos-envio'>
+                <span>Datos de envío:</span>
+                <span>Recibe: {userDetails?.quienRecibe}</span>
+                <span>Teléfono: {userDetails?.telefono}</span>
+                <span>Calle: {userDetails?.calle}</span>
+                <span>Número exterior: {userDetails?.numeroExterior}</span>
+                <span>Número interior: {userDetails?.numeroInterior}</span>
+                <span>Colonia: {userDetails?.colonia}</span>
+                <span>Ciudad: {userDetails?.ciudad}</span>
+                <span>Estado: {userDetails?.estado}</span>
+                <span>Código postal: {userDetails?.cp}</span>
+                <span>Referencias: {userDetails?.referencias}</span>
+                <span>Correo electrónico: {userDetails?.correo}</span>
+            </div>
+
             {cartItems.map((item, index) => (
                 <div key={index}>
                     <div key={item.codigo} className="cart-item">
@@ -125,7 +139,15 @@ export default function FinalizarCompra() {
                     </div>
                 </div>
             ))}
-            <span>Total: {`$${paypalAmount + costoEnvio}.00 MXN`}</span>
+            <span className='editar-orden' onClick={() => {
+                window.location.href = '/datos-orden';
+            }}>Editar orden</span>
+
+            <div className='costos-finalizar'>
+                <span>Costo de envio: ${userDetails?.costoEnvio}.00 MXN</span>
+                <span>Subtotal: ${paypalAmount}.00 MXN</span>
+                <span>Total: {`$${paypalAmount + userDetails?.costoEnvio}.00 MXN`}</span>
+            </div>
             <div className='botones-paypal'>
                 <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID, components: "buttons", currency: "MXN", locale: "es_MX" }}>
                     <PayPalButtons
@@ -172,16 +194,16 @@ export default function FinalizarCompra() {
                                 };
                                 const name = details.payer.name.given_name;
                                 const orderId = details.id;
-                                const email = details.payer.email_address;
+                                const email = userDetails?.correo;
                                 console.log(orderDetails)
                                 // Expresión regular para detectar dominios de correo electrónico de Outlook
                                 const isOutlookEmail = email.includes('outlook') || email.includes('live') || email.includes('hotmail');
                                 const serviceId = isOutlookEmail ? process.env.REACT_APP_EMAILJS_SERVICEID_OUTLOOK : process.env.REACT_APP_EMAILJS_SERVICEID_GMAIL;
-                                console.log('Correo electrónico:', email);
                                 const params = {
-                                    user_name: orderDetails?.name + " " + orderDetails?.lastName,
+                                    user_name: userDetails?.quienRecibe,
                                     from: "beautyymx@gmail.com",
-                                    userEmail: email,
+                                    userEmail: userDetails?.correo,
+                                    telefonoContacto: userDetails?.telefono,
                                     user_orderId: orderDetails?.orderId,
                                     products: orderDetails.products.map(product => ({
                                         name: product.descripcion,
@@ -189,13 +211,16 @@ export default function FinalizarCompra() {
                                         price: product.precio,
                                         image: product.fotos
                                     })),
-                                    totalAmount: orderDetails.totalAmount + costoEnvio,
-                                    calle: orderDetails?.calle,
-                                    colonia: orderDetails?.coloniadelegacion,
-                                    cp: orderDetails?.cp,
-                                    estado: orderDetails?.estado,
-                                    municipio: orderDetails?.municipio,
-                                    costoEnvio: costoEnvio
+                                    subtotalAmount: userDetails?.total,
+                                    totalAmount: userDetails?.total + userDetails?.costoEnvio,
+                                    calle: userDetails?.calle,
+                                    colonia: userDetails?.colonia,
+                                    cp: userDetails?.cp,
+                                    estado: userDetails?.estado,
+                                    ciudad: userDetails?.ciudad,
+                                    costoEnvio: userDetails?.costoEnvio,
+                                    municipio: userDetails?.ciudad,
+                                    referencias: userDetails?.referencias
                                 }
                                 emailjs.send(serviceId, process.env.REACT_APP_EMAILJS_TEMPLATE, params, process.env.REACT_APP_EMAILJS_PK).then(
                                     (response) => {
@@ -212,22 +237,23 @@ export default function FinalizarCompra() {
                                                 const pdf = new jsPDF();
                                                 const imgUrl = 'https://i.postimg.cc/NjSkBHBz/beauty-ico.png';
                                                 pdf.addImage(imgUrl, 'PNG', 10, 10, 50, 50);
-                                                pdf.text(`¡Gracias por tu compra, ${orderDetails.name}!`, 10, 70);
+                                                pdf.text(`¡Gracias por tu compra, ${userDetails?.quienRecibe}!`, 10, 70);
                                                 pdf.text(`Pedido numero: #${orderDetails.orderId}`, 10, 80);
                                                 pdf.text("Direccion de envio:", 10, 90)
-                                                pdf.text(`Colonia: ${orderDetails?.coloniadelegacion}`, 10, 100)
-                                                pdf.text(`Calle: ${orderDetails?.calle}`, 10, 110)
-                                                pdf.text(`Codigo postal: ${orderDetails?.cp}`, 10, 120)
-                                                pdf.text(`Estado: ${orderDetails?.estado}`, 10, 130)
-                                                pdf.text(`Municipio: ${orderDetails?.municipio}`, 10, 1400)
-                                                pdf.text(`Detalles de la compra:`, 10, 150);
+                                                pdf.text(`Colonia: ${userDetails?.colonia}`, 10, 100)
+                                                pdf.text(`Calle: ${userDetails?.calle}`, 10, 110)
+                                                pdf.text(`Codigo postal: ${userDetails?.cp}`, 10, 120)
+                                                pdf.text(`Estado: ${userDetails?.estado}`, 10, 130)
+                                                pdf.text(`Municipio: ${userDetails?.ciudad}`, 10, 140)
+                                                pdf.text(`Referencias: ${userDetails?.referencias}`, 10, 150)
+                                                pdf.text(`Detalles de la compra:`, 10, 170);
                                                 orderDetails.products.forEach((product, index) => {
                                                     const quantityText = product.quantity > 1 ? 'pzs' : 'pz';
-                                                    pdf.text(`${index + 1}. ${product.descripcion} - ${product?.codigo} - ${product.quantity} ${quantityText} - Precio: $${product.precio}.00 MXN`, 10, 160 + index * 10);
+                                                    pdf.text(`${index + 1}. ${product.descripcion} - ${product?.codigo} - ${product.quantity} ${quantityText} - Precio: $${product.precio}.00 MXN`, 10, 180 + index * 10);
                                                 });
-                                                pdf.text(`Costo de envio: $${costoEnvio}.00 MXN`, 10, 170 + orderDetails.products.length * 10);
-                                                pdf.text(`Subotal: $${orderDetails.totalAmount}.00 MXN`, 10, 180 + orderDetails.products.length * 10);
-                                                pdf.text(`Total: $${orderDetails.totalAmount + costoEnvio}.00 MXN`, 10, 190 + orderDetails.products.length * 10);
+                                                pdf.text(`Costo de envio: $${userDetails?.costoEnvio}.00 MXN`, 10, 190 + orderDetails.products.length * 10);
+                                                pdf.text(`Subotal: $${orderDetails.totalAmount}.00 MXN`, 10, 200 + orderDetails.products.length * 10);
+                                                pdf.text(`Total: $${orderDetails.totalAmount + userDetails?.costoEnvio}.00 MXN`, 10, 210 + orderDetails.products.length * 10);
                                                 pdf.save(`Detalle_Compra_${orderDetails.name}_${orderDetails.orderId}.pdf`);
                                             }
                                         });
@@ -294,10 +320,9 @@ export default function FinalizarCompra() {
                                 confirmButtonColor: '#3085d6',
                             })
                         }}
-
-
                     />
                 </PayPalScriptProvider>
+                {console.log(userDetails)}
             </div>
         </div>
     );

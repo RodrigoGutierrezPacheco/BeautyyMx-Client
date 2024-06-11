@@ -29,16 +29,46 @@ body,h1,h2,h3,p,button{
 		display: none;
 	}
 
+	.regresar{
+		display: flex;
+		margin-right: auto;
+		cursor: pointer;
+		width: fit-content;
+	}
+
+	.datos-envio{
+		display: flex;
+		flex-direction: column;
+		text-align: start;
+	}
+
 	.domicilio {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 1rem; 
+	}
+
+	.costos-finalizar{
+		display: flex;
+		flex-direction: column;
+		text-align: start;
+		font: 20px solid black;
+		margin-top: 1rem;
+	}
+
+	.editar-orden{
+		cursor: pointer;
+		border: 2px solid black;
+		border-radius: 5px;
+		padding: 0.5rem;
+		margin-bottom: 1rem;
 	}
 	
 
 	.costo-envio{
 		display: flex;
 		justify-content: space-between;
+
 	}
 
   .navbar2{
