@@ -262,9 +262,10 @@ export default function FinalizarCompra() {
                                     (error) => {
                                         console.log('FAILED...', error);
                                         const params1 = {
-                                            user_name: orderDetails?.name + " " + orderDetails?.lastName,
+                                            user_name: userDetails?.quienRecibe,
                                             from: "beautyymx@gmail.com",
-                                            userEmail: "rodrigogutierrezpacheco@gmail.com",
+                                            userEmail: userDetails?.correo,
+                                            telefonoContacto: userDetails?.telefono,
                                             user_orderId: orderDetails?.orderId,
                                             products: orderDetails.products.map(product => ({
                                                 name: product.descripcion,
@@ -272,14 +273,16 @@ export default function FinalizarCompra() {
                                                 price: product.precio,
                                                 image: product.fotos
                                             })),
-                                            totalAmount: orderDetails.totalAmount + costoEnvio,
-                                            calle: orderDetails?.calle,
-                                            colonia: orderDetails?.coloniadelegacion,
-                                            cp: orderDetails?.cp,
-                                            estado: orderDetails?.estado,
-                                            municipio: orderDetails?.municipio,
-                                            costoEnvio: costoEnvio,
-                                            mensaje: `Hubo un error al enviar el correo electronico al usuario, ${email}`
+                                            subtotalAmount: userDetails?.total,
+                                            totalAmount: userDetails?.total + userDetails?.costoEnvio,
+                                            calle: userDetails?.calle,
+                                            colonia: userDetails?.colonia,
+                                            cp: userDetails?.cp,
+                                            estado: userDetails?.estado,
+                                            ciudad: userDetails?.ciudad,
+                                            costoEnvio: userDetails?.costoEnvio,
+                                            municipio: userDetails?.ciudad,
+                                            referencias: userDetails?.referencias
                                         }
                                         emailjs.send(serviceId, process.env.REACT_APP_EMAILJS_TEMPLATE, params1, process.env.REACT_APP_EMAILJS_PK)
                                         Swal.fire({
