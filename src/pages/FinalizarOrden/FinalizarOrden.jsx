@@ -18,7 +18,7 @@ export default function FinalizarOrden() {
         costoEnvio: 129,
         total: 0
     });
-
+    const zonaExtendida = "62130"
     const [cartItems, setCartItems] = useState([]);
 
     useEffect(() => {
@@ -97,6 +97,22 @@ export default function FinalizarOrden() {
         });
     };
 
+   useEffect(()=>{
+    if(userDetails?.cp !== ""){
+        if(userDetails?.cp === zonaExtendida){
+            setUserDetails({
+                ...userDetails,
+                costoEnvio:200
+            })
+        } else {
+            setUserDetails({
+                ...userDetails,
+                costoEnvio: 129
+            })
+        }
+    }
+   },[userDetails?.cp])
+
     return (
         <div className="celular px-5">
             <h2 className="font-bold">Resumen de tu orden</h2>
@@ -136,6 +152,7 @@ export default function FinalizarOrden() {
                 <div className="input-form">
                     <label>Código Postal:</label>
                     <input placeholder="Ingresa el Código Postal" className="input-orden" type="text" name="cp" value={userDetails.cp} onChange={handleChange} />
+                    <span>{userDetails?.cp === zonaExtendida ? "El codigo postal ingresado es de zona extendida" : ""}</span>
                 </div>
                 <div className="input-form">
                     <label>Referencias:</label>
