@@ -22,6 +22,18 @@ export default function FinalizarOrden() {
     const [cartItems, setCartItems] = useState([]);
 
     useEffect(() => {
+        if (userDetails?.cp !== "") {
+            const newCostoEnvio = userDetails?.cp === zonaExtendida ? 200 : 129;
+            setUserDetails(prevUserDetails => ({
+                ...prevUserDetails,
+                costoEnvio: newCostoEnvio,
+                total: prevUserDetails.subtotal + newCostoEnvio
+            }));
+        }
+    }, [userDetails?.cp, zonaExtendida, userDetails.subtotal]);
+    
+
+    useEffect(() => {
         // Cargar información del usuario desde localStorage si existe
         const savedUserDetails = JSON.parse(localStorage.getItem('userDetails'));
         if (savedUserDetails) {
@@ -96,22 +108,6 @@ export default function FinalizarOrden() {
             total: newTotal
         });
     };
-
-   useEffect(()=>{
-    if(userDetails?.cp !== ""){
-        if(userDetails?.cp === zonaExtendida){
-            setUserDetails({
-                ...userDetails,
-                costoEnvio:200
-            })
-        } else {
-            setUserDetails({
-                ...userDetails,
-                costoEnvio: 129
-            })
-        }
-    }
-   },[userDetails?.cp])
 
     return (
         <div className="celular px-5">

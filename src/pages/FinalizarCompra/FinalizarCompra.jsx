@@ -49,7 +49,6 @@ export default function FinalizarCompra() {
     };
 
     const handlePaypalPurchase = (orderDetails) => {
-        console.log("Pago confirmado")
         // sendEmail()
         // Lógica para procesar la compra con PayPal
 
@@ -88,12 +87,6 @@ export default function FinalizarCompra() {
         //     }
         // });
     };
-
-    const handleCpChange = (event) => {
-        setCp(event.target.value);
-        console.log(cp)
-    };
-
 
     useEffect(() => {
         const savedUserDetails = JSON.parse(localStorage.getItem('userDetails'));
@@ -195,7 +188,6 @@ export default function FinalizarCompra() {
                                 const name = details.payer.name.given_name;
                                 const orderId = details.id;
                                 const email = userDetails?.correo;
-                                console.log(orderDetails)
                                 // Expresión regular para detectar dominios de correo electrónico de Outlook
                                 const isOutlookEmail = email.includes('outlook') || email.includes('live') || email.includes('hotmail');
                                 const serviceId = isOutlookEmail ? process.env.REACT_APP_EMAILJS_SERVICEID_OUTLOOK : process.env.REACT_APP_EMAILJS_SERVICEID_GMAIL;
@@ -260,7 +252,6 @@ export default function FinalizarCompra() {
 
                                     },
                                     (error) => {
-                                        console.log('FAILED...', error);
                                         const params1 = {
                                             user_name: userDetails?.quienRecibe,
                                             from: "beautyymx@gmail.com",
@@ -312,8 +303,13 @@ export default function FinalizarCompra() {
 
                                     },
                                 );
-
+                                console.log("levando a pagina princial,")
+                                setTimeout(() => {
+                                    window.location.href = '/'
+                                }, 5000)
+                                localStorage.removeItem('cartItems');
                             })
+
                         }}
                         onCancel={() => {
                             Swal.fire({
@@ -325,7 +321,6 @@ export default function FinalizarCompra() {
                         }}
                     />
                 </PayPalScriptProvider>
-                {console.log(userDetails)}
             </div>
         </div>
     );
