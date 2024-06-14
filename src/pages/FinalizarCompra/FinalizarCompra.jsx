@@ -95,6 +95,7 @@ export default function FinalizarCompra() {
         }
     }, []);
 
+
     return (
         <div className='celular px-5'>
             <h2 className='mb-5'>Finalizar compra</h2>
@@ -149,8 +150,8 @@ export default function FinalizarCompra() {
                                 purchase_units: [
                                     {
                                         amount: {
-                                            // value: paypalAmount + costoEnvio,
-                                            value: 0.1,
+                                            // value: paypalAmount + userDetails?.costoEnvio,
+                                            value: 1,
                                             currency_code: "MXN",
                                         },
 
