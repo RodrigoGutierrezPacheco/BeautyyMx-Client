@@ -28,65 +28,47 @@ export default function FinalizarCompra() {
         setPaypalAmount(cartItems.reduce((total, item) => total + item.precio * item.quantity, 0));
     }, [cartItems]);
 
-    const createWhatsAppMessage = (orderDetails) => {
-        let message = `¡Hola! Mi nombre es ${orderDetails.name} y acabo de realizar una compra en tu tienda. Aquí está el resumen de la compra:\n`;
+    const createWhatsAppMessage = (cartItems) => {
+        let message = `¡Hola! me gustaría realizar una compra de los siguientes artículos :\n`;
 
-        // Agrega detalles de cada producto comprado
-        orderDetails.products.forEach(item => {
-            message += `- ${item.descripcion}: Cantidad: ${item.quantity}, Precio por unidad: $${item.precio}.00 MXN\n`;
+        // Agrega detalles de cada producto en el carrito
+        cartItems.forEach(item => {
+            message += `- ${item?.nombre} - ${item?.codigo} - ${item?.quantity} ${item?.quantity > 1 ? "pzs" : "pz"} - $${item.precio}.00 MXN c/u \n`;
         });
 
         // Agrega el total de la compra
-        message += `Total de la compra: $${orderDetails.totalAmount}.00 MXN\n`;
-
-        // Agrega la dirección de envío
-        message += `Dirección de envío: ${orderDetails.calle}, ${orderDetails.coloniadelegacion}, ${orderDetails.municipio}, ${orderDetails.estado}, CP: ${orderDetails.cp}\n`;
-
-        // Agrega el ID de transacción de PayPal
-        message += `ID de transacción de PayPal: ${orderDetails.orderId}\n`;
+        const totalAmount = cartItems.reduce((total, item) => total + item.precio * item.quantity, 0);
+        message += `Total de la compra: $${totalAmount}.00 MXN\n`;
 
         return message;
     };
 
-    const handlePaypalPurchase = (orderDetails) => {
-        // sendEmail()
-        // Lógica para procesar la compra con PayPal
-
-        // Muestra una modal para confirmar el envío del mensaje de WhatsApp
-        // Swal.fire({
-        //     title: 'Compra realizada con exito!',
-        //     text: 'Se enviará un mensaje a WhatsApp para confirmar tu compra. ¿Deseas continuar?',
-        //     icon: 'success',
-        //     showCancelButton: true,
-        //     confirmButtonText: 'Aceptar',
-        //     cancelButtonText: 'Cancelar'
-        // }).then((result) => {
-        //     if (result.isConfirmed) {
-        //         // Una vez que el usuario acepta, construye el mensaje para WhatsApp
-        //         const message = createWhatsAppMessage(orderDetails);
-
-        //         // Genera el enlace de WhatsApp
-        //         const whatsappLink = `https://wa.me/525638686467?text=${encodeURIComponent(message)}`;
-
-        //         // Redirige al usuario al enlace de WhatsApp
-        //         window.open(whatsappLink, '_blank');
-
-        //         // Show a button in the modal to send the WhatsApp message
-        //         Swal.fire({
-        //             title: 'Pago Completado!',
-        //             text: `Gracias por tu pago ${orderDetails.name}, en breve recibirás un correo a ${orderDetails.email} con la información solicitada y otro correo con la información de pago de PayPal`,
-        //             showCancelButton: true,
-        //             cancelButtonText: 'No, gracias',
-        //             confirmButtonText: 'Enviar lista por WhatsApp',
-        //             showLoaderOnConfirm: true,
-        //             preConfirm: () => {
-        //                 // Aquí podrías abrir el modal para enviar la información a WhatsApp
-        //                 handleOpenWhatsAppModal();
-        //             }
-        //         });
-        //     }
-        // });
+    const handleWhatsappPay = () => {
+        Swal.fire({
+            title: 'Deseas continuiar con tu compra en nuestro whatsapp?',
+            text: 'Se enviará un mensaje a WhatsApp para confirmar tu compra. ¿Deseas continuar?',
+            icon: 'success',
+            showCancelButton: true,
+            confirmButtonText: 'Aceptar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                const message = createWhatsAppMessage(cartItems);
+                const whatsappLink = `https://wa.me/525638686467?text=${encodeURIComponent(message)}`;
+                window.open(whatsappLink, '_blank');
+                // Swal.fire({
+                //     title: 'Pago Completado!',
+                //     text: `Gracias por tu pago, en breve recibirás un correo con la información solicitada y otro correo con la información de pago de PayPal`,
+                //     showCancelButton: true,
+                //     cancelButtonText: 'No, gracias',
+                //     confirmButtonText: 'Enviar lista por WhatsApp',
+                //     showLoaderOnConfirm: true,
+                // });
+            }
+        });
     };
+
 
     useEffect(() => {
         const savedUserDetails = JSON.parse(localStorage.getItem('userDetails'));
@@ -98,8 +80,8 @@ export default function FinalizarCompra() {
 
     return (
         <div className='celular px-5'>
-            <h2 className='mb-5'>Finalizar compra</h2>
-            <div className='datos-envio'>
+            <h2 className='mb-5 mt-2'>Finalizar compra</h2>
+            {/* <div className='datos-envio'>
                 <span>Datos de envío:</span>
                 <span>Recibe: {userDetails?.quienRecibe}</span>
                 <span>Teléfono: {userDetails?.telefono}</span>
@@ -112,7 +94,7 @@ export default function FinalizarCompra() {
                 <span>Código postal: {userDetails?.cp}</span>
                 <span>Referencias: {userDetails?.referencias}</span>
                 <span>Correo electrónico: {userDetails?.correo}</span>
-            </div>
+            </div> */}
 
             {cartItems.map((item, index) => (
                 <div key={index}>
@@ -133,16 +115,22 @@ export default function FinalizarCompra() {
                     </div>
                 </div>
             ))}
-            <span className='editar-orden' onClick={() => {
+            {/* <span className='editar-orden' onClick={() => {
                 window.location.href = '/datos-orden';
-            }}>Editar orden</span>
+            }}>Editar orden</span> */}
 
             <div className='costos-finalizar'>
-                <span>Costo de envio: ${userDetails?.costoEnvio}.00 MXN</span>
-                <span>Subtotal: ${paypalAmount}.00 MXN</span>
-                <span>Total: {`$${paypalAmount + userDetails?.costoEnvio}.00 MXN`}</span>
+                {/* <span>Costo de envio: ${userDetails?.costoEnvio}.00 MXN</span> */}
+                {/* <span>Subtotal: ${paypalAmount}.00 MXN</span> */}
+                <span>Total: {`$${paypalAmount}.00 MXN`}</span>
             </div>
-            <div className='botones-paypal'>
+            <button onClick={() => {
+                handleWhatsappPay()
+            }} className='button1 mt-2'>Finalizar la Orden</button>
+            <button className='button1 mt-2' onClick={() => {
+                window.location.pathname = "/"
+            }}>Regresar</button>
+            {/* <div className='botones-paypal'>
                 <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID, components: "buttons", currency: "MXN", locale: "es_MX" }}>
                     <PayPalButtons
                         createOrder={(data, actions) => {
@@ -322,7 +310,7 @@ export default function FinalizarCompra() {
                         }}
                     />
                 </PayPalScriptProvider>
-            </div>
+            </div> */}
         </div>
     );
 }

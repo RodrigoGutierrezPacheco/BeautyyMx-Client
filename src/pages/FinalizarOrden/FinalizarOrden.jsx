@@ -31,7 +31,7 @@ export default function FinalizarOrden() {
             }));
         }
     }, [userDetails?.cp, zonaExtendida, userDetails.subtotal]);
-    
+
 
     useEffect(() => {
         // Cargar información del usuario desde localStorage si existe
@@ -112,7 +112,7 @@ export default function FinalizarOrden() {
     return (
         <div className="celular px-5">
             <h2 className="font-bold">Resumen de tu orden</h2>
-            <form className="form-orden" onSubmit={handleSubmit}>
+            {/* <form className="form-orden" onSubmit={handleSubmit}>
                 <div className="input-form">
                     <label>Quien Recibe:</label>
                     <input placeholder="Ingresa el Nombre de quien recibe" className="input-orden" type="text" name="quienRecibe" value={userDetails.quienRecibe} onChange={handleChange} />
@@ -190,7 +190,38 @@ export default function FinalizarOrden() {
                     </div>
                 </div>
                 <button type="submit" className="boton-orden">Pasar al método de pago</button>
-            </form>
+            </form> */}
+            <div>
+                {cartItems.map((item, index) => (
+                    <div key={index}>
+                        <div key={item.codigo} className="cart-item">
+                            <img className="cart-item-image" src={item?.fotos} alt="Imagen del producto" />
+                            <div className="cart-item-details">
+                                <div className="cart-item-row">
+                                    <h2 className="cart-item-title">
+                                        {item.marca}-{item.descripcion}
+                                    </h2>
+                                </div>
+                                <div className="cart-item-row">
+                                    <p className="cart-item-price">${item.precio}.00 MXN</p>
+                                    <span className="cart-item-quantity">{item.quantity} {item?.quantity > 1 ? "pzs" : "pz"}</span>
+                                </div>
+                                <div className="cart-item-actions">
+                                    <button type="button" onClick={() => updateCartItemQuantity(index, item.quantity + 1)}>+</button>
+                                    <button type="button" onClick={() => updateCartItemQuantity(index, item.quantity - 1)}>-</button>
+                                    <button type="button" onClick={() => removeCartItem(index)}>Eliminar</button>
+                                </div>
+                                <hr className="hr" />
+                            </div>
+                        </div>
+                    </div>
+                ))}
+                <div className="box-total">
+                    <span>Subtotal: ${userDetails.subtotal}.00 MXN</span>
+                    <span>Envío: ${userDetails.costoEnvio}.00 MXN</span>
+                    <span>Total: ${userDetails.total}.00 MXN</span>
+                </div>
+            </div>
         </div>
     );
 }
